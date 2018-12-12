@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "outDir": "./",
+    "sourceMap": true,
+    "target": "es6",
+    "allowJs": true
+  },
+  "compileOnSave": true,
+  "compilerOptions": {
+    "watch": true
+  },
+  "include": [
+    "./"
+  ]
+}

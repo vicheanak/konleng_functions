@@ -1,0 +1,11 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+functions/node_modules/
+functions/firebase-config.json
+functions/serviceAccountKey.json
+functions/.runtimeconfig.json
+.firebase/
+public/build
+public/cordova-js-src
+public/plugins

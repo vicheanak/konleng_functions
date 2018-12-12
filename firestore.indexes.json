@@ -1,0 +1,246 @@
+{
+  "indexes": [
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "title",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "district",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "title",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_date",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_date",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "price",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "district",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "listing_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "property_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_date",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "price",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "district",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "listing_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "property_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "title",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "listing_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "property_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_date",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "listing_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_date",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "district",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "property_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "province",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "title",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "district",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "listing_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "property_type",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "price",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "listings",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "status",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "title",
+          "mode": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}
