@@ -1,0 +1,500 @@
+[debug] [2018-12-13T00:41:40.428Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T00:41:40.433Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T00:41:40.434Z] CLI Version:   6.1.2
+[debug] [2018-12-13T00:41:40.434Z] Platform:      darwin
+[debug] [2018-12-13T00:41:40.434Z] Node Version:  v8.12.0
+[debug] [2018-12-13T00:41:40.435Z] Time:          Thu Dec 13 2018 07:41:40 GMT+0700 (+07)
+[debug] [2018-12-13T00:41:40.435Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T00:41:40.448Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T00:41:40.449Z] > authorizing via signed-in user
+[debug] [2018-12-13T00:41:40.449Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T00:41:40.452Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T00:41:41.988Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T00:41:41.989Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T00:41:43.479Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T00:41:44.142Z] Fetching environment
+[debug] [2018-12-13T00:41:44.145Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T00:41:44.946Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T00:41:44.947Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T00:41:46.530Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T05:39:30.364Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T05:39:30.370Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T05:39:30.371Z] CLI Version:   6.1.2
+[debug] [2018-12-13T05:39:30.371Z] Platform:      darwin
+[debug] [2018-12-13T05:39:30.371Z] Node Version:  v8.12.0
+[debug] [2018-12-13T05:39:30.372Z] Time:          Thu Dec 13 2018 12:39:30 GMT+0700 (+07)
+[debug] [2018-12-13T05:39:30.372Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T05:39:30.390Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T05:39:30.390Z] > authorizing via signed-in user
+[debug] [2018-12-13T05:39:30.391Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T05:39:30.394Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-13T05:39:30.395Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-12-13T05:39:30.868Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T05:39:30.889Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T05:39:33.669Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T05:39:33.674Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T05:39:35.143Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T05:39:36.104Z] Fetching environment
+[debug] [2018-12-13T05:39:36.108Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T05:39:36.802Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T05:39:36.803Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T05:39:38.386Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T06:20:19.725Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T06:20:19.729Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T06:20:19.730Z] CLI Version:   6.1.2
+[debug] [2018-12-13T06:20:19.730Z] Platform:      darwin
+[debug] [2018-12-13T06:20:19.730Z] Node Version:  v8.12.0
+[debug] [2018-12-13T06:20:19.731Z] Time:          Thu Dec 13 2018 13:20:19 GMT+0700 (+07)
+[debug] [2018-12-13T06:20:19.731Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T06:20:19.746Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T06:20:19.747Z] > authorizing via signed-in user
+[debug] [2018-12-13T06:20:19.747Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T06:20:19.750Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T06:20:21.348Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T06:20:21.349Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T06:20:22.831Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T06:20:23.972Z] Fetching environment
+[debug] [2018-12-13T06:20:23.976Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T06:20:24.566Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T06:20:24.566Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T06:20:26.147Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T06:29:57.625Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T06:29:57.630Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T06:29:57.630Z] CLI Version:   6.1.2
+[debug] [2018-12-13T06:29:57.630Z] Platform:      darwin
+[debug] [2018-12-13T06:29:57.630Z] Node Version:  v8.12.0
+[debug] [2018-12-13T06:29:57.632Z] Time:          Thu Dec 13 2018 13:29:57 GMT+0700 (+07)
+[debug] [2018-12-13T06:29:57.632Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T06:29:57.651Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T06:29:57.651Z] > authorizing via signed-in user
+[debug] [2018-12-13T06:29:57.652Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T06:29:57.656Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-13T06:29:57.657Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-12-13T06:29:58.136Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T06:29:58.158Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T06:29:59.707Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T06:29:59.709Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T06:30:01.235Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T06:30:02.105Z] Fetching environment
+[debug] [2018-12-13T06:30:02.107Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T06:30:02.669Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T06:30:02.669Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T06:30:04.246Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T11:27:51.723Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T11:27:51.727Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T11:27:51.727Z] CLI Version:   6.1.2
+[debug] [2018-12-13T11:27:51.727Z] Platform:      darwin
+[debug] [2018-12-13T11:27:51.727Z] Node Version:  v8.12.0
+[debug] [2018-12-13T11:27:51.728Z] Time:          Thu Dec 13 2018 18:27:51 GMT+0700 (+07)
+[debug] [2018-12-13T11:27:51.728Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T11:27:51.747Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T11:27:51.747Z] > authorizing via signed-in user
+[debug] [2018-12-13T11:27:51.748Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T11:27:51.750Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-13T11:27:51.750Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-12-13T11:27:52.213Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T11:27:52.237Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T11:27:55.959Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T11:27:55.960Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T11:27:58.013Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T11:27:58.818Z] Fetching environment
+[debug] [2018-12-13T11:27:58.821Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T11:27:59.850Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T11:27:59.851Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T11:28:01.429Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:20:48.391Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:20:48.396Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:20:48.397Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:20:48.397Z] Platform:      darwin
+[debug] [2018-12-13T15:20:48.397Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:20:48.398Z] Time:          Thu Dec 13 2018 22:20:48 GMT+0700 (+07)
+[debug] [2018-12-13T15:20:48.398Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:20:48.412Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:20:48.413Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:20:48.413Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:20:48.416Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-12-13T15:20:48.416Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-12-13T15:20:49.206Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:20:49.222Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:20:51.150Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:20:51.152Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:20:52.712Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:20:53.621Z] Fetching environment
+[debug] [2018-12-13T15:20:53.625Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:20:54.715Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:20:54.715Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:20:56.295Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:33:12.281Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:33:12.285Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:33:12.286Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:33:12.286Z] Platform:      darwin
+[debug] [2018-12-13T15:33:12.286Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:33:12.287Z] Time:          Thu Dec 13 2018 22:33:12 GMT+0700 (+07)
+[debug] [2018-12-13T15:33:12.287Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:33:12.299Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:33:12.299Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:33:12.299Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:33:12.302Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:33:14.486Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:33:14.488Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:33:15.094Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:33:15.969Z] Fetching environment
+[debug] [2018-12-13T15:33:15.972Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:33:17.008Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:33:17.009Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:33:18.573Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:36:11.510Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:36:11.515Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:36:11.515Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:36:11.516Z] Platform:      darwin
+[debug] [2018-12-13T15:36:11.516Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:36:11.517Z] Time:          Thu Dec 13 2018 22:36:11 GMT+0700 (+07)
+[debug] [2018-12-13T15:36:11.517Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:36:11.529Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:36:11.529Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:36:11.530Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:36:11.533Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:36:13.996Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:36:13.997Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:36:15.833Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:36:16.392Z] Fetching environment
+[debug] [2018-12-13T15:36:16.394Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:36:17.063Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:36:17.064Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:36:18.647Z] Parsing function triggers
+[warn] ⚠  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[debug] [2018-12-13T15:36:19.382Z] Error during trigger parsing:  Error occurred while parsing your function triggers.
+
+TypeError: express is not a function
+    at Object.<anonymous> (/Users/den/Documents/konleng_functions/functions/index.js:59:13)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:15:15
+    at Object.<anonymous> (/Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:53:3)
+[warn] ⚠  functions: Error from emulator. Error occurred while parsing your function triggers.
+
+TypeError: express is not a function
+    at Object.<anonymous> (/Users/den/Documents/konleng_functions/functions/index.js:59:13)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:15:15
+    at Object.<anonymous> (/Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:53:3)
+[debug] [2018-12-13T15:36:19.383Z] 
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:37:22.196Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:37:22.201Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:37:22.202Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:37:22.202Z] Platform:      darwin
+[debug] [2018-12-13T15:37:22.202Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:37:22.203Z] Time:          Thu Dec 13 2018 22:37:22 GMT+0700 (+07)
+[debug] [2018-12-13T15:37:22.203Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:37:22.217Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:37:22.218Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:37:22.218Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:37:22.222Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:37:23.936Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:37:23.938Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:37:25.838Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:37:26.545Z] Fetching environment
+[debug] [2018-12-13T15:37:26.557Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:37:27.370Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:37:27.370Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:37:28.950Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:39:11.607Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:39:11.612Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:39:11.612Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:39:11.612Z] Platform:      darwin
+[debug] [2018-12-13T15:39:11.612Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:39:11.613Z] Time:          Thu Dec 13 2018 22:39:11 GMT+0700 (+07)
+[debug] [2018-12-13T15:39:11.614Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:39:11.626Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:39:11.627Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:39:11.627Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:39:11.630Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:39:13.300Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:39:13.301Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:39:15.036Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:39:15.753Z] Fetching environment
+[debug] [2018-12-13T15:39:15.756Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:39:17.186Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:39:17.186Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:39:18.765Z] Parsing function triggers
+[warn] ⚠  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[debug] [2018-12-13T15:39:19.547Z] Error during trigger parsing:  Error occurred while parsing your function triggers.
+
+TypeError: express is not a function
+    at Object.<anonymous> (/Users/den/Documents/konleng_functions/functions/index.js:59:13)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:15:15
+    at Object.<anonymous> (/Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:53:3)
+[warn] ⚠  functions: Error from emulator. Error occurred while parsing your function triggers.
+
+TypeError: express is not a function
+    at Object.<anonymous> (/Users/den/Documents/konleng_functions/functions/index.js:59:13)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:15:15
+    at Object.<anonymous> (/Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:53:3)
+[debug] [2018-12-13T15:39:19.548Z] 
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:39:53.253Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:39:53.259Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:39:53.259Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:39:53.259Z] Platform:      darwin
+[debug] [2018-12-13T15:39:53.260Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:39:53.261Z] Time:          Thu Dec 13 2018 22:39:53 GMT+0700 (+07)
+[debug] [2018-12-13T15:39:53.261Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:39:53.274Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:39:53.274Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:39:53.274Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:39:53.278Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:39:54.976Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:39:54.978Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:39:56.592Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:39:57.715Z] Fetching environment
+[debug] [2018-12-13T15:39:57.721Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:39:58.395Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:39:58.396Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:40:00.476Z] Parsing function triggers
+[warn] ⚠  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[debug] [2018-12-13T15:40:01.246Z] Error during trigger parsing:  Error occurred while parsing your function triggers.
+
+TypeError: express is not a function
+    at Object.<anonymous> (/Users/den/Documents/konleng_functions/functions/index.js:59:13)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:15:15
+    at Object.<anonymous> (/Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:53:3)
+[warn] ⚠  functions: Error from emulator. Error occurred while parsing your function triggers.
+
+TypeError: express is not a function
+    at Object.<anonymous> (/Users/den/Documents/konleng_functions/functions/index.js:59:13)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:15:15
+    at Object.<anonymous> (/Users/den/.npm-global/lib/node_modules/firebase-tools/lib/triggerParser.js:53:3)
+[debug] [2018-12-13T15:40:01.247Z] 
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:40:15.418Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:40:15.423Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:40:15.423Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:40:15.423Z] Platform:      darwin
+[debug] [2018-12-13T15:40:15.423Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:40:15.425Z] Time:          Thu Dec 13 2018 22:40:15 GMT+0700 (+07)
+[debug] [2018-12-13T15:40:15.425Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:40:15.439Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:40:15.439Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:40:15.439Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:40:15.443Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:40:17.067Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:40:17.070Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:40:18.626Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:40:19.461Z] Fetching environment
+[debug] [2018-12-13T15:40:19.465Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:40:21.534Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:40:21.535Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:40:23.112Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2018-12-13T15:52:22.436Z] ----------------------------------------------------------------------
+[debug] [2018-12-13T15:52:22.440Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions --debug
+[debug] [2018-12-13T15:52:22.441Z] CLI Version:   6.1.2
+[debug] [2018-12-13T15:52:22.441Z] Platform:      darwin
+[debug] [2018-12-13T15:52:22.441Z] Node Version:  v8.12.0
+[debug] [2018-12-13T15:52:22.442Z] Time:          Thu Dec 13 2018 22:52:22 GMT+0700 (+07)
+[debug] [2018-12-13T15:52:22.442Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-12-13T15:52:22.453Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-12-13T15:52:22.453Z] > authorizing via signed-in user
+[debug] [2018-12-13T15:52:22.454Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2018-12-13T15:52:22.457Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2018-12-13T15:52:24.250Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:52:24.251Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2018-12-13T15:52:25.910Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-12-13T15:52:26.621Z] Fetching environment
+[debug] [2018-12-13T15:52:26.623Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2018-12-13T15:52:27.313Z] <<< HTTP RESPONSE 200
+[debug] [2018-12-13T15:52:27.313Z] Starting @google-cloud/functions-emulator
+[debug] [2018-12-13T15:52:28.886Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[info] Shutting down...

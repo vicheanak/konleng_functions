@@ -6,13 +6,16 @@
     "outDir": "./",
     "sourceMap": true,
     "target": "es6",
-    "allowJs": true
+    "resolveJsonModule": true
   },
   "compileOnSave": true,
   "compilerOptions": {
     "watch": true
   },
   "include": [
-    "./"
+    "index.ts"
+  ],
+  "exclude": [
+    "src"
   ]
 }

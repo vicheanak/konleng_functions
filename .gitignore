@@ -9,3 +9,4 @@ functions/.runtimeconfig.json
 public/build
 public/cordova-js-src
 public/plugins
+functions/.env
