@@ -122,6 +122,14 @@ module.exports = [
         "runs": true
     },
     {
+        "file": "plugins/cordova-plugin-browsertab/www/browsertab.js",
+        "id": "cordova-plugin-browsertab.BrowserTab",
+        "pluginId": "cordova-plugin-browsertab",
+        "clobbers": [
+            "cordova.plugins.browsertab"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
         "id": "cordova-plugin-camera.Camera",
         "pluginId": "cordova-plugin-camera",
@@ -757,6 +765,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-universal-links-plugin/www/universal_links.js",
+        "id": "cordova-universal-links-plugin.universalLinks",
+        "pluginId": "cordova-universal-links-plugin",
+        "clobbers": [
+            "universalLinks"
+        ]
+    },
+    {
         "file": "plugins/es6-promise-plugin/www/promise.js",
         "id": "es6-promise-plugin.Promise",
         "pluginId": "es6-promise-plugin",
@@ -777,22 +793,6 @@ module.exports = [
         "clobbers": [
             "call"
         ]
-    },
-    {
-        "file": "plugins/cordova-universal-links-plugin/www/universal_links.js",
-        "id": "cordova-universal-links-plugin.universalLinks",
-        "pluginId": "cordova-universal-links-plugin",
-        "clobbers": [
-            "universalLinks"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-browsertab/www/browsertab.js",
-        "id": "cordova-plugin-browsertab.BrowserTab",
-        "pluginId": "cordova-plugin-browsertab",
-        "clobbers": [
-            "cordova.plugins.browsertab"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -808,7 +808,10 @@ module.exports.metadata =
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-apprate": "1.4.0",
+    "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-browsertab": "0.2.0",
     "cordova-plugin-camera": "4.0.3",
+    "cordova-plugin-customurlscheme": "4.3.0",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-email-composer": "0.8.15",
     "cordova-plugin-facebook4": "3.2.0",
@@ -826,13 +829,10 @@ module.exports.metadata =
     "cordova-sqlite-storage": "2.5.1",
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.2.1",
+    "cordova-universal-links-plugin": "1.2.1",
     "es6-promise-plugin": "4.2.2",
     "info.protonet.imageresizer": "0.1.1",
-    "mx.ferreyra.callnumber": "0.0.2",
-    "cordova-universal-links-plugin": "1.2.1",
-    "cordova-plugin-compat": "1.2.0",
-    "cordova-plugin-browsertab": "0.2.0",
-    "cordova-plugin-customurlscheme": "4.3.0"
+    "mx.ferreyra.callnumber": "0.0.2"
 }
 // BOTTOM OF METADATA
 });

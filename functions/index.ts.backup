@@ -72,8 +72,7 @@ const databaseURL = functions.config().google ? functions.config().google.fireba
 const appFirestore = firebaseHelper.firebase.initializeApp(serviceAccount, databaseURL);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: databaseURL,
-  storageBucket: functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+  databaseURL: databaseURL
 });
 
 
@@ -102,7 +101,7 @@ const client = algoliasearch(ALGOLIA_ID, ALGOLIA_ADMIN_KEY);
 
 
 exports.onListingUpdated = functions.firestore.document('listings/{listingId}').onUpdate((snap, context) => {
-  
+  console.log('ON_LISTING_UPDATE');
   const listing = snap.after.data();
 
   listing.objectID = context.params.listingId;
@@ -112,46 +111,35 @@ exports.onListingUpdated = functions.firestore.document('listings/{listingId}').
 });
 
 
-exports.onListingDeleted = functions.firestore.document('listings/{listingId}').onDelete(async (snap, context) => {
+exports.onListingDeleted = functions.firestore.document('listings/{listingId}').onDelete((snap, context) => {
   // const listing = snap.data();
- 
-  const queryArray = ['link', '==', snap.data().link]; 
-  await firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
-    let result = Object.keys(response);
-    
-    firebaseHelper.firestore.deleteDocument(db, listingsCollection, result[0]);
-  }).catch((error) => {
-    console.error('error document');
-  });
-
   const index = client.initIndex(ALGOLIA_INDEX_NAME);
   return index.deleteObject(context.params.listingId);
-   
- 
-  
-  
-  
 });
 
 
 // [START get_firebase_user]
 async function getFirebaseUser(req, res, next) {
-  
+  console.log("Check if request is authorized with Firebase ID token");
 
   if (!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) {
-    
+    console.error(
+      'No Firebase ID token was passed as a Bearer token in the Authorization header.',
+      'Make sure you authorize your request by providing the following HTTP header:',
+      'Authorization: Bearer <Firebase ID Token>'
+      );
     return res.sendStatus(403);
   }
 
   let idToken;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
-    
+    console.log('Found \'Authorization\' header');
     idToken = req.headers.authorization.split('Bearer ')[1];
   }
 
   try {
     const decodedIdToken = admin.auth().verifyIdToken(req.userToken).then((user) => {
-      
+      console.log('Token generated: ', user);
       req.user = user;
       res.send(user);
     }, (error) => {
@@ -188,7 +176,8 @@ async function generateToken(req, res, next){
   .then((customToken) => {
     req.userToken = customToken;
     req.headers.authorization = 'Bearer '+customToken;
-    
+    console.log('userToken ==> ', req.userToken);
+    console.log('headers.authorization ==> ', req.headers.authorization);
     return next();
   }, (error) => {
     console.log("Error creating custom token:", error);
@@ -203,11 +192,11 @@ async function getUserByEmail(req, res, next){
     admin.auth().getUserByEmail(req.body.email)
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
-      
+      console.log("Successfully fetched user data:", userRecord.toJSON());
       req.user = userRecord;
       return next();
     }, (error) => {
-      
+      console.error("Error fetching user data: Email: " + req.body.email + " Error: ", error);
       req.user = null;
       return next();
     });
@@ -225,7 +214,7 @@ async function getUserByEmail(req, res, next){
 async function createUser(req, res, next){
   if (!req.user){
     try{
-      
+      console.log('EMAIL =====> ', req.body.email);
       if (req.body.email){
         admin.auth().createUser({
           email: req.body.email,
@@ -236,7 +225,7 @@ async function createUser(req, res, next){
           disabled: false
         })
         .then((userRecord) => {
-          
+          console.log("FIREBASE AUTH CREATE USER ===>", userRecord);
           let user = {
             uid: userRecord.uid,
             email: userRecord.email,
@@ -248,7 +237,7 @@ async function createUser(req, res, next){
           }
           firebaseHelper.firestore
           .createDocumentWithID(db, 'users', userRecord.uid, user).then((user) => {
-            
+            console.log("FIREBASE FUNCTION HELPER Created User ==>", user);
             req.user = userRecord;
             return next();
           }, (error) => {
@@ -295,7 +284,7 @@ async function reverseGeocode(req, res, next) {
       .then((expectOK) => {
 
         req.body.address = expectOK.json.results[0].formatted_address;
-        
+        console.log('SUCCESS Google Map', address);
         return next();
       }, (error) => {
         console.error('Error Map ', error);
@@ -309,119 +298,10 @@ async function reverseGeocode(req, res, next) {
 }
 
 exports.generateThumbnail = functions.storage.object().onFinalize((object) => {
-  return new Promise((resolve, reject) =>{
 
-    const fileBucket = object.bucket; // The Storage bucket that contains the file.
-    const filePath = object.name; // File path in the bucket.
-    const contentType = object.contentType; // File content type.
-    const firebaseToken = object.metadata.firebaseStorageDownloadTokens;
-    const downloadPath = encodeURIComponent(filePath);
+  
 
-    const downloadURL = `https://firebasestorage.googleapis.com/v0/b/${fileBucket}/o/${downloadPath}?alt=media&token=${firebaseToken}`;
-
-    // Exit if this is triggered on a file that is not an image.
-    if (!contentType.startsWith('image/')) {
-      console.log('This is not an image.');
-      return null;
-    }
-
-    // Get the file name.
-    const fileName = path.basename(filePath);
-    // Exit if the image is already a thumbnail.
-    if (fileName.startsWith('thumb_')) {
-      
-      return null;
-    }
-
-
-    const bucket = storage.bucket(fileBucket)
-
-    const currentTime = new Date().getTime();
-
-
-    let fileNameThumb = 'listing_images/thumb_'+fileName;
-    let fileThumb = bucket.file(fileNameThumb); 
-
-
-    let request = require('request').defaults({ encoding: null });
-    request(downloadURL, (err, res, body) => {
-      const fileTypeRequest = fileType(body).mime;
-      if (fileTypeRequest.startsWith('image')){
-
-        sharp(body)
-        .resize(300,300, {
-          fit: "cover",
-          kernel: sharp.kernel.lanczos2
-        })
-        .sharpen()
-        .webp({
-          quality: 90
-        })
-        .toFormat('jpeg')
-        .toBuffer().then((imageBuffer) => {
-          fileThumb.save(new Buffer(imageBuffer.toString('base64'), 'base64'),{
-            metadata: { 
-              contentType: 'image/jpeg', 
-              public: true,
-              validation: 'md5'
-            },
-            gzip: true,
-            public: true
-          }, (err2) => {
-            if (!err2) {
-              
-
-                let thumbUrl = `https://storage.googleapis.com/${fileBucket}/${fileNameThumb}`;
-                let listingId = fileName.split('_')[0];
-                
-                firebaseHelper.firestore.getDocument(db, listingsCollection, listingId).then((listing) => {
-
-                  //get listing thumbs;
-                  if (listing.thumbs){
-                    listing.thumbs.push(thumbUrl);
-                  }
-                  else{
-                    listing.thumbs = [thumbUrl];
-                  }
-                  
-                  let data = {
-                    thumb: listing.thumbs[0]
-                  }
-                  
-                  firebaseHelper.firestore.updateDocument(db, listingsCollection, listingId, data).then((isUpdated) => {
-                    if (isUpdated){
-
-                      
-                      resolve('UPATED THUMBNAIL SUCCESSFULLY');
-                      
-                    }
-                    else{
-                      reject(err2);
-                      console.error('ERROR UPDATED THUMB IN IF'); 
-                    }
-                  }).catch((error) => {
-                    reject(error);
-                    console.error('ERROR THUMB UPDATED CATCH ==> ', error);
-                  });
-                });
-                // Add Array
-
-            }
-            else{
-              reject(err2);
-              console.error('IF THUMB ERROR', err2);
-            }
-          });
-        });
-      }
-      else{
-        console.error('WRONG_MIME');
-      }
-    });
-  });
-
-
-});
+})
 
 
 app.use(require('cors')({origin: true}));
@@ -443,17 +323,16 @@ app.get('/users/:email', getUserByEmail, (req, res) => {
 function httpGet(url, callback) {
 
   let request = require('request').defaults({ encoding: null });
-  
+  console.log('URL ==> ', url);
   request(url, (err, res, body) => {
-    
-      callback(err, body);  
+    callback(err, body);
   });
 }
 
 function httpSaveImage(listing, key, callback){
 
   const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-  
+  console.log('STORAGE_ID ===> ', storageId);
   const bucket = storage.bucket(storageId)
   let request = require('request').defaults({ encoding: null });
 
@@ -468,13 +347,6 @@ function httpSaveImage(listing, key, callback){
 
   
   
-  // storageRef.child('images/stars.jpg').getDownloadURL().then(function(url) {
-  //   // Get the download URL for 'images/stars.jpg'
-  //   // This can be inserted into an <img> tag
-  //   // This can also be downloaded directly
-  // }).catch(function(error) {
-  //   // Handle any errors
-  // });
 
   const resize = size => sharp(listing.imageBuffer)
   .resize(size.width, size.height, {
@@ -504,8 +376,11 @@ function httpSaveImage(listing, key, callback){
       if (!err1) {
         let large: any;
         let thumb: any;
-       
-          large = `https://storage.googleapis.com/${storageId}/${fileNameLarge}`;
+        fileLarge.getSignedUrl({
+          action: 'read',
+          expires: new Date('03-01-2500').getTime(),
+        }).then((results) => {
+          large = results[0];
 
           fileThumb.save(new Buffer(outputBuffer[1].toString('base64'), 'base64'),{
             metadata: { 
@@ -518,14 +393,22 @@ function httpSaveImage(listing, key, callback){
             public: true
           }, (err2) => {
             if (!err2) {
-              thumb = `https://storage.googleapis.com/${storageId}/${fileNameThumb}`;
-              callback(err2, {large: large, thumb: thumb});
+              fileThumb.getSignedUrl({
+                action: 'read',
+                expires: new Date('03-01-2500').getTime(),
+              }).then((results) => {
+                thumb = results[0];
+                callback(err2, {large: large, thumb: thumb});
+              }, (error) =>{
+                console.error('CATCH FILE_ERROR 2 ==> ', error);
+                callback(error, 'ERROR');
+              });
             }
             else{
               console.error('IF FILE_ERROR 2', err2);
             }
           });
-       
+        })
       }
       else{
         console.error('ERROR 1', err1);
@@ -536,75 +419,16 @@ function httpSaveImage(listing, key, callback){
   });
 };
 
-function addCount(req, res, next){
-  let listing_type = req.body.listing_type;
-  let province = req.body.province;
-  firebaseHelper.firestore.getDocument(db, 'counts', province).then((count) => {
-    if (listing_type == 'sale'){
-      count.sale = count.sale + 1;
-    }
-    if (listing_type == 'rent'){
-      count.rent = count.rent + 1;
-    }
-    firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
-      if (isUpdated){
-         
-        return next();
-      }
-    }).catch((error) => {
-      console.error('ERROR ADD COUNT ==> ', error);
-      return next();
-      
-    });
-  });
-}
 
-function minusCount(province, listing_type){
-  firebaseHelper.firestore.getDocument(db, 'counts', province).then((count) => {
-    if (listing_type == 'sale'){
-      count.sale = count.sale + 1;
-    }
-    if (listing_type == 'rent'){
-      count.rent = count.rent + 1;
-    }
-    firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
-      if (isUpdated){
-        console.log('Count');
-      }
-    }).catch((error) => {
-      console.error('ERROR ADD COUNT ==> ', error);
-    });
-  });
-}
 
-function requestImages(url){
-  return new Promise((resolve, reject) =>{
-    let request = require('request').defaults({ encoding: null });
-      request(url, (err, res, body) => {
-        
-        resolve(body);  
-      });  
-  });
-  
-}
 // Add new listing
-app.post('/listings', getUserByEmail, createUser, reverseGeocode, addCount, async (req, res) => {
+app.post('/listings', getUserByEmail, createUser, reverseGeocode, async (req, res) => {
   let listingUuid = uuid();
 
-  
-  let images = req.body['images'];
-  // let imagesArray = []
-  // for (let img of images){
-  //    let request = require('request').defaults({ encoding: null });
-      
-  //     request(img, (err, res, body) => {
-          
-  //     });
-  // }
-  async.map(images, httpGet, (err, body) => {
-    
+  async.map(req.body['images'], httpGet, (err, body) => {
+    console.log('BODY AFTER GET => ', body);
     if (err){
-      
+      console.error('ERROR GET IMAGE ==> ', err);
       res.json(err);
     }
     else{
@@ -626,7 +450,8 @@ app.post('/listings', getUserByEmail, createUser, reverseGeocode, addCount, asyn
       
 
       async.mapValues(listings, httpSaveImage, async (imgErr, imgUrl) => {
-        
+        console.log('imgUrl ==> ', imgUrl);
+
         let imgThumbs = [];
         let imgLarges = [];
         let imgKeys = Object.keys(imgUrl)
@@ -644,9 +469,9 @@ app.post('/listings', getUserByEmail, createUser, reverseGeocode, addCount, asyn
             description: req.body.description ? req.body['description'] : '',
             phone1: req.body.phone1 ? req.body['phone1'] : '',
             phone2: req.body.phone2 ? req.body['phone2'] : '',
-            bedrooms: req.body.bedrooms ? parseInt(req.body.bedrooms) : 0,
-            bathrooms: req.body.bathrooms ? parseInt(req.body.bathrooms) : 0,
-            thumb: imgThumbs[0],
+            bedrooms: req.body.bedrooms ? parseInt(req.body['bedrooms']) : '',
+            bathrooms: req.body.bathrooms ? parseInt(req.body['bathrooms']) : '',
+            thumb: imgThumbs,
             images: imgLarges,
             province: req.body.province ? req.body['province'] : '',
             lat: req.body.lat ? parseFloat(req.body['lat']) : '',
@@ -661,36 +486,31 @@ app.post('/listings', getUserByEmail, createUser, reverseGeocode, addCount, asyn
             size: req.body.size ? req.body['size'] : '',
             link: req.body.link ? req.body['link'] : '',
             created_date: new Date(),
-            modified_date: new Date(),
-            id: listingUuid
+            modified_date: new Date()
           }
-
-
-
-
 
           firebaseHelper.firestore
           .createDocumentWithID(db, listingsCollection, listingUuid, listing).then((newListing) => {
-
-            
-
             let crawl_link = req.body.link ? req.body['link'] : '';
             if (crawl_link){
               firebaseHelper.firestore.createNewDocument(db, 'links', {link: crawl_link});
             }
 
+
             if (newListing){
-              
-              
+              console.log('new Listing ===> ');
+              console.log(newListing);
+              console.log('end Listing ==> ');
               listing['objectID'] = listingUuid;
               const index = client.initIndex(ALGOLIA_INDEX_NAME);
-              
+              listing.thumb = listing.thumb[0];
+              delete listing.images;
 
               index.saveObject(listing).then((response) => {
-                
+                console.log('SUCCESS ALGOLIA ==> ', response);
                 res.send(response);
               }, (error) => {
-                
+                console.error('ERROR ALGOLIA ==> ', error.message);
                 res.send(error.message);
               });
 
@@ -755,7 +575,7 @@ app.get('/listings/:listingId', (req, res) => {
   firebaseHelper.firestore
   .getDocument(db, listingsCollection, req.params.listingId)
   .then(function(doc) {
-    
+    console.log(doc);
     res.json(doc);
   });
 })
@@ -796,14 +616,12 @@ app.get('/listings', async (req, res) =>{
   let district = req.query.district;
   let listing_type = req.query.listing_type;
   let property_type = req.query.property_type;
-  let min_price = req.query.min_price;
-  let max_price = req.query.max_price;
-  let sort_by = req.query.sort_by ? req.query.sort_by : 'desc(created_date)';
+  let minprice = req.query.minprice;
+  let maxprice = req.query.maxprice;
 
   let querySearch: QueryParameters = {
     query: '',
-    filters: '',
-    hitsPerPage: 100
+    filters: ''
   };
   if (query){
     querySearch.query = query;
@@ -824,26 +642,14 @@ app.get('/listings', async (req, res) =>{
   if (property_type){
     filters.push('property_type:'+property_type+'');
   }
-  if (min_price && !max_price){
-    filters.push('price > '+ min_price);
+  if (minprice && !maxprice){
+    filters.push('price > '+ minprice);
   }
-  if (!min_price && max_price){
-    filters.push('price < '+ max_price);
+  if (!minprice && maxprice){
+    filters.push('price < '+ maxprice);
   }
-  if (min_price && max_price){
-    filters.push('price:'+min_price+' TO '+max_price);
-  }
-  if (sort_by == 'newest'){
-    sort_by = 'desc(created_date)';
-  }
-  if (sort_by == 'oldest'){
-    sort_by = 'asc(created_date)'
-  }
-  if (sort_by == 'highest'){
-    sort_by = 'asc(price)'
-  }
-  if (sort_by == 'lowest'){
-    sort_by = 'desc(price)'
+  if (minprice && maxprice){
+    filters.push('price:'+minprice+' TO '+maxprice);
   }
 
 
@@ -866,12 +672,7 @@ app.get('/listings', async (req, res) =>{
     'lng', 
     'size', 
     'status',
-    'created_date', 
-    'bedrooms',
-    'bathrooms',
-    'id',
-    'user_id',
-    'property_id'
+    'ordered(created_date)'
     ],
     attributesForFaceting: [
     'searchable(address)', 
@@ -897,24 +698,17 @@ app.get('/listings', async (req, res) =>{
     'lat', 
     'lng', 
     'thumb', 
-    'bedrooms',
-    'bathrooms',
     'created_date', 
     'size', 
     'images', 
-    'status',
-    'id',
-    'user_id',
-    'property_id'
-    ],
-    ranking: [ sort_by, 'custom' ],
+    'status'
+    ]
   }
- 
   index.setSettings(indexSetting);
   index.search(querySearch, function (err, content) {
     if (err) throw err;
     // console.log('CONTENT ==> ', content.hits);  
-    
+    console.log('TOTAL ==> ', content.hits.length);      
     res.status(200).send(content);
 
   });
@@ -922,8 +716,9 @@ app.get('/listings', async (req, res) =>{
 
 })
 // Delete a listing 
-app.delete('/listings/:listingId', async (req, res) => {
- 
+app.delete('/listings/:listingId', (req, res) => {
+  firebaseHelper.firestore
+  .deleteDocument(db, listingsCollection, req.params.listingId);
 
   const index = client.initIndex(ALGOLIA_INDEX_NAME);
   index.deleteObject(req.params.listingId);

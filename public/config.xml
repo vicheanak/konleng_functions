@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.konleng.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.konleng.app" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Konleng</name>
     <description>Easier way to deal with real estates in Cambodia.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -12,8 +12,8 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <universal-links>
-        <host name="konleng.page.link" scheme="https" />
-        <host name="konleng-firebase.firebaseapp.com" scheme="https">
+        <host name="konlengcloud.page.link" scheme="https" />
+        <host name="konleng-cloud.firebaseapp.com" scheme="https">
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
