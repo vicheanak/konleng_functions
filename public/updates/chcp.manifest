@@ -1,0 +1,278 @@
+[
+  {
+    "file": "assets/fonts/Battambang-Bold.ttf",
+    "hash": "d181e97d6231f4cb6cacbfcc84c7dc3e"
+  },
+  {
+    "file": "assets/fonts/Battambang-Regular.ttf",
+    "hash": "971de454a21308d9a2ad0e8898cf21b4"
+  },
+  {
+    "file": "assets/fonts/ionicons.woff",
+    "hash": "81414686e99c00d2921e03dd53c0ab04"
+  },
+  {
+    "file": "assets/fonts/ionicons.woff2",
+    "hash": "311d81961c5880647fec7eaca1221b2a"
+  },
+  {
+    "file": "assets/i18n/en.json",
+    "hash": "b15df96e10ba6daaf74219d7245de111"
+  },
+  {
+    "file": "assets/i18n/kh.json",
+    "hash": "649087de20ab79245cf5e81cc2e9dae1"
+  },
+  {
+    "file": "assets/icon/favicon.ico",
+    "hash": "0350f4b3a2067110b1e642ee5931a38a"
+  },
+  {
+    "file": "assets/imgs/apartment_icon_new.png",
+    "hash": "591ab289f8044caff84bbba6b9f9dc09"
+  },
+  {
+    "file": "assets/imgs/apartment_icon.png",
+    "hash": "513c17e7c8a620fbc179c57d00dcc3f5"
+  },
+  {
+    "file": "assets/imgs/apartment_marker.png",
+    "hash": "15fdf60afab5d135938a83cf6735f933"
+  },
+  {
+    "file": "assets/imgs/appicon.png",
+    "hash": "e878f34243678d4ed73cc7b43774b50b"
+  },
+  {
+    "file": "assets/imgs/Banteay_Meanchey.jpeg",
+    "hash": "6f6813cac7f23119ae83fbaa3f04f4b7"
+  },
+  {
+    "file": "assets/imgs/Battambang.jpeg",
+    "hash": "9cdc2961a424ef0518fe000f9d806ad0"
+  },
+  {
+    "file": "assets/imgs/blank_image.jpg",
+    "hash": "8d1857aac9011aa30a5d1a12a5942d24"
+  },
+  {
+    "file": "assets/imgs/blue-dot.png",
+    "hash": "d64a11e02dd5b6964be8e9861c2618ce"
+  },
+  {
+    "file": "assets/imgs/camera.png",
+    "hash": "09d08a2cb09f52585cb9efcc7dc0e83b"
+  },
+  {
+    "file": "assets/imgs/cluster.png",
+    "hash": "2ba064d6a56e772fcb373dda83b9b8b5"
+  },
+  {
+    "file": "assets/imgs/commercial_icon.png",
+    "hash": "dc7d6c7fca45caf7c4d887ce40d5a573"
+  },
+  {
+    "file": "assets/imgs/cross.png",
+    "hash": "f35ecc0e379b23215fff2ef2de22271e"
+  },
+  {
+    "file": "assets/imgs/house_icon_new.png",
+    "hash": "ff149f11d60d386bdb56c8048e34d5e1"
+  },
+  {
+    "file": "assets/imgs/house_icon.png",
+    "hash": "9f76fd0949dfb7824ab6e5d7f6fa2ed8"
+  },
+  {
+    "file": "assets/imgs/house_marker.png",
+    "hash": "05e2308445d6354b632ee55992855086"
+  },
+  {
+    "file": "assets/imgs/image_blank.png",
+    "hash": "c0f463aa62f361d09e7b708742e16fe7"
+  },
+  {
+    "file": "assets/imgs/Kampong_Cham.jpeg",
+    "hash": "a4f6e6607e86a43a217f31433617c7d0"
+  },
+  {
+    "file": "assets/imgs/Kampong_Chhnang.jpeg",
+    "hash": "bd38b265d49b4294aad739c855a19450"
+  },
+  {
+    "file": "assets/imgs/Kampong_Speu.jpeg",
+    "hash": "c5b453d1eb19cf03a8b7550971b7cad0"
+  },
+  {
+    "file": "assets/imgs/Kampong_Thom.jpeg",
+    "hash": "a68eca2c9476252ca5a9356fe3b0ebe5"
+  },
+  {
+    "file": "assets/imgs/Kampot.jpeg",
+    "hash": "258a23f4f58938696d0251c159463ea5"
+  },
+  {
+    "file": "assets/imgs/Kandal.jpeg",
+    "hash": "e557949b4ebf169ba97811c6c1f4331b"
+  },
+  {
+    "file": "assets/imgs/Kep.jpeg",
+    "hash": "8a8442c54c135c0d324f8433de58a9dd"
+  },
+  {
+    "file": "assets/imgs/Koh_Kong.jpeg",
+    "hash": "c674c454de83059222b6a277c6bb3d9e"
+  },
+  {
+    "file": "assets/imgs/konleng_cartoon.png",
+    "hash": "d7ef4a35f11dc058126a798fdebfaf03"
+  },
+  {
+    "file": "assets/imgs/konleng_logo_login.png",
+    "hash": "6bbd2c2799704d4e87732ae970dfc399"
+  },
+  {
+    "file": "assets/imgs/konleng_logo.png",
+    "hash": "74af44f28c4ce5faae4911f64181881b"
+  },
+  {
+    "file": "assets/imgs/Kratie.jpeg",
+    "hash": "2405393b2cf456fad049e364b4cc2573"
+  },
+  {
+    "file": "assets/imgs/land_icon_new.png",
+    "hash": "886f93131ef267011a779d261693ffe7"
+  },
+  {
+    "file": "assets/imgs/land_icon.png",
+    "hash": "0a0d26e0b5de401fd16cac8e65a42e5a"
+  },
+  {
+    "file": "assets/imgs/land_marker.png",
+    "hash": "06242437af171dc6cc4bb567f0c45e2c"
+  },
+  {
+    "file": "assets/imgs/logo.png",
+    "hash": "ff5d7c95e2809b0dd177a9768ba3b619"
+  },
+  {
+    "file": "assets/imgs/marker.png",
+    "hash": "4679078c74a76b755a6997bc75cbc1a2"
+  },
+  {
+    "file": "assets/imgs/Mondulkiri.jpeg",
+    "hash": "a843c25628ecdb578f23a6861b2dd2dc"
+  },
+  {
+    "file": "assets/imgs/not_found.png",
+    "hash": "825c7530003d6bdbf8bb9e7ba0a13db3"
+  },
+  {
+    "file": "assets/imgs/Oddor_Meanchey.jpeg",
+    "hash": "94d779267ac098716db95c8de1c3be19"
+  },
+  {
+    "file": "assets/imgs/Pailin.jpeg",
+    "hash": "f6a5597b15092fd78c31313b07006bb6"
+  },
+  {
+    "file": "assets/imgs/Phnom_Penh.jpeg",
+    "hash": "cb386bb5c4ad7f9e619d15498863bba6"
+  },
+  {
+    "file": "assets/imgs/Preah_Sihanouk.jpeg",
+    "hash": "517505a9fddc2d8f6f0986b0927adae3"
+  },
+  {
+    "file": "assets/imgs/Preah_Vihear.jpeg",
+    "hash": "226e7b26fc375ae76738b0c779396293"
+  },
+  {
+    "file": "assets/imgs/Prey_Veng.jpeg",
+    "hash": "de1c6a34116c94b99c731e101fe9371b"
+  },
+  {
+    "file": "assets/imgs/Pursat.jpeg",
+    "hash": "5cb7d4b7fef939e13b729e97b97e502b"
+  },
+  {
+    "file": "assets/imgs/Ratanakiri.jpeg",
+    "hash": "252117440d193bc332d1146fdd2499ed"
+  },
+  {
+    "file": "assets/imgs/room_icon.png",
+    "hash": "5974bda3c4636d651032a7ac43d97c98"
+  },
+  {
+    "file": "assets/imgs/Siem_Reap.jpeg",
+    "hash": "232655c996a681d8fa4fbfa812c92f64"
+  },
+  {
+    "file": "assets/imgs/splashbg.png",
+    "hash": "c220041935f2e5d57a3168f360aaa600"
+  },
+  {
+    "file": "assets/imgs/splashlogin.png",
+    "hash": "58f1c665d63e89214aca91f0f473bf79"
+  },
+  {
+    "file": "assets/imgs/splashregister.png",
+    "hash": "c83b212abb7e61435df061cd8f7aa200"
+  },
+  {
+    "file": "assets/imgs/Stung_Treng.jpeg",
+    "hash": "037530cbafe9e92fd248165901a940ba"
+  },
+  {
+    "file": "assets/imgs/success.png",
+    "hash": "27de0b08771b64c96bac98b30f8a1f56"
+  },
+  {
+    "file": "assets/imgs/Svay_Rieng.jpeg",
+    "hash": "33c8d36741652aa4a17dfff27d915835"
+  },
+  {
+    "file": "assets/imgs/Takeo.jpeg",
+    "hash": "1d7db54e82879a86357120f5e6660873"
+  },
+  {
+    "file": "assets/imgs/Tboung_Khmum.jpeg",
+    "hash": "afc5a3ec4c042585794b88ce7f2c7dd1"
+  },
+  {
+    "file": "build/main.css",
+    "hash": "3fdae89d192116689ce7a2d7a6a87fe4"
+  },
+  {
+    "file": "build/main.js",
+    "hash": "6209eec2a3445930c58c5e01332c8dc8"
+  },
+  {
+    "file": "build/polyfills.js",
+    "hash": "443c697fc904cd88a651d09cf5c2fe2b"
+  },
+  {
+    "file": "build/sw-toolbox.js",
+    "hash": "2770efb889cc10c4de88d0b746c2a13c"
+  },
+  {
+    "file": "build/vendor.js",
+    "hash": "7c285fe6947816dc1dc60ed7862f0ec6"
+  },
+  {
+    "file": "index.html",
+    "hash": "3b8f46a8444da0c13d5f747c2633bf6b"
+  },
+  {
+    "file": "manifest.json",
+    "hash": "df9b99468d4bd4cf2fee5d24ed9badbf"
+  },
+  {
+    "file": "pro-manifest.json",
+    "hash": "cb818c9b921cddbdf0268d5829c44c60"
+  },
+  {
+    "file": "service-worker.js",
+    "hash": "6b5672d3b7adf00984523bbdf655cb92"
+  }
+]

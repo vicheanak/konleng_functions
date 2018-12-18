@@ -1,3 +1,4 @@
+/// <reference path="node_modules/google-maps-api-typings/index.d.ts" />
 import * as functions from 'firebase-functions';
 import {Storage, SaveOptions, GetSignedUrlConfig} from '@google-cloud/storage';
 import sharp = require('sharp');
@@ -54,6 +55,12 @@ const storage = new Storage({
 
 
 
+import * as maps from "@google/maps";
+
+const map = maps.createClient({
+  key: functions.config().google ? functions.config().google.api_key : process.env.google_api_key,
+  Promise: Promise
+});
 
 
 
@@ -271,6 +278,35 @@ async function createUser(req, res, next){
   }
 }
 
+// async function reverseGeocode(req, res, next) {
+//   let address = req.body['address'] ? req.body['address'] : null;
+//   if (!req.body['address']){
+
+//     let lat = req.body.lat ? parseFloat(req.body['lat']) : 0;
+//     let lng = req.body.lng ? parseFloat(req.body['lng']) : 0;
+
+//     let map_location: maps.LatLng = {lat: lat, lng: lng};
+
+//     try{
+//       await map.reverseGeocode({
+//         latlng: map_location
+//       })
+//       .asPromise()
+//       .then((expectOK) => {
+
+//         req.body.address = expectOK.json.results[0].formatted_address;
+        
+//         return next();
+//       }, (error) => {
+//         console.error('Error Map ', error);
+//         return next();
+//       });
+//     }catch(error){
+//       console.error('Error Map Try Catch', error);
+//       return next();
+//     }
+//   }
+// }
 
 exports.generateThumbnail = functions.storage.object().onFinalize((object) => {
   return new Promise((resolve, reject) =>{
@@ -553,7 +589,7 @@ function requestImages(url){
 }
 // Add new listing
 app.post('/listings', getUserByEmail, createUser, addCount, async (req, res) => {
-  let listingUuid = req.body.id ? req.body.id : uuid();
+  let listingUuid = uuid();
 
   
   let images = req.body['images'];
@@ -767,7 +803,7 @@ app.get('/listings', async (req, res) =>{
   let querySearch: QueryParameters = {
     query: '',
     filters: '',
-    hitsPerPage: 100
+    hitsPerPage: 50
   };
   if (query){
     querySearch.query = query;
