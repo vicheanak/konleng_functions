@@ -87,21 +87,38 @@ const ALGOLIA_ID = functions.config().algolia ? functions.config().algolia.app_i
 const ALGOLIA_ADMIN_KEY = functions.config().algolia ? functions.config().algolia.api_key : process.env.algolia_api_key;
 const ALGOLIA_SEARCH_KEY = functions.config().algolia ? functions.config().algolia.search_key : process.env.algolia_search_key;
 
-const ALGOLIA_INDEX_NAME = 'listings';
+const ALGOLIA_NEWEST_INDEX = 'listings';
+const ALGOLIA_OLDEST_INDEX = 'listings_oldest';
+const ALGOLIA_HIGHEST_INDEX = 'listings_highest';
+const ALGOLIA_CHEAPEST_INDEX = 'listings_cheapest';
 const client = algoliasearch(ALGOLIA_ID, ALGOLIA_ADMIN_KEY);
 // [END init_algolia]
 
 
 
 
-exports.onListingUpdated = functions.firestore.document('listings/{listingId}').onUpdate((snap, context) => {
+exports.onListingUpdated = functions.firestore.document('listings/{listingId}').onUpdate(async (snap, context) => {
   
   const listing = snap.after.data();
 
   listing.objectID = context.params.listingId;
 
-  const index = client.initIndex(ALGOLIA_INDEX_NAME);
-  return index.saveObject(listing);
+ 
+
+
+   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  await newestIndex.saveObject(listing);
+
+  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  await oldestIndex.saveObject(listing);
+
+  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  await highestIndex.saveObject(listing);
+
+  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  await cheapestIndex.saveObject(listing);
+
+  return true;
 });
 
 
@@ -117,12 +134,19 @@ exports.onListingDeleted = functions.firestore.document('listings/{listingId}').
     console.error('error document');
   });
 
-  const index = client.initIndex(ALGOLIA_INDEX_NAME);
-  return index.deleteObject(context.params.listingId);
-   
- 
+   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  await newestIndex.deleteObject(context.params.listingId);
+
+  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  await oldestIndex.deleteObject(context.params.listingId);
+
+  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  await highestIndex.deleteObject(context.params.listingId);
+
+  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  await cheapestIndex.deleteObject(context.params.listingId);
   
-  
+  return true;
   
 });
 
@@ -634,7 +658,7 @@ app.post('/listings', getUserByEmail, createUser, addCount, async (req, res) => 
 
 
           firebaseHelper.firestore
-          .createDocumentWithID(db, listingsCollection, listingUuid, listing).then((newListing) => {
+          .createDocumentWithID(db, listingsCollection, listingUuid, listing).then(async (newListing) => {
 
             
 
@@ -647,16 +671,21 @@ app.post('/listings', getUserByEmail, createUser, addCount, async (req, res) => 
               
               
               listing['objectID'] = listingUuid;
-              const index = client.initIndex(ALGOLIA_INDEX_NAME);
-              
 
-              index.saveObject(listing).then((response) => {
-                
-                res.send(response);
-              }, (error) => {
-                
-                res.send(error.message);
-              });
+              const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+              await newestIndex.saveObject(listing);
+
+              const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+              await oldestIndex.saveObject(listing);
+
+            const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+              await highestIndex.saveObject(listing);
+
+            const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+              await cheapestIndex.saveObject(listing);
+
+            res.status(200).send();
+              
 
             }
             else{
@@ -708,8 +737,21 @@ app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
   .updateDocument(db, listingsCollection, req.params.listingId, listing).then(function(docRef){
     let listing = req.body;
     listing.objectID = req.params.listingId;
-    const index = client.initIndex(ALGOLIA_INDEX_NAME);
-    index.saveObject(listing);
+   
+
+
+
+    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+    newestIndex.saveObject(listing);
+
+    const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+    oldestIndex.saveObject(listing);
+
+  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+    highestIndex.saveObject(listing);
+
+  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+    cheapestIndex.saveObject(listing);
     res.json(req.params.listingId);
   });
   res.json({'msg': 'listing updated'});
@@ -751,7 +793,95 @@ app.post('/check_link', (req, res) =>{
   });
 })
 
+app.get('/indexing', async (req, res) => {
 
+  const searchableAttributes = [
+    'address', 
+    'title',
+    'description', 
+    'province', 
+    'property_type', 
+    'listing_type', 
+    'district', 
+    'price', 
+    'lat', 
+    'lng', 
+    'size', 
+    'status',
+    'created_date', 
+    'bedrooms',
+    'bathrooms',
+    'id',
+    'user_id',
+    'property_id'
+    ];
+
+    const attributesForFaceting = [
+    'searchable(address)', 
+    'searchable(title)',
+    'searchable(description)', 
+    'searchable(province)', 
+    'searchable(property_type)', 
+    'searchable(listing_type)', 
+    'searchable(district)', 
+    'searchable(price)', 
+    'searchable(size)', 
+    'searchable(status)'
+    ];
+
+    const attributesToRetrieve = [
+    'address', 
+    'title',
+    'description', 
+    'province', 
+    'property_type', 
+    'listing_type',
+    'district', 
+    'price', 
+    'lat', 
+    'lng', 
+    'thumb', 
+    'bedrooms',
+    'bathrooms',
+    'created_date', 
+    'size', 
+    'images', 
+    'status',
+    'id',
+    'user_id',
+    'property_id'
+    ];
+
+
+  const indexSettings = {
+    searchableAttributes: searchableAttributes,
+    attributesForFaceting: attributesForFaceting,
+    attributesToRetrieve: attributesToRetrieve,
+    ranking: [],
+  } as IndexSettings;
+
+  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  let newestSetting = indexSettings;
+  newestSetting.ranking = ['desc(created_date)', 'custom'];
+  await newestIndex.setSettings(newestSetting);
+
+  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  let oldestSetting = indexSettings;
+  oldestSetting.ranking = ['asc(created_date)', 'custom'];
+  await oldestIndex.setSettings(oldestSetting);
+
+  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  let highestSetting = indexSettings;
+  highestSetting.ranking = ['desc(price)', 'custom'];
+  await highestIndex.setSettings(highestSetting);
+
+  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  let cheapestSetting = indexSettings;
+  cheapestSetting.ranking = ['asc(price)', 'custom'];
+  await cheapestIndex.setSettings(cheapestSetting);
+
+  res.status(200).send(true);  
+});
 // View all listings
 app.get('/listings', async (req, res) =>{
 
@@ -763,11 +893,13 @@ app.get('/listings', async (req, res) =>{
   let min_price = req.query.min_price;
   let max_price = req.query.max_price;
   let sort_by = req.query.sort_by ? req.query.sort_by : 'desc(created_date)';
+  let page = req.query.page; 
 
   let querySearch: QueryParameters = {
     query: '',
     filters: '',
-    hitsPerPage: 100
+    hitsPerPage: 25,
+    page: page
   };
   if (query){
     querySearch.query = query;
@@ -797,91 +929,40 @@ app.get('/listings', async (req, res) =>{
   if (min_price && max_price){
     filters.push('price:'+min_price+' TO '+max_price);
   }
-  if (sort_by == 'newest'){
-    sort_by = 'desc(created_date)';
-  }
-  if (sort_by == 'oldest'){
-    sort_by = 'asc(created_date)'
-  }
-  if (sort_by == 'highest'){
-    sort_by = 'asc(price)'
-  }
-  if (sort_by == 'lowest'){
-    sort_by = 'desc(price)'
-  }
-
-
+  
   querySearch.filters = filters.join(' AND ');
 
-  // console.log('QUERYSEARCH ==> ', querySearch);
-
-  const index = client.initIndex(ALGOLIA_INDEX_NAME);
-  let indexSetting: IndexSettings = {
-    searchableAttributes: [
-    'address', 
-    'title',
-    'description', 
-    'province', 
-    'property_type', 
-    'listing_type', 
-    'district', 
-    'price', 
-    'lat', 
-    'lng', 
-    'size', 
-    'status',
-    'created_date', 
-    'bedrooms',
-    'bathrooms',
-    'id',
-    'user_id',
-    'property_id'
-    ],
-    attributesForFaceting: [
-    'searchable(address)', 
-    'searchable(title)',
-    'searchable(description)', 
-    'searchable(province)', 
-    'searchable(property_type)', 
-    'searchable(listing_type)', 
-    'searchable(district)', 
-    'searchable(price)', 
-    'searchable(size)', 
-    'searchable(status)'
-    ],
-    attributesToRetrieve: [
-    'address', 
-    'title',
-    'description', 
-    'province', 
-    'property_type', 
-    'listing_type',
-    'district', 
-    'price', 
-    'lat', 
-    'lng', 
-    'thumb', 
-    'bedrooms',
-    'bathrooms',
-    'created_date', 
-    'size', 
-    'images', 
-    'status',
-    'id',
-    'user_id',
-    'property_id'
-    ],
-    ranking: [ sort_by, 'custom' ],
+  if (sort_by == 'newest'){
+    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+     newestIndex.search(querySearch, function (err, content) {
+      if (err) throw err;
+      res.status(200).send(content);
+    });
   }
- 
-  index.setSettings(indexSetting);
-  index.search(querySearch, function (err, content) {
-    if (err) throw err;
-    // console.log('CONTENT ==> ', content.hits);  
-    
-    res.status(200).send(content);
+  if (sort_by == 'oldest'){
 
-  });
+    const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+     oldestIndex.search(querySearch, function (err, content) {
+      if (err) throw err;
+      res.status(200).send(content);
+    });
+  
+
+  }
+  if (sort_by == 'highest'){
+    const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+     highestIndex.search(querySearch, function (err, content) {
+      if (err) throw err;
+      res.status(200).send(content);
+    });
+  }
+  if (sort_by == 'lowest'){
+    const lowestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+     lowestIndex.search(querySearch, function (err, content) {
+      if (err) throw err;
+      res.status(200).send(content);
+    });
+  }
 
 
 })
@@ -889,8 +970,18 @@ app.get('/listings', async (req, res) =>{
 app.delete('/listings/:listingId', async (req, res) => {
  
 
-  const index = client.initIndex(ALGOLIA_INDEX_NAME);
-  index.deleteObject(req.params.listingId);
+  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  newestIndex.deleteObject(req.params.listingId);
+
+  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  oldestIndex.deleteObject(req.params.listingId);
+
+  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  highestIndex.deleteObject(req.params.listingId);
+
+  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  cheapestIndex.deleteObject(req.params.listingId);
+
   res.json({'msg': 'listing deleted'});
 })
 
