@@ -98,53 +98,50 @@ const client = algoliasearch(ALGOLIA_ID, ALGOLIA_ADMIN_KEY);
 
 
 exports.onListingUpdated = functions.firestore.document('listings/{listingId}').onUpdate(async (snap, context) => {
-  
+
   const listing = snap.after.data();
 
   listing.objectID = context.params.listingId;
 
- 
-
-
-   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
   await newestIndex.saveObject(listing);
 
-  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  await oldestIndex.saveObject(listing);
+  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  // await oldestIndex.saveObject(listing);
 
-  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  await highestIndex.saveObject(listing);
+  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  // await highestIndex.saveObject(listing);
 
-  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  await cheapestIndex.saveObject(listing);
+  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  // await cheapestIndex.saveObject(listing);
 
   return true;
 });
 
 
 exports.onListingDeleted = functions.firestore.document('listings/{listingId}').onDelete(async (snap, context) => {
-  // const listing = snap.data();
- 
-  const queryArray = ['link', '==', snap.data().link]; 
-  await firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
-    let result = Object.keys(response);
+  const listing = snap.data();
+  listing.objectID = context.params.listingId;
+  // const queryArray = ['link', '==', snap.data().link]; 
+  // await firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
+  //   let result = Object.keys(response);
     
-    firebaseHelper.firestore.deleteDocument(db, listingsCollection, result[0]);
-  }).catch((error) => {
-    console.error('error document');
-  });
+  //   firebaseHelper.firestore.deleteDocument(db, listingsCollection, result[0]);
+  // }).catch((error) => {
+  //   console.error('error document');
+  // });
 
-   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-  await newestIndex.deleteObject(context.params.listingId);
+  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  await newestIndex.deleteObject(listing.objectID);
 
-  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  await oldestIndex.deleteObject(context.params.listingId);
+  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  // await oldestIndex.deleteObject(context.params.listingId);
 
-  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  await highestIndex.deleteObject(context.params.listingId);
+  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  // await highestIndex.deleteObject(context.params.listingId);
 
-  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  await cheapestIndex.deleteObject(context.params.listingId);
+  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  // await cheapestIndex.deleteObject(context.params.listingId);
   
   return true;
   
@@ -153,22 +150,22 @@ exports.onListingDeleted = functions.firestore.document('listings/{listingId}').
 
 // [START get_firebase_user]
 async function getFirebaseUser(req, res, next) {
-  
+
 
   if (!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) {
-    
+
     return res.sendStatus(403);
   }
 
   let idToken;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
-    
+
     idToken = req.headers.authorization.split('Bearer ')[1];
   }
 
   try {
     const decodedIdToken = admin.auth().verifyIdToken(req.userToken).then((user) => {
-      
+
       req.user = user;
       res.send(user);
     }, (error) => {
@@ -224,7 +221,7 @@ async function getUserByEmail(req, res, next){
       req.user = userRecord;
       return next();
     }, (error) => {
-      
+
       req.user = null;
       return next();
     });
@@ -242,7 +239,7 @@ async function getUserByEmail(req, res, next){
 async function createUser(req, res, next){
   if (!req.user){
     try{
-      
+
       if (req.body.email){
         admin.auth().createUser({
           email: req.body.email,
@@ -253,7 +250,7 @@ async function createUser(req, res, next){
           disabled: false
         })
         .then((userRecord) => {
-          
+
           let user = {
             uid: userRecord.uid,
             email: userRecord.email,
@@ -265,7 +262,7 @@ async function createUser(req, res, next){
           }
           firebaseHelper.firestore
           .createDocumentWithID(db, 'users', userRecord.uid, user).then((user) => {
-            
+
             req.user = userRecord;
             return next();
           }, (error) => {
@@ -317,7 +314,7 @@ exports.generateThumbnail = functions.storage.object().onFinalize((object) => {
     const fileName = path.basename(filePath);
     // Exit if the image is already a thumbnail.
     if (fileName.startsWith('thumb_')) {
-      
+
       return null;
     }
 
@@ -357,42 +354,42 @@ exports.generateThumbnail = functions.storage.object().onFinalize((object) => {
             public: true
           }, (err2) => {
             if (!err2) {
-              
 
-                let thumbUrl = `https://storage.googleapis.com/${fileBucket}/${fileNameThumb}`;
-                let listingId = fileName.split('_')[0];
-                
-                firebaseHelper.firestore.getDocument(db, listingsCollection, listingId).then((listing) => {
 
-                  //get listing thumbs;
-                  if (listing.thumbs){
-                    listing.thumbs.push(thumbUrl);
+              let thumbUrl = `https://storage.googleapis.com/${fileBucket}/${fileNameThumb}`;
+              let listingId = fileName.split('_')[0];
+
+              firebaseHelper.firestore.getDocument(db, listingsCollection, listingId).then((listing) => {
+
+                //get listing thumbs;
+                if (listing.thumbs){
+                  listing.thumbs.push(thumbUrl);
+                }
+                else{
+                  listing.thumbs = [thumbUrl];
+                }
+
+                let data = {
+                  thumb: listing.thumbs[0]
+                }
+
+                firebaseHelper.firestore.updateDocument(db, listingsCollection, listingId, data).then((isUpdated) => {
+                  if (isUpdated){
+
+
+                    resolve('UPATED THUMBNAIL SUCCESSFULLY');
+
                   }
                   else{
-                    listing.thumbs = [thumbUrl];
+                    reject(err2);
+                    console.error('ERROR UPDATED THUMB IN IF'); 
                   }
-                  
-                  let data = {
-                    thumb: listing.thumbs[0]
-                  }
-                  
-                  firebaseHelper.firestore.updateDocument(db, listingsCollection, listingId, data).then((isUpdated) => {
-                    if (isUpdated){
-
-                      
-                      resolve('UPATED THUMBNAIL SUCCESSFULLY');
-                      
-                    }
-                    else{
-                      reject(err2);
-                      console.error('ERROR UPDATED THUMB IN IF'); 
-                    }
-                  }).catch((error) => {
-                    reject(error);
-                    console.error('ERROR THUMB UPDATED CATCH ==> ', error);
-                  });
+                }).catch((error) => {
+                  reject(error);
+                  console.error('ERROR THUMB UPDATED CATCH ==> ', error);
                 });
-                // Add Array
+              });
+              // Add Array
 
             }
             else{
@@ -433,8 +430,8 @@ function httpGet(url, callback) {
   let request = require('request').defaults({ encoding: null });
   
   request(url, (err, res, body) => {
-    
-      callback(err, body);  
+    console.log('HttpGet Filetype =>', fileType(body).mime);
+    callback(err, body);  
   });
 }
 
@@ -454,259 +451,256 @@ function httpSaveImage(listing, key, callback){
   let fileNameThumb = 'listing_images/thumb_'+listing.listingUuid+'_'+listing.imageIndex+'.jpeg';
   let fileThumb = bucket.file(fileNameThumb);    
 
-  
-  
   // storageRef.child('images/stars.jpg').getDownloadURL().then(function(url) {
-  //   // Get the download URL for 'images/stars.jpg'
-  //   // This can be inserted into an <img> tag
-  //   // This can also be downloaded directly
-  // }).catch(function(error) {
-  //   // Handle any errors
-  // });
+    //   // Get the download URL for 'images/stars.jpg'
+    //   // This can be inserted into an <img> tag
+    //   // This can also be downloaded directly
+    // }).catch(function(error) {
+      //   // Handle any errors
+      // });
 
-  const resize = size => sharp(listing.imageBuffer)
-  .resize(size.width, size.height, {
-    fit: "cover",
-    kernel: sharp.kernel.lanczos2
-  })
-  .sharpen()
-  .webp({
-    quality: 90
-  })
-  .toFormat('jpeg')
-  .toBuffer();
-  Promise
-  .all([{width: 1280, height: 800}, {width: 480, height: 300}].map(resize))
-  .then((outputBuffer: Buffer[]) => {
+      const resize = size => sharp(listing.imageBuffer)
+      .resize(size.width, size.height, {
+        fit: "cover",
+        kernel: sharp.kernel.lanczos2
+      })
+      .sharpen()
+      .webp({
+        quality: 90
+      })
+      .toFormat('jpeg')
+      .toBuffer();
+      Promise
+      .all([{width: 1280, height: 800}, {width: 480, height: 300}].map(resize))
+      .then((outputBuffer: Buffer[]) => {
 
-    fileLarge.save(new Buffer(outputBuffer[0].toString('base64'), 'base64'),{
-      metadata: { 
-        contentType: 'image/jpeg', 
-        public: true,
-        validation: 'md5', 
-        listingUuid: listing.listingUuid
-      },
-      gzip: true,
-      public: true
-    }, (err1) => {
-      if (!err1) {
-        let large: any;
-        let thumb: any;
-       
-          large = `https://storage.googleapis.com/${storageId}/${fileNameLarge}`;
+        fileLarge.save(new Buffer(outputBuffer[0].toString('base64'), 'base64'),{
+          metadata: { 
+            contentType: 'image/jpeg', 
+            public: true,
+            validation: 'md5', 
+            listingUuid: listing.listingUuid
+          },
+          gzip: true,
+          public: true
+        }, (err1) => {
+          if (!err1) {
+            let large: any;
+            let thumb: any;
 
-          fileThumb.save(new Buffer(outputBuffer[1].toString('base64'), 'base64'),{
-            metadata: { 
-              contentType: 'image/jpeg', 
-              public: true,
-              validation: 'md5', 
-              listingUuid: listing.listingUuid
-            },
-            gzip: true,
-            public: true
-          }, (err2) => {
-            if (!err2) {
-              thumb = `https://storage.googleapis.com/${storageId}/${fileNameThumb}`;
-              callback(err2, {large: large, thumb: thumb});
-            }
-            else{
-              console.error('IF FILE_ERROR 2', err2);
-            }
-          });
-       
-      }
-      else{
-        console.error('ERROR 1', err1);
-      }  
-    });
-  }).catch((errorSharp) => {
-    callback(errorSharp, 'ERROR');
-  });
-};
+            large = `https://storage.googleapis.com/${storageId}/${fileNameLarge}`;
 
-function addCount(req, res, next){
-  let listing_type = req.body.listing_type;
-  let province = req.body.province;
-  firebaseHelper.firestore.getDocument(db, 'counts', province).then((count) => {
-    if (listing_type == 'sale'){
-      count.sale = count.sale + 1;
-    }
-    if (listing_type == 'rent'){
-      count.rent = count.rent + 1;
-    }
-    firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
-      if (isUpdated){
-         
-        return next();
-      }
-    }).catch((error) => {
-      console.error('ERROR ADD COUNT ==> ', error);
-      return next();
-      
-    });
-  });
-}
+            fileThumb.save(new Buffer(outputBuffer[1].toString('base64'), 'base64'),{
+              metadata: { 
+                contentType: 'image/jpeg', 
+                public: true,
+                validation: 'md5', 
+                listingUuid: listing.listingUuid
+              },
+              gzip: true,
+              public: true
+            }, (err2) => {
+              if (!err2) {
+                thumb = `https://storage.googleapis.com/${storageId}/${fileNameThumb}`;
+                callback(err2, {large: large, thumb: thumb});
+              }
+              else{
+                console.error('IF FILE_ERROR 2', err2);
+              }
+            });
 
-function minusCount(province, listing_type){
-  firebaseHelper.firestore.getDocument(db, 'counts', province).then((count) => {
-    if (listing_type == 'sale'){
-      count.sale = count.sale + 1;
-    }
-    if (listing_type == 'rent'){
-      count.rent = count.rent + 1;
-    }
-    firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
-      if (isUpdated){
-        console.log('Count');
-      }
-    }).catch((error) => {
-      console.error('ERROR ADD COUNT ==> ', error);
-    });
-  });
-}
-
-function requestImages(url){
-  return new Promise((resolve, reject) =>{
-    let request = require('request').defaults({ encoding: null });
-      request(url, (err, res, body) => {
-        
-        resolve(body);  
-      });  
-  });
-  
-}
-// Add new listing
-app.post('/listings', getUserByEmail, createUser, addCount, async (req, res) => {
-  let listingUuid = req.body.id ? req.body.id : uuid();
-
-  
-  let images = req.body['images'];
-  // let imagesArray = []
-  // for (let img of images){
-  //    let request = require('request').defaults({ encoding: null });
-      
-  //     request(img, (err, res, body) => {
-          
-  //     });
-  // }
-  async.map(images, httpGet, (err, body) => {
-    
-    if (err){
-      
-      res.json(err);
-    }
-    else{
-
-      let listings: any = [];
-
-      for (let i = 0; i < body.length; i ++){
-        let img: any = body[i];
-        const imageMimeType = fileType(img).mime;
-        if (imageMimeType.includes('image') == true){
-          listings.push({
-            listingUuid: listingUuid,
-            imageBuffer: img,
-            imageIndex: i + 1
-          });
-        }
-      }
-
-      
-
-      async.mapValues(listings, httpSaveImage, async (imgErr, imgUrl) => {
-        
-        let imgThumbs = [];
-        let imgLarges = [];
-        let imgKeys = Object.keys(imgUrl)
-        for (let i = 0; i < imgKeys.length; i ++){
-          imgThumbs.push(imgUrl[i]['thumb']);
-          imgLarges.push(imgUrl[i]['large']);
-        }
-        if (!imgErr){
-
-          let listing = {
-            title: req.body.title ? req.body['title'] : '',
-            price: req.body.price ? parseFloat(req.body['price']) : '',
-            property_type: req.body.property_type ? req.body['property_type'] : '',
-            listing_type: req.body.listing_type ? req.body['listing_type'] : '',
-            description: req.body.description ? req.body['description'] : '',
-            phone1: req.body.phone1 ? req.body['phone1'] : '',
-            phone2: req.body.phone2 ? req.body['phone2'] : '',
-            bedrooms: req.body.bedrooms ? parseInt(req.body.bedrooms) : 0,
-            bathrooms: req.body.bathrooms ? parseInt(req.body.bathrooms) : 0,
-            thumb: imgThumbs[0],
-            images: imgLarges,
-            province: req.body.province ? req.body['province'] : '',
-            lat: req.body.lat ? parseFloat(req.body['lat']) : '',
-            lng: req.body.lng ? parseFloat(req.body['lng']) : '',
-            displayName: req.body.displayName ? req.body['displayName'] : '',
-            address: req.body.address ? req.body['address'] : 'Cambodia',
-            status: req.body.status ? parseInt(req.body['status']) : 1,
-            property_id: makeid(),
-            userType: req.body.userType ? req.body['userType'] : '',
-            email: req['user'].email,
-            user_id: req['user'].uid,
-            size: req.body.size ? req.body['size'] : '',
-            link: req.body.link ? req.body['link'] : '',
-            created_date: new Date(),
-            modified_date: new Date(),
-            id: listingUuid
           }
+          else{
+            console.error('ERROR 1', err1);
+          }  
+        });
+      }).catch((errorSharp) => {
+        callback(errorSharp, 'ERROR');
+      });
+    };
 
-
-
-
-
-          firebaseHelper.firestore
-          .createDocumentWithID(db, listingsCollection, listingUuid, listing).then(async (newListing) => {
-
-            
-
-            let crawl_link = req.body.link ? req.body['link'] : '';
-            if (crawl_link){
-              firebaseHelper.firestore.createNewDocument(db, 'links', {link: crawl_link});
-            }
-
-            if (newListing){
-              
-              
-              listing['objectID'] = listingUuid;
-
-              const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-              await newestIndex.saveObject(listing);
-
-              const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-              await oldestIndex.saveObject(listing);
-
-            const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-              await highestIndex.saveObject(listing);
-
-            const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-              await cheapestIndex.saveObject(listing);
-
-            res.status(200).send();
-              
-
-            }
-            else{
-              console.error('FAILED SAVE FIREBASE');
-              res.send('FIREBASE CREATE DOCUMENT'); 
-            }
-          })
+    function addCount(req, res, next){
+      let listing_type = req.body.listing_type;
+      let province = req.body.province;
+      firebaseHelper.firestore.getDocument(db, 'counts', province).then((count) => {
+        if (listing_type == 'sale'){
+          count.sale = count.sale + 1;
         }
-        else{
-          console.error('Error Sharp Http Save Image ==> ', imgErr);
-          res.json(imgErr);
+        if (listing_type == 'rent'){
+          count.rent = count.rent + 1;
         }
+        firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
+          if (isUpdated){
+
+            return next();
+          }
+        }).catch((error) => {
+          console.error('ERROR ADD COUNT ==> ', error);
+          return next();
+
+        });
       });
     }
-  });
+
+    function minusCount(province, listing_type){
+      firebaseHelper.firestore.getDocument(db, 'counts', province).then((count) => {
+        if (listing_type == 'sale'){
+          count.sale = count.sale + 1;
+        }
+        if (listing_type == 'rent'){
+          count.rent = count.rent + 1;
+        }
+        firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
+          if (isUpdated){
+            console.log('Count');
+          }
+        }).catch((error) => {
+          console.error('ERROR ADD COUNT ==> ', error);
+        });
+      });
+    }
+
+    function requestImages(url){
+      return new Promise((resolve, reject) =>{
+        let request = require('request').defaults({ encoding: null });
+        request(url, (err, res, body) => {
+
+          resolve(body);  
+        });  
+      });
+
+    }
+    // Add new listing
+    app.post('/listings', getUserByEmail, createUser, addCount, async (req, res) => {
+      // app.post('/listings', async (req, res) => {
+        let listingUuid = uuid();
+
+        console.log("IMAGES ==> ");
+        console.log(JSON.stringify(req.body['images']));
+
+        let images = req.body['images'];
+        if (images.length == 0){
+          res.status(200).send("No Image, Skip Save");
+
+        }
+        else{
+
+          async.map(images, httpGet, (err, body) => {
+
+            if (err){
+
+              res.json(err);
+            }
+            else{
+
+              let listings: any = [];
+
+              for (let i = 0; i < body.length; i ++){
+                let img: any = body[i];
+                const imageMimeType = fileType(img).mime;
+                console.log('HttpGet Filetype =>', imageMimeType);
+                if (imageMimeType.includes('image') == true){
+                  listings.push({
+                    listingUuid: listingUuid,
+                    imageBuffer: img,
+                    imageIndex: i + 1
+                  });
+                }
+              }
 
 
-  // res.status(200).send('success created')
+
+              async.mapValues(listings, httpSaveImage, async (imgErr, imgUrl) => {
+                console.log('HttpSaveImage');
+                let imgThumbs = [];
+                let imgLarges = [];
+                let imgKeys = Object.keys(imgUrl)
+                for (let i = 0; i < imgKeys.length; i ++){
+                  imgThumbs.push(imgUrl[i]['thumb']);
+                  imgLarges.push(imgUrl[i]['large']);
+                }
+                if (!imgErr){
+
+                  let listing = {
+                    title: req.body.title ? req.body['title'] : '',
+                    price: req.body.price ? parseFloat(req.body['price']) : '',
+                    property_type: req.body.property_type ? req.body['property_type'] : '',
+                    listing_type: req.body.listing_type ? req.body['listing_type'] : '',
+                    description: req.body.description ? req.body['description'] : '',
+                    phone1: req.body.phone1 ? req.body['phone1'] : '',
+                    phone2: req.body.phone2 ? req.body['phone2'] : '',
+                    bedrooms: req.body.bedrooms ? parseInt(req.body.bedrooms) : 0,
+                    bathrooms: req.body.bathrooms ? parseInt(req.body.bathrooms) : 0,
+                    thumb: imgThumbs[0],
+                    images: imgLarges,
+                    province: req.body.province ? req.body['province'] : '',
+                    lat: req.body.lat ? parseFloat(req.body['lat']) : '',
+                    lng: req.body.lng ? parseFloat(req.body['lng']) : '',
+                    displayName: req.body.displayName ? req.body['displayName'] : '',
+                    address: req.body.address ? req.body['address'] : 'Cambodia',
+                    status: req.body.status ? parseInt(req.body['status']) : 1,
+                    property_id: req.body.property_id ? req.body['property_id'] : makeid(),
+                    userType: req.body.userType ? req.body['userType'] : '',
+                    email: req['user'].email,
+                    user_id: req['user'].uid,
+                    size: req.body.size ? req.body['size'] : '',
+                    link: req.body.link ? req.body['link'] : '',
+                    created_date: new Date(),
+                    modified_date: new Date(),
+                    id: listingUuid
+                  }
 
 
 
+                  firebaseHelper.firestore
+                  .createDocumentWithID(db, listingsCollection, listingUuid, listing).then(async (newListing) => {
+
+                    console.log('createDocumentWithID');
+
+                    let crawl_link = req.body.link ? req.body['link'] : '';
+                    if (crawl_link){
+                      firebaseHelper.firestore.createNewDocument(db, 'links', {link: crawl_link});
+                    }
+
+                    if (newListing){
+
+
+                      listing['objectID'] = listingUuid;
+
+                      const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+                      await newestIndex.saveObject(listing);
+
+                      //   const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+                      //   await oldestIndex.saveObject(listing);
+
+                      // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+                      //   await highestIndex.saveObject(listing);
+
+                      // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+                      //   await cheapestIndex.saveObject(listing);
+
+                      res.status(200).send(listing);
+
+
+                    }
+                    else{
+                      console.error('FAILED SAVE FIREBASE');
+                      res.send('FIREBASE CREATE DOCUMENT'); 
+                    }
+                  }, (error) => {
+                    res.status(400).send("ERROR CREATE DOCUMENT");
+                  })
+                }
+                else{
+                  console.error('Error Sharp Http Save Image ==> ', imgErr);
+                  res.status(400).send("ERROR CREATE IMAGE");
+                }
+              });
+}
+});
+
+
+}
 })
 // Update new listing
 app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
@@ -737,21 +731,21 @@ app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
   .updateDocument(db, listingsCollection, req.params.listingId, listing).then(function(docRef){
     let listing = req.body;
     listing.objectID = req.params.listingId;
-   
+
 
 
 
     const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
     newestIndex.saveObject(listing);
 
-    const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-    oldestIndex.saveObject(listing);
+    //   const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+    //   oldestIndex.saveObject(listing);
 
-  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-    highestIndex.saveObject(listing);
+    // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+    //   highestIndex.saveObject(listing);
 
-  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-    cheapestIndex.saveObject(listing);
+    // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+    //   cheapestIndex.saveObject(listing);
     res.json(req.params.listingId);
   });
   res.json({'msg': 'listing updated'});
@@ -761,7 +755,7 @@ app.get('/listings/:listingId', (req, res) => {
   firebaseHelper.firestore
   .getDocument(db, listingsCollection, req.params.listingId)
   .then(function(doc) {
-    
+
     res.json(doc);
   });
 })
@@ -796,61 +790,61 @@ app.post('/check_link', (req, res) =>{
 app.get('/indexing', async (req, res) => {
 
   const searchableAttributes = [
-    'address', 
-    'title',
-    'description', 
-    'province', 
-    'property_type', 
-    'listing_type', 
-    'district', 
-    'price', 
-    'lat', 
-    'lng', 
-    'size', 
-    'status',
-    'created_date', 
-    'bedrooms',
-    'bathrooms',
-    'id',
-    'user_id',
-    'property_id'
-    ];
+  'title',
+  'description', 
+  'price', 
+  'province', 
+  'property_type', 
+  'listing_type', 
+  'district', 
+  'address', 
+  'lat', 
+  'lng', 
+  'size', 
+  'status',
+  'created_date', 
+  'bedrooms',
+  'bathrooms',
+  'id',
+  'user_id',
+  'property_id'
+  ];
 
-    const attributesForFaceting = [
-    'searchable(address)', 
-    'searchable(title)',
-    'searchable(description)', 
-    'searchable(province)', 
-    'searchable(property_type)', 
-    'searchable(listing_type)', 
-    'searchable(district)', 
-    'searchable(price)', 
-    'searchable(size)', 
-    'searchable(status)'
-    ];
+  const attributesForFaceting = [
+  'searchable(province)', 
+  'searchable(title)',
+  'searchable(description)', 
+  'searchable(address)', 
+  'searchable(property_type)', 
+  'searchable(listing_type)', 
+  'searchable(district)', 
+  'searchable(price)', 
+  'searchable(size)', 
+  'searchable(status)'
+  ];
 
-    const attributesToRetrieve = [
-    'address', 
-    'title',
-    'description', 
-    'province', 
-    'property_type', 
-    'listing_type',
-    'district', 
-    'price', 
-    'lat', 
-    'lng', 
-    'thumb', 
-    'bedrooms',
-    'bathrooms',
-    'created_date', 
-    'size', 
-    'images', 
-    'status',
-    'id',
-    'user_id',
-    'property_id'
-    ];
+  const attributesToRetrieve = [
+  'province', 
+  'title',
+  'description', 
+  'address', 
+  'property_type', 
+  'listing_type',
+  'district', 
+  'price', 
+  'lat', 
+  'lng', 
+  'thumb', 
+  'bedrooms',
+  'bathrooms',
+  'created_date', 
+  'size', 
+  'images', 
+  'status',
+  'id',
+  'user_id',
+  'property_id'
+  ];
 
 
   const indexSettings = {
@@ -865,25 +859,26 @@ app.get('/indexing', async (req, res) => {
   newestSetting.ranking = ['desc(created_date)', 'custom'];
   await newestIndex.setSettings(newestSetting);
 
-  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  let oldestSetting = indexSettings;
-  oldestSetting.ranking = ['asc(created_date)', 'custom'];
-  await oldestIndex.setSettings(oldestSetting);
+  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  // let oldestSetting = indexSettings;
+  // oldestSetting.ranking = ['asc(created_date)', 'custom'];
+  // await oldestIndex.setSettings(oldestSetting);
 
-  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  let highestSetting = indexSettings;
-  highestSetting.ranking = ['desc(price)', 'custom'];
-  await highestIndex.setSettings(highestSetting);
+  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  // let highestSetting = indexSettings;
+  // highestSetting.ranking = ['desc(price)', 'custom'];
+  // await highestIndex.setSettings(highestSetting);
 
-  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  let cheapestSetting = indexSettings;
-  cheapestSetting.ranking = ['asc(price)', 'custom'];
-  await cheapestIndex.setSettings(cheapestSetting);
+  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  // let cheapestSetting = indexSettings;
+  // cheapestSetting.ranking = ['asc(price)', 'custom'];
+  // await cheapestIndex.setSettings(cheapestSetting);
 
   res.status(200).send(true);  
 });
 // View all listings
 app.get('/listings', async (req, res) =>{
+
 
   let query = req.query.q;
   let province = req.query.province;
@@ -893,12 +888,16 @@ app.get('/listings', async (req, res) =>{
   let min_price = req.query.min_price;
   let max_price = req.query.max_price;
   let sort_by = req.query.sort_by ? req.query.sort_by : 'desc(created_date)';
-  let page = req.query.page; 
+  let page = req.query.page;
+
+  if (page == 1){
+    page = 0;
+  }
 
   let querySearch: QueryParameters = {
     query: '',
     filters: '',
-    hitsPerPage: 25,
+    hitsPerPage: 200,
     page: page
   };
   if (query){
@@ -932,58 +931,84 @@ app.get('/listings', async (req, res) =>{
   
   querySearch.filters = filters.join(' AND ');
 
-  if (sort_by == 'newest'){
+  console.log(filters.join(' AND '));
+
+  // if (sort_by == 'newest'){
     const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-     newestIndex.search(querySearch, function (err, content) {
+    newestIndex.search(querySearch, function (err, content) {
       if (err) throw err;
       res.status(200).send(content);
     });
-  }
-  if (sort_by == 'oldest'){
+  // }
+  // if (sort_by == 'oldest'){
 
-    const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-     oldestIndex.search(querySearch, function (err, content) {
-      if (err) throw err;
-      res.status(200).send(content);
-    });
-  
+  //   const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  //   oldestIndex.search(querySearch, function (err, content) {
+  //     if (err) throw err;
+  //     res.status(200).send(content);
+  //   });
 
-  }
-  if (sort_by == 'highest'){
-    const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-     highestIndex.search(querySearch, function (err, content) {
-      if (err) throw err;
-      res.status(200).send(content);
-    });
-  }
-  if (sort_by == 'lowest'){
-    const lowestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-     lowestIndex.search(querySearch, function (err, content) {
-      if (err) throw err;
-      res.status(200).send(content);
-    });
-  }
+
+  // }
+  // if (sort_by == 'highest'){
+  //   const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  //   highestIndex.search(querySearch, function (err, content) {
+  //     if (err) throw err;
+  //     res.status(200).send(content);
+  //   });
+  // }
+  // if (sort_by == 'lowest'){
+  //   const lowestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  //   lowestIndex.search(querySearch, function (err, content) {
+  //     if (err) throw err;
+  //     res.status(200).send(content);
+  //   });
+  // }
 
 
 })
-// Delete a listing 
-app.delete('/listings/:listingId', async (req, res) => {
- 
+app.get('/backup', (req, res) => {
+  var obj = {
+    table: []
+  };
 
-  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-  newestIndex.deleteObject(req.params.listingId);
+  obj.table.push({id: 1, square:2});
 
-  const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  oldestIndex.deleteObject(req.params.listingId);
+  var json = JSON.stringify(obj);
 
-  const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  highestIndex.deleteObject(req.params.listingId);
+  var fs = require('fs');
+  fs.writeFile('myjsonfile.json', json, 'utf8', () => {
+    res.status(200).send('write finish');
+  });
 
-  const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  cheapestIndex.deleteObject(req.params.listingId);
-
-  res.json({'msg': 'listing deleted'});
 })
+
+app.delete('/delete', (req, res) => {
+  // const oldestIndex = client.deleteIndex(ALGOLIA_CHEAPEST_INDEX, function(err, content) {
+    // if (err) throw err;
+    res.status(200).send('success');
+  // });
+})
+
+
+// // Delete a listing 
+// app.delete('/listings/:listingId', async (req, res) => {
+
+
+//   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+//   newestIndex.deleteObject(req.params.listingId);
+
+//   // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+//   // oldestIndex.deleteObject(req.params.listingId);
+
+//   // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+//   // highestIndex.deleteObject(req.params.listingId);
+
+//   // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+//   // cheapestIndex.deleteObject(req.params.listingId);
+
+//   res.json({'msg': 'listing deleted'});
+// })
 
 
 

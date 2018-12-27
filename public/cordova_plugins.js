@@ -25,6 +25,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+        "id": "cordova-plugin-admobpro.AdMob",
+        "pluginId": "cordova-plugin-admobpro",
+        "clobbers": [
+            "window.AdMob"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-dialogs/www/notification.js",
         "id": "cordova-plugin-dialogs.notification",
         "pluginId": "cordova-plugin-dialogs",
@@ -376,11 +384,11 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-firebase-authentication/www/FirebaseAuthentication.js",
-        "id": "cordova-plugin-firebase-authentication.FirebaseAuthentication",
-        "pluginId": "cordova-plugin-firebase-authentication",
-        "merges": [
-            "cordova.plugins.firebase.auth"
+        "file": "plugins/cordova-plugin-firebase/www/firebase-browser.js",
+        "id": "cordova-plugin-firebase.FirebasePlugin",
+        "pluginId": "cordova-plugin-firebase",
+        "clobbers": [
+            "FirebasePlugin"
         ]
     },
     {
@@ -749,14 +757,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-telerik-imagepicker/www/imagepicker.js",
-        "id": "cordova-plugin-telerik-imagepicker.ImagePicker",
-        "pluginId": "cordova-plugin-telerik-imagepicker",
-        "clobbers": [
-            "plugins.imagePicker"
-        ]
-    },
-    {
         "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
         "id": "cordova-sqlite-storage.SQLitePlugin",
         "pluginId": "cordova-sqlite-storage",
@@ -801,8 +801,10 @@ module.exports.metadata =
     "com-badrit-base64": "0.2.0",
     "com-sarriaroman-photoviewer": "1.1.18",
     "com.telerik.plugins.nativepagetransitions": "0.6.5",
+    "cordova-admobsdk": "7.35.0",
     "cordova-plugin-add-swift-support": "1.7.1",
-    "cordova-plugin-android-support-v4": "21.0.1",
+    "cordova-plugin-extension": "1.5.4",
+    "cordova-plugin-admobpro": "2.35.3",
     "cordova-plugin-dialogs": "2.0.1",
     "cordova-plugin-globalization": "1.11.0",
     "cordova-plugin-inappbrowser": "3.0.0",
@@ -816,19 +818,18 @@ module.exports.metadata =
     "cordova-plugin-email-composer": "0.8.15",
     "cordova-plugin-facebook4": "3.2.0",
     "cordova-plugin-file": "6.0.1",
-    "cordova-plugin-firebase-authentication": "1.0.1",
+    "cordova-plugin-firebase": "2.0.5",
     "cordova-plugin-googlemaps": "2.4.6",
+    "cordova-plugin-ignore-lint-translation": "0.0.1",
     "cordova-plugin-ionic-keyboard": "2.1.3",
-    "cordova-plugin-ionic-webview": "2.2.5",
+    "cordova-plugin-ionic-webview": "2.3.1",
+    "cordova-plugin-multidex": "0.1.2",
     "cordova-plugin-nativegeocoder": "3.1.3",
     "cordova-plugin-screen-orientation": "3.0.1",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-telerik-imagepicker": "2.2.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-sqlite-storage": "2.5.1",
-    "cordova-support-android-plugin": "1.0.1",
-    "cordova-support-google-services": "1.2.1",
+    "cordova-sqlite-storage": "2.6.0",
     "cordova-universal-links-plugin": "1.2.1",
     "es6-promise-plugin": "4.2.2",
     "info.protonet.imageresizer": "0.1.1",

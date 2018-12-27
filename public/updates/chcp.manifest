@@ -245,7 +245,7 @@
   },
   {
     "file": "build/main.js",
-    "hash": "6209eec2a3445930c58c5e01332c8dc8"
+    "hash": "55472b1be25f6fdcebfd54a53c628f7d"
   },
   {
     "file": "build/polyfills.js",
@@ -257,7 +257,7 @@
   },
   {
     "file": "build/vendor.js",
-    "hash": "7c285fe6947816dc1dc60ed7862f0ec6"
+    "hash": "bac6b4fb46305968c0ca493891906697"
   },
   {
     "file": "index.html",
