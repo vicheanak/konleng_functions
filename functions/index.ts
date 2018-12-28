@@ -1320,7 +1320,7 @@ app.get('/listings', async (req, res) =>{
   let querySearch: QueryParameters = {
     query: '',
     filters: '',
-    hitsPerPage: 200,
+    hitsPerPage: 500,
     page: page
   };
   if (query){
@@ -1352,8 +1352,14 @@ app.get('/listings', async (req, res) =>{
     filters.push('price:'+min_price+' TO '+max_price);
   }
   if (latlng){
-    querySearch.aroundLatLng = latlng;
-    querySearch.aroundRadius = 10000 // 10km
+    let polygon = latlng.split(',');
+    let polyFloat = [];
+    for (let i = 0; i < polygon.length; i ++){
+      polyFloat.push(parseFloat(polygon[i]));
+    }
+    querySearch.insidePolygon = [polyFloat];
+    // querySearch.aroundLatLng = latlng;
+    // querySearch.aroundRadius = 10000 // 10km
   }
   
   
