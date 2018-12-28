@@ -124,28 +124,28 @@ exports.onListingDeleted = functions.firestore.document('listings/{listingId}').
   listing.objectID = context.params.listingId;
   // const queryArray = ['link', '==', snap.data().link]; 
   // await firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
-  //   let result = Object.keys(response);
+    //   let result = Object.keys(response);
     
-  //   firebaseHelper.firestore.deleteDocument(db, listingsCollection, result[0]);
-  // }).catch((error) => {
-  //   console.error('error document');
-  // });
+    //   firebaseHelper.firestore.deleteDocument(db, listingsCollection, result[0]);
+    // }).catch((error) => {
+      //   console.error('error document');
+      // });
 
-  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-  await newestIndex.deleteObject(listing.objectID);
+      const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+      await newestIndex.deleteObject(listing.objectID);
 
-  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  // await oldestIndex.deleteObject(context.params.listingId);
+      // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+      // await oldestIndex.deleteObject(context.params.listingId);
 
-  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  // await highestIndex.deleteObject(context.params.listingId);
+      // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+      // await highestIndex.deleteObject(context.params.listingId);
 
-  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  // await cheapestIndex.deleteObject(context.params.listingId);
-  
-  return true;
-  
-});
+      // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+      // await cheapestIndex.deleteObject(context.params.listingId);
+
+      return true;
+
+    });
 
 
 // [START get_firebase_user]
@@ -531,7 +531,6 @@ function httpSaveImage(listing, key, callback){
         }
         firebaseHelper.firestore.updateDocument(db, 'counts', province, count).then((isUpdated) => {
           if (isUpdated){
-
             return next();
           }
         }).catch((error) => {
@@ -636,6 +635,10 @@ function httpSaveImage(listing, key, callback){
                     province: req.body.province ? req.body['province'] : '',
                     lat: req.body.lat ? parseFloat(req.body['lat']) : '',
                     lng: req.body.lng ? parseFloat(req.body['lng']) : '',
+                    "_geoloc": {
+                      "lat": req.body.lat ? parseFloat(req.body['lat']) : '',
+                      "lng": req.body.lng ? parseFloat(req.body['lng']) : '',
+                    },
                     displayName: req.body.displayName ? req.body['displayName'] : '',
                     address: req.body.address ? req.body['address'] : 'Cambodia',
                     status: req.body.status ? parseInt(req.body['status']) : 1,
@@ -760,122 +763,540 @@ app.get('/listings/:listingId', (req, res) => {
   });
 })
 
-app.post('/import', (req, res) =>{
-  firebaseHelper.firestore.restore(db, './listing.json').then((success) => {
-    console.info(success);
-  }).catch(function(error) {
-    console.error(error);
-  });
-})
 
-app.post('/check_link', (req, res) =>{
-  const queryArray = ['link', '==', req.body.link]; 
-  firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
-    let result = Object.keys(response);
-    
-    if (result.length > 0 && result.length < 16){
-      res.status(200).send(true);  
+function httpGetImport(url, callback) {
+
+  let request = require('request').defaults({ encoding: null });
+  
+  request(url, (err, res, body) => {
+    let data = JSON.parse(body.toString());
+    let objectIds = Object.keys(data);
+    let batchActions = [];
+    for (let objectId of objectIds){
+      if (data[objectId]['lat'] && data[objectId]['lng']){
+        batchActions.push({
+          "action": 'partialUpdateObjectNoCreate',
+          "indexName": ALGOLIA_NEWEST_INDEX,
+          "body": {
+            "objectID": objectId,
+            "_geoloc": {
+              "lat": parseFloat(data[objectId]['lat']),
+              "lng": parseFloat(data[objectId]['lng'])
+            }
+          }
+        })
+      }
     }
-    else{
-      res.status(200).send(false);   
-    }
+    // let keys = Object.keys(body);
+    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+    client.batch(batchActions, (err, content) => {
+      console.log('url', url);
+      callback(err, content);  
+    });
     
-    
-  }).catch((error) => {
-    console.error('error document');
-    res.status(400).json(error);
   });
-})
+}
 
-app.get('/indexing', async (req, res) => {
-
-  const searchableAttributes = [
-  'title',
-  'description', 
-  'price', 
-  'province', 
-  'property_type', 
-  'listing_type', 
-  'district', 
-  'address', 
-  'lat', 
-  'lng', 
-  'size', 
-  'status',
-  'created_date', 
-  'bedrooms',
-  'bathrooms',
-  'id',
-  'user_id',
-  'property_id'
-  ];
-
-  const attributesForFaceting = [
-  'searchable(province)', 
-  'searchable(title)',
-  'searchable(description)', 
-  'searchable(address)', 
-  'searchable(property_type)', 
-  'searchable(listing_type)', 
-  'searchable(district)', 
-  'searchable(price)', 
-  'searchable(size)', 
-  'searchable(status)'
-  ];
-
-  const attributesToRetrieve = [
-  'province', 
-  'title',
-  'description', 
-  'address', 
-  'property_type', 
-  'listing_type',
-  'district', 
-  'price', 
-  'lat', 
-  'lng', 
-  'thumb', 
-  'bedrooms',
-  'bathrooms',
-  'created_date', 
-  'size', 
-  'images', 
-  'status',
-  'id',
-  'user_id',
-  'property_id'
-  ];
+// app.post('/import', (req, response) =>{
 
 
-  const indexSettings = {
-    searchableAttributes: searchableAttributes,
-    attributesForFaceting: attributesForFaceting,
-    attributesToRetrieve: attributesToRetrieve,
-    ranking: [],
-  } as IndexSettings;
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_0_900.json';
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_900_1800.json';
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_1800_2700.json';
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_2700_3600.json';
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_3600_4500.json';
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_4500_5400.json';
+  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_5400_6300.json';
 
-  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-  let newestSetting = indexSettings;
-  newestSetting.ranking = ['desc(created_date)', 'custom'];
-  await newestIndex.setSettings(newestSetting);
+  //   let urls = [
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/banteay-meanchey.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/battambang.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-cham.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-chhnang.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-speu.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampot.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kandal.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kep.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/preah-sihanouk.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/pursat.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/siem-reap.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/svay-rieng.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/takeo.json',
+  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/tboung-khmum.json'];
+  //   let urls = [];
 
-  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  // let oldestSetting = indexSettings;
-  // oldestSetting.ranking = ['asc(created_date)', 'custom'];
-  // await oldestIndex.setSettings(oldestSetting);
 
-  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  // let highestSetting = indexSettings;
-  // highestSetting.ranking = ['desc(price)', 'custom'];
-  // await highestIndex.setSettings(highestSetting);
+  //   async.map(urls, httpGetImport, (err, body) => {
+    //     if (err){
+      //       response.send(err);
+      //     }
+      //     response.send('SUCCESS')
+      //   });
 
-  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  // let cheapestSetting = indexSettings;
-  // cheapestSetting.ranking = ['asc(price)', 'custom'];
-  // await cheapestIndex.setSettings(cheapestSetting);
+      //   // let request = require('request').defaults({ encoding: null });
 
-  res.status(200).send(true);  
-});
+      //   // request(url, (err, res, body) => {
+        //     //   let data = JSON.parse(body.toString());
+        //     //   let objectIds = Object.keys(data);
+        //     //   let batchActions = [];
+        //     //   for (let objectId of objectIds){
+          //       //     if (data[objectId]['lat'] && data[objectId]['lng']){
+            //         //       batchActions.push({
+              //           //         "action": 'partialUpdateObjectNoCreate',
+              //           //         "indexName": ALGOLIA_NEWEST_INDEX,
+              //           //         "body": {
+                //             //           "objectID": objectId,
+                //             //           "_geoloc": {
+                  //               //             "lat": parseFloat(data[objectId]['lat']),
+                  //               //             "lng": parseFloat(data[objectId]['lng'])
+                  //               //           }
+                  //               //         }
+                  //               //       })
+                  //               //     }
+                  //               //   }
+                  //               //   // let keys = Object.keys(body);
+                  //               //   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+                  //               //   client.batch(batchActions, (err, content) => {
+                    //                 //     response.send('SUCCESS');
+                    //                 //   });
+
+                    //                 // })
+                    //               });
+
+
+                    // app.post('/export', (req, res) =>{
+                      //   const dataRef = db.collection('listings');
+
+                      //   const province = req.body['province'];
+
+                      //   let queryRef = dataRef.where('province', '==', province);
+
+                      //   queryRef = queryRef.orderBy('created_date', 'desc');
+
+                      //   const results = {};
+                      //   const sliceResults = {};
+                      //   let size = 0;
+                      //   let keys:any;
+                      //   queryRef.get()
+                      //   .then(snapshot => {
+                        //     snapshot.forEach(doc => {
+                          //       results[doc.id] = doc.data();
+                          //     });
+                          //     if (Object.keys(results).length > 0) {
+                            //       keys = Object.keys(results);
+                            //       size = keys.length
+
+                            //       var startIndex = 1800;
+                            //       var endIndex = 2700;
+                            //       var slice = keys.slice(startIndex, endIndex);
+                            //       for (var i = 0; i < slice.length; i ++){
+                              //         sliceResults[slice[i]] = results[slice[i]];
+                              //       }
+                              //       var jsonData = JSON.stringify(sliceResults, null, 4);
+                              //       var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+                              //       var bucket = storage.bucket(storageId);
+                              //       // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
+                              //       var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
+                              //       var bucketFile = bucket.file(filenameListing);    
+                              //       bucketFile.save(Buffer.from(jsonData),{
+                                //         metadata: { 
+                                  //           contentType: 'application/json', 
+                                  //           public: true,
+                                  //           validation: 'md5'
+                                  //         },
+                                  //         gzip: true,
+                                  //         public: true
+                                  //       }, (err2) => {
+                                    //         if (err2){
+                                      //           console.error(err2);
+                                      //         }
+                                      //         var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+
+                                      //         var startIndex = 2700;
+                                      //         var endIndex = 3600;
+                                      //         var slice = keys.slice(startIndex, endIndex);
+                                      //         for (var i = 0; i < slice.length; i ++){
+                                        //           sliceResults[slice[i]] = results[slice[i]];
+                                        //         }
+                                        //         var jsonData = JSON.stringify(sliceResults, null, 4);
+                                        //         var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+                                        //         var bucket = storage.bucket(storageId);
+                                        //         // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
+                                        //         var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
+                                        //         var bucketFile = bucket.file(filenameListing);    
+                                        //         bucketFile.save(Buffer.from(jsonData),{
+                                          //           metadata: { 
+                                            //             contentType: 'application/json', 
+                                            //             public: true,
+                                            //             validation: 'md5'
+                                            //           },
+                                            //           gzip: true,
+                                            //           public: true
+                                            //         }, (err2) => {
+                                              //           if (err2){
+                                                //             console.error(err2);
+                                                //           }
+                                                //           var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                //           var startIndex = 3600;
+                                                //           var endIndex = 4500;
+                                                //           var slice = keys.slice(startIndex, endIndex);
+                                                //           for (var i = 0; i < slice.length; i ++){
+                                                  //             sliceResults[slice[i]] = results[slice[i]];
+                                                  //           }
+                                                  //           var jsonData = JSON.stringify(sliceResults, null, 4);
+                                                  //           var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+                                                  //           var bucket = storage.bucket(storageId);
+                                                  //           // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
+                                                  //           var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
+                                                  //           var bucketFile = bucket.file(filenameListing);    
+                                                  //           bucketFile.save(Buffer.from(jsonData),{
+                                                    //             metadata: { 
+                                                      //               contentType: 'application/json', 
+                                                      //               public: true,
+                                                      //               validation: 'md5'
+                                                      //             },
+                                                      //             gzip: true,
+                                                      //             public: true
+                                                      //           }, (err2) => {
+                                                        //             if (err2){
+                                                          //               console.error(err2);
+                                                          //             }
+                                                          //             var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                          //             var startIndex = 4500;
+                                                          //             var endIndex = 5400;
+                                                          //             var slice = keys.slice(startIndex, endIndex);
+                                                          //             for (var i = 0; i < slice.length; i ++){
+                                                            //               sliceResults[slice[i]] = results[slice[i]];
+                                                            //             }
+                                                            //             var jsonData = JSON.stringify(sliceResults, null, 4);
+                                                            //             var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+                                                            //             var bucket = storage.bucket(storageId);
+                                                            //             // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
+                                                            //             var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
+                                                            //             var bucketFile = bucket.file(filenameListing);    
+                                                            //             bucketFile.save(Buffer.from(jsonData),{
+                                                              //               metadata: { 
+                                                                //                 contentType: 'application/json', 
+                                                                //                 public: true,
+                                                                //                 validation: 'md5'
+                                                                //               },
+                                                                //               gzip: true,
+                                                                //               public: true
+                                                                //             }, (err2) => {
+                                                                  //               if (err2){
+                                                                    //                 console.error(err2);
+                                                                    //               }
+                                                                    //               var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                                    //               var startIndex = 5400;
+                                                                    //               var endIndex = 6300;
+                                                                    //               var slice = keys.slice(startIndex, endIndex);
+                                                                    //               for (var i = 0; i < slice.length; i ++){
+                                                                      //                 sliceResults[slice[i]] = results[slice[i]];
+                                                                      //               }
+                                                                      //               var jsonData = JSON.stringify(sliceResults, null, 4);
+                                                                      //               var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+                                                                      //               var bucket = storage.bucket(storageId);
+                                                                      //               // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
+                                                                      //               var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
+                                                                      //               var bucketFile = bucket.file(filenameListing);    
+                                                                      //               bucketFile.save(Buffer.from(jsonData),{
+                                                                        //                 metadata: { 
+                                                                          //                   contentType: 'application/json', 
+                                                                          //                   public: true,
+                                                                          //                   validation: 'md5'
+                                                                          //                 },
+                                                                          //                 gzip: true,
+                                                                          //                 public: true
+                                                                          //               }, (err2) => {
+                                                                            //                 if (err2){
+                                                                              //                   console.error(err2);
+                                                                              //                 }
+                                                                              //                 var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                                              //               });
+
+
+                                                                              //             });
+                                                                              //           });
+
+                                                                              //         });
+
+                                                                              // });
+
+                                                                              // }
+                                                                              // else {
+                                                                                //   res.status(200).send('No Result');
+                                                                                // }
+                                                                                // }).catch((error) => {
+                                                                                  //   res.status(200).send(error);
+                                                                                  //   console.log(error);
+                                                                                  // });
+                                                                                  // })
+
+                                                                                  app.post('/export_house', (req, res) =>{
+                                                                                    const queryArray = ['property_type', '==', 'house']; 
+                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
+
+                                                                                      let jsonData = JSON.stringify(data, null, 4);
+
+                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+
+                                                                                      const bucket = storage.bucket(storageId)
+
+                                                                                      let filenameListing = 'listings_house.json';
+                                                                                      let bucketFile = bucket.file(filenameListing);    
+
+                                                                                      bucketFile.save(Buffer.from(jsonData),{
+                                                                                        metadata: { 
+                                                                                          contentType: 'application/json', 
+                                                                                          public: true,
+                                                                                          validation: 'md5'
+                                                                                        },
+                                                                                        gzip: true,
+                                                                                        public: true
+                                                                                      }, (err2) => {
+                                                                                        if (err2){
+                                                                                          console.error(err2);
+                                                                                        }
+
+                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                                                        res.status(200).send(listingUrl);
+
+                                                                                      });
+
+
+                                                                                    }).catch((error) => {
+                                                                                      console.error('error document');
+                                                                                      res.status(400).json(error);
+                                                                                    });
+                                                                                  })
+
+                                                                                  app.post('/export_land', (req, res) =>{
+                                                                                    const queryArray = ['property_type', '==', 'house']; 
+                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
+
+                                                                                      let jsonData = JSON.stringify(data, null, 4);
+
+                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+
+                                                                                      const bucket = storage.bucket(storageId)
+
+                                                                                      let filenameListing = 'listings_land.json';
+                                                                                      let bucketFile = bucket.file(filenameListing);    
+
+                                                                                      bucketFile.save(Buffer.from(jsonData),{
+                                                                                        metadata: { 
+                                                                                          contentType: 'application/json', 
+                                                                                          public: true,
+                                                                                          validation: 'md5'
+                                                                                        },
+                                                                                        gzip: true,
+                                                                                        public: true
+                                                                                      }, (err2) => {
+                                                                                        if (err2){
+                                                                                          console.error(err2);
+                                                                                        }
+
+                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                                                        res.status(200).send(listingUrl);
+
+                                                                                      });
+
+
+                                                                                    }).catch((error) => {
+                                                                                      console.error('error document');
+                                                                                      res.status(400).json(error);
+                                                                                    });
+                                                                                  })
+
+                                                                                  app.post('/export_apartment', (req, res) =>{
+                                                                                    const queryArray = ['property_type', '==', 'house']; 
+                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
+
+                                                                                      let jsonData = JSON.stringify(data, null, 4);
+
+                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+
+                                                                                      const bucket = storage.bucket(storageId)
+
+                                                                                      let filenameListing = 'listings_apartment.json';
+                                                                                      let bucketFile = bucket.file(filenameListing);    
+
+                                                                                      bucketFile.save(Buffer.from(jsonData),{
+                                                                                        metadata: { 
+                                                                                          contentType: 'application/json', 
+                                                                                          public: true,
+                                                                                          validation: 'md5'
+                                                                                        },
+                                                                                        gzip: true,
+                                                                                        public: true
+                                                                                      }, (err2) => {
+                                                                                        if (err2){
+                                                                                          console.error(err2);
+                                                                                        }
+
+                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                                                        res.status(200).send(listingUrl);
+
+                                                                                      });
+
+
+                                                                                    }).catch((error) => {
+                                                                                      console.error('error document');
+                                                                                      res.status(400).json(error);
+                                                                                    });
+                                                                                  })
+
+                                                                                  app.post('/export_commercial', (req, res) =>{
+                                                                                    const queryArray = ['property_type', '==', 'house']; 
+                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
+
+                                                                                      let jsonData = JSON.stringify(data, null, 4);
+
+                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+
+                                                                                      const bucket = storage.bucket(storageId)
+
+                                                                                      let filenameListing = 'listings_commercial.json';
+                                                                                      let bucketFile = bucket.file(filenameListing);    
+
+                                                                                      bucketFile.save(Buffer.from(jsonData),{
+                                                                                        metadata: { 
+                                                                                          contentType: 'application/json', 
+                                                                                          public: true,
+                                                                                          validation: 'md5'
+                                                                                        },
+                                                                                        gzip: true,
+                                                                                        public: true
+                                                                                      }, (err2) => {
+                                                                                        if (err2){
+                                                                                          console.error(err2);
+                                                                                        }
+
+                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
+                                                                                        res.status(200).send(listingUrl);
+
+                                                                                      });
+
+
+                                                                                    }).catch((error) => {
+                                                                                      console.error('error document');
+                                                                                      res.status(400).json(error);
+                                                                                    });
+                                                                                  })
+
+
+                                                                                  app.post('/check_link', (req, res) =>{
+                                                                                    const queryArray = ['link', '==', req.body.link]; 
+                                                                                    firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
+
+                                                                                      let result = Object.keys(response);
+
+                                                                                      if (result.length > 0 && result.length < 16){
+                                                                                        res.status(200).send(true);  
+                                                                                      }
+                                                                                      else{
+                                                                                        res.status(200).send(false);   
+                                                                                      }
+
+
+                                                                                    }).catch((error) => {
+                                                                                      console.error('error document');
+                                                                                      res.status(400).json(error);
+                                                                                    });
+                                                                                  })
+
+                                                                                  app.get('/indexing', async (req, res) => {
+
+                                                                                    const searchableAttributes = [
+                                                                                    'title',
+                                                                                    'description', 
+                                                                                    'price', 
+                                                                                    'province', 
+                                                                                    'property_type', 
+                                                                                    'listing_type', 
+                                                                                    'district', 
+                                                                                    'address', 
+                                                                                    'lat', 
+                                                                                    'lng', 
+                                                                                    'size', 
+                                                                                    'status',
+                                                                                    'created_date', 
+                                                                                    'bedrooms',
+                                                                                    'bathrooms',
+                                                                                    'id',
+                                                                                    'user_id',
+                                                                                    'property_id',
+                                                                                    '_geoloc'
+                                                                                    ];
+
+                                                                                    const attributesForFaceting = [
+                                                                                    'searchable(province)', 
+                                                                                    'searchable(title)',
+                                                                                    'searchable(description)', 
+                                                                                    'searchable(address)', 
+                                                                                    'searchable(property_type)', 
+                                                                                    'searchable(listing_type)', 
+                                                                                    'searchable(district)', 
+                                                                                    'searchable(price)', 
+                                                                                    'searchable(size)', 
+                                                                                    'searchable(status)',
+                                                                                    'searchable(_geoloc)'
+                                                                                    ];
+
+                                                                                    const attributesToRetrieve = [
+                                                                                    'province', 
+                                                                                    'title',
+                                                                                    'description', 
+                                                                                    'address', 
+                                                                                    'property_type', 
+                                                                                    'listing_type',
+                                                                                    'district', 
+                                                                                    'price', 
+                                                                                    'lat', 
+                                                                                    'lng', 
+                                                                                    'thumb', 
+                                                                                    'bedrooms',
+                                                                                    'bathrooms',
+                                                                                    'created_date', 
+                                                                                    'size', 
+                                                                                    'images', 
+                                                                                    'status',
+                                                                                    'id',
+                                                                                    'user_id',
+                                                                                    'property_id',
+                                                                                    '_geoloc'
+                                                                                    ];
+
+
+                                                                                    const indexSettings = {
+                                                                                      searchableAttributes: searchableAttributes,
+                                                                                      attributesForFaceting: attributesForFaceting,
+                                                                                      attributesToRetrieve: attributesToRetrieve,
+                                                                                      ranking: [],
+                                                                                    } as IndexSettings;
+
+                                                                                    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+                                                                                    let newestSetting = indexSettings;
+                                                                                    newestSetting.ranking = ['desc(created_date)', 'custom'];
+                                                                                    await newestIndex.setSettings(newestSetting);
+
+                                                                                    // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+                                                                                    // let oldestSetting = indexSettings;
+                                                                                    // oldestSetting.ranking = ['asc(created_date)', 'custom'];
+                                                                                    // await oldestIndex.setSettings(oldestSetting);
+
+                                                                                    // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+                                                                                    // let highestSetting = indexSettings;
+                                                                                    // highestSetting.ranking = ['desc(price)', 'custom'];
+                                                                                    // await highestIndex.setSettings(highestSetting);
+
+                                                                                    // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+                                                                                    // let cheapestSetting = indexSettings;
+                                                                                    // cheapestSetting.ranking = ['asc(price)', 'custom'];
+                                                                                    // await cheapestIndex.setSettings(cheapestSetting);
+
+                                                                                    res.status(200).send(true);  
+                                                                                  });
 // View all listings
 app.get('/listings', async (req, res) =>{
 
@@ -889,6 +1310,8 @@ app.get('/listings', async (req, res) =>{
   let max_price = req.query.max_price;
   let sort_by = req.query.sort_by ? req.query.sort_by : 'desc(created_date)';
   let page = req.query.page;
+  let latlng = req.query.latlng ? req.query.latlng : '';
+
 
   if (page == 1){
     page = 0;
@@ -928,6 +1351,11 @@ app.get('/listings', async (req, res) =>{
   if (min_price && max_price){
     filters.push('price:'+min_price+' TO '+max_price);
   }
+  if (latlng){
+    querySearch.aroundLatLng = latlng;
+    querySearch.aroundRadius = 10000 // 10km
+  }
+  
   
   querySearch.filters = filters.join(' AND ');
 
@@ -939,34 +1367,9 @@ app.get('/listings', async (req, res) =>{
       if (err) throw err;
       res.status(200).send(content);
     });
-  // }
-  // if (sort_by == 'oldest'){
-
-  //   const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  //   oldestIndex.search(querySearch, function (err, content) {
-  //     if (err) throw err;
-  //     res.status(200).send(content);
-  //   });
 
 
-  // }
-  // if (sort_by == 'highest'){
-  //   const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  //   highestIndex.search(querySearch, function (err, content) {
-  //     if (err) throw err;
-  //     res.status(200).send(content);
-  //   });
-  // }
-  // if (sort_by == 'lowest'){
-  //   const lowestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  //   lowestIndex.search(querySearch, function (err, content) {
-  //     if (err) throw err;
-  //     res.status(200).send(content);
-  //   });
-  // }
-
-
-})
+  })
 app.get('/backup', (req, res) => {
   var obj = {
     table: []
@@ -987,48 +1390,48 @@ app.delete('/delete', (req, res) => {
   // const oldestIndex = client.deleteIndex(ALGOLIA_CHEAPEST_INDEX, function(err, content) {
     // if (err) throw err;
     res.status(200).send('success');
-  // });
-})
+    // });
+  })
 
 
 // // Delete a listing 
 // app.delete('/listings/:listingId', async (req, res) => {
 
 
-//   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-//   newestIndex.deleteObject(req.params.listingId);
+  //   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  //   newestIndex.deleteObject(req.params.listingId);
 
-//   // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-//   // oldestIndex.deleteObject(req.params.listingId);
+  //   // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  //   // oldestIndex.deleteObject(req.params.listingId);
 
-//   // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-//   // highestIndex.deleteObject(req.params.listingId);
+  //   // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  //   // highestIndex.deleteObject(req.params.listingId);
 
-//   // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-//   // cheapestIndex.deleteObject(req.params.listingId);
+  //   // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  //   // cheapestIndex.deleteObject(req.params.listingId);
 
-//   res.json({'msg': 'listing deleted'});
-// })
-
-
+  //   res.json({'msg': 'listing deleted'});
+  // })
 
 
 
-// const app = require('express')();
-
-// app.use(require('cors')({origin: true}));
-
-// app.use(getFirebaseUser);
 
 
-// app.get('/', (req, res) => {
-  //   const params = {
-    //     filters: `author:${req.user.user_id}`,
-    //     userToken: req.user.user_id,
-    //   };
-    //   const key = client.generateSecuredApiKey(ALGOLIA_SEARCH_KEY, params);
-    //   res.json({key});
-    // });
+  // const app = require('express')();
 
-    // exports.getSearchKey = functions.https.onRequest(app);
+  // app.use(require('cors')({origin: true}));
+
+  // app.use(getFirebaseUser);
+
+
+  // app.get('/', (req, res) => {
+    //   const params = {
+      //     filters: `author:${req.user.user_id}`,
+      //     userToken: req.user.user_id,
+      //   };
+      //   const key = client.generateSecuredApiKey(ALGOLIA_SEARCH_KEY, params);
+      //   res.json({key});
+      // });
+
+      // exports.getSearchKey = functions.https.onRequest(app);
 

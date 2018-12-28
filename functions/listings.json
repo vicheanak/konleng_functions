@@ -1,0 +1,179 @@
+{
+    "counts": {
+        "banteay-meanchey": {
+            "sale": 13,
+            "text": "Banteay Meanchey",
+            "rank": 6,
+            "rent": 1,
+            "id": "banteay-meanchey"
+        },
+        "battambang": {
+            "sale": 55,
+            "text": "Battambang",
+            "rank": 4,
+            "rent": 5,
+            "id": "battambang"
+        },
+        "kampong-cham": {
+            "rank": 2,
+            "rent": 5,
+            "id": "kampong-cham",
+            "sale": 22,
+            "text": "Kampong Cham"
+        },
+        "kampong-chhnang": {
+            "rank": 7,
+            "rent": 2,
+            "id": "kampong-chhnang",
+            "sale": 26,
+            "text": "Kampong Chhnang"
+        },
+        "kampong-speu": {
+            "rank": 8,
+            "rent": 8,
+            "id": "kampong-speu",
+            "sale": 138,
+            "text": "Kampong Speu"
+        },
+        "kampong-thom": {
+            "rank": 9,
+            "rent": 0,
+            "id": "kampong-thom",
+            "sale": 16,
+            "text": "Kampong Thom"
+        },
+        "kampot": {
+            "rank": 10,
+            "rent": 5,
+            "id": "kampot",
+            "sale": 130,
+            "text": "Kampot"
+        },
+        "kandal": {
+            "sale": 392,
+            "text": "Kandal",
+            "rank": 5,
+            "rent": 29,
+            "id": "kandal"
+        },
+        "kep": {
+            "sale": 25,
+            "text": "Kep",
+            "rank": 11,
+            "rent": 3,
+            "id": "kep"
+        },
+        "koh-kong": {
+            "sale": 7,
+            "text": "Koh Kong",
+            "rank": 12,
+            "rent": 2,
+            "id": "koh-kong"
+        },
+        "kratie": {
+            "sale": 1,
+            "text": "Kratie",
+            "rank": 13,
+            "rent": 0,
+            "id": "kratie"
+        },
+        "mondulkiri": {
+            "rank": 14,
+            "rent": 0,
+            "id": "mondulkiri",
+            "sale": 3,
+            "text": "Mondulkiri"
+        },
+        "oddar-meanchey": {
+            "rank": 15,
+            "rent": 0,
+            "id": "oddar-meanchey",
+            "sale": 0,
+            "text": "Otdar Meanchey"
+        },
+        "pailin": {
+            "sale": 3,
+            "text": "Pailin",
+            "rank": 16,
+            "rent": 1,
+            "id": "pailin"
+        },
+        "phnom-penh": {
+            "rank": 0,
+            "rent": 3763,
+            "id": "phnom-penh",
+            "sale": 4117,
+            "text": "Phnom Penh"
+        },
+        "preah-sihanouk": {
+            "rank": 1,
+            "rent": 56,
+            "id": "preah-sihanouk",
+            "sale": 188,
+            "text": "Preah Sihanouk"
+        },
+        "preah-vihear": {
+            "sale": 1,
+            "text": "Preah Vihear",
+            "rank": 17,
+            "rent": 0,
+            "id": "preah-vihear"
+        },
+        "prey-veng": {
+            "rank": 18,
+            "rent": 0,
+            "id": "prey-veng",
+            "sale": 11,
+            "text": "Prey Veng"
+        },
+        "pursat": {
+            "sale": 16,
+            "text": "Pursat",
+            "rank": 19,
+            "rent": 0,
+            "id": "pursat"
+        },
+        "ratanakiri": {
+            "rank": 20,
+            "rent": 1,
+            "id": "ratanakiri",
+            "sale": 4,
+            "text": "Ratanakiri"
+        },
+        "siem-reap": {
+            "rank": 3,
+            "rent": 247,
+            "id": "siem-reap",
+            "sale": 412,
+            "text": "Siem Reap"
+        },
+        "stung-treng": {
+            "sale": 10,
+            "text": "Stung Treng",
+            "rank": 21,
+            "rent": 0,
+            "id": "stung-treng"
+        },
+        "svay-rieng": {
+            "sale": 14,
+            "text": "Svay Rieng",
+            "rank": 22,
+            "rent": 2,
+            "id": "svay-rieng"
+        },
+        "takeo": {
+            "rank": 23,
+            "rent": 1,
+            "id": "takeo",
+            "sale": 16,
+            "text": "Takeo"
+        },
+        "tboung-khmum": {
+            "sale": 22,
+            "text": "Tboung Khmum",
+            "rank": 24,
+            "rent": 0,
+            "id": "tboung-khmum"
+        }
+    }
+}
