@@ -797,506 +797,253 @@ function httpGetImport(url, callback) {
   });
 }
 
-// app.post('/import', (req, response) =>{
-
-
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_0_900.json';
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_900_1800.json';
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_1800_2700.json';
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_2700_3600.json';
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_3600_4500.json';
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_4500_5400.json';
-  //   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_5400_6300.json';
-
-  //   let urls = [
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/banteay-meanchey.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/battambang.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-cham.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-chhnang.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-speu.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kampot.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kandal.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/kep.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/preah-sihanouk.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/pursat.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/siem-reap.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/svay-rieng.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/takeo.json',
-  //   'https://storage.googleapis.com/konleng-cloud.appspot.com/tboung-khmum.json'];
-  //   let urls = [];
-
-
-  //   async.map(urls, httpGetImport, (err, body) => {
-    //     if (err){
-      //       response.send(err);
-      //     }
-      //     response.send('SUCCESS')
-      //   });
-
-      //   // let request = require('request').defaults({ encoding: null });
-
-      //   // request(url, (err, res, body) => {
-        //     //   let data = JSON.parse(body.toString());
-        //     //   let objectIds = Object.keys(data);
-        //     //   let batchActions = [];
-        //     //   for (let objectId of objectIds){
-          //       //     if (data[objectId]['lat'] && data[objectId]['lng']){
-            //         //       batchActions.push({
-              //           //         "action": 'partialUpdateObjectNoCreate',
-              //           //         "indexName": ALGOLIA_NEWEST_INDEX,
-              //           //         "body": {
-                //             //           "objectID": objectId,
-                //             //           "_geoloc": {
-                  //               //             "lat": parseFloat(data[objectId]['lat']),
-                  //               //             "lng": parseFloat(data[objectId]['lng'])
-                  //               //           }
-                  //               //         }
-                  //               //       })
-                  //               //     }
-                  //               //   }
-                  //               //   // let keys = Object.keys(body);
-                  //               //   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-                  //               //   client.batch(batchActions, (err, content) => {
-                    //                 //     response.send('SUCCESS');
-                    //                 //   });
-
-                    //                 // })
-                    //               });
-
-
-                    // app.post('/export', (req, res) =>{
-                      //   const dataRef = db.collection('listings');
-
-                      //   const province = req.body['province'];
-
-                      //   let queryRef = dataRef.where('province', '==', province);
-
-                      //   queryRef = queryRef.orderBy('created_date', 'desc');
-
-                      //   const results = {};
-                      //   const sliceResults = {};
-                      //   let size = 0;
-                      //   let keys:any;
-                      //   queryRef.get()
-                      //   .then(snapshot => {
-                        //     snapshot.forEach(doc => {
-                          //       results[doc.id] = doc.data();
-                          //     });
-                          //     if (Object.keys(results).length > 0) {
-                            //       keys = Object.keys(results);
-                            //       size = keys.length
-
-                            //       var startIndex = 1800;
-                            //       var endIndex = 2700;
-                            //       var slice = keys.slice(startIndex, endIndex);
-                            //       for (var i = 0; i < slice.length; i ++){
-                              //         sliceResults[slice[i]] = results[slice[i]];
-                              //       }
-                              //       var jsonData = JSON.stringify(sliceResults, null, 4);
-                              //       var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-                              //       var bucket = storage.bucket(storageId);
-                              //       // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
-                              //       var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
-                              //       var bucketFile = bucket.file(filenameListing);    
-                              //       bucketFile.save(Buffer.from(jsonData),{
-                                //         metadata: { 
-                                  //           contentType: 'application/json', 
-                                  //           public: true,
-                                  //           validation: 'md5'
-                                  //         },
-                                  //         gzip: true,
-                                  //         public: true
-                                  //       }, (err2) => {
-                                    //         if (err2){
-                                      //           console.error(err2);
-                                      //         }
-                                      //         var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-
-                                      //         var startIndex = 2700;
-                                      //         var endIndex = 3600;
-                                      //         var slice = keys.slice(startIndex, endIndex);
-                                      //         for (var i = 0; i < slice.length; i ++){
-                                        //           sliceResults[slice[i]] = results[slice[i]];
-                                        //         }
-                                        //         var jsonData = JSON.stringify(sliceResults, null, 4);
-                                        //         var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-                                        //         var bucket = storage.bucket(storageId);
-                                        //         // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
-                                        //         var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
-                                        //         var bucketFile = bucket.file(filenameListing);    
-                                        //         bucketFile.save(Buffer.from(jsonData),{
-                                          //           metadata: { 
-                                            //             contentType: 'application/json', 
-                                            //             public: true,
-                                            //             validation: 'md5'
-                                            //           },
-                                            //           gzip: true,
-                                            //           public: true
-                                            //         }, (err2) => {
-                                              //           if (err2){
-                                                //             console.error(err2);
-                                                //           }
-                                                //           var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                //           var startIndex = 3600;
-                                                //           var endIndex = 4500;
-                                                //           var slice = keys.slice(startIndex, endIndex);
-                                                //           for (var i = 0; i < slice.length; i ++){
-                                                  //             sliceResults[slice[i]] = results[slice[i]];
-                                                  //           }
-                                                  //           var jsonData = JSON.stringify(sliceResults, null, 4);
-                                                  //           var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-                                                  //           var bucket = storage.bucket(storageId);
-                                                  //           // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
-                                                  //           var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
-                                                  //           var bucketFile = bucket.file(filenameListing);    
-                                                  //           bucketFile.save(Buffer.from(jsonData),{
-                                                    //             metadata: { 
-                                                      //               contentType: 'application/json', 
-                                                      //               public: true,
-                                                      //               validation: 'md5'
-                                                      //             },
-                                                      //             gzip: true,
-                                                      //             public: true
-                                                      //           }, (err2) => {
-                                                        //             if (err2){
-                                                          //               console.error(err2);
-                                                          //             }
-                                                          //             var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                          //             var startIndex = 4500;
-                                                          //             var endIndex = 5400;
-                                                          //             var slice = keys.slice(startIndex, endIndex);
-                                                          //             for (var i = 0; i < slice.length; i ++){
-                                                            //               sliceResults[slice[i]] = results[slice[i]];
-                                                            //             }
-                                                            //             var jsonData = JSON.stringify(sliceResults, null, 4);
-                                                            //             var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-                                                            //             var bucket = storage.bucket(storageId);
-                                                            //             // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
-                                                            //             var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
-                                                            //             var bucketFile = bucket.file(filenameListing);    
-                                                            //             bucketFile.save(Buffer.from(jsonData),{
-                                                              //               metadata: { 
-                                                                //                 contentType: 'application/json', 
-                                                                //                 public: true,
-                                                                //                 validation: 'md5'
-                                                                //               },
-                                                                //               gzip: true,
-                                                                //               public: true
-                                                                //             }, (err2) => {
-                                                                  //               if (err2){
-                                                                    //                 console.error(err2);
-                                                                    //               }
-                                                                    //               var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                                    //               var startIndex = 5400;
-                                                                    //               var endIndex = 6300;
-                                                                    //               var slice = keys.slice(startIndex, endIndex);
-                                                                    //               for (var i = 0; i < slice.length; i ++){
-                                                                      //                 sliceResults[slice[i]] = results[slice[i]];
-                                                                      //               }
-                                                                      //               var jsonData = JSON.stringify(sliceResults, null, 4);
-                                                                      //               var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-                                                                      //               var bucket = storage.bucket(storageId);
-                                                                      //               // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
-                                                                      //               var filenameListing = province+'_'+startIndex+'_'+endIndex+'.json';
-                                                                      //               var bucketFile = bucket.file(filenameListing);    
-                                                                      //               bucketFile.save(Buffer.from(jsonData),{
-                                                                        //                 metadata: { 
-                                                                          //                   contentType: 'application/json', 
-                                                                          //                   public: true,
-                                                                          //                   validation: 'md5'
-                                                                          //                 },
-                                                                          //                 gzip: true,
-                                                                          //                 public: true
-                                                                          //               }, (err2) => {
-                                                                            //                 if (err2){
-                                                                              //                   console.error(err2);
-                                                                              //                 }
-                                                                              //                 var listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                                              //               });
-
-
-                                                                              //             });
-                                                                              //           });
-
-                                                                              //         });
-
-                                                                              // });
-
-                                                                              // }
-                                                                              // else {
-                                                                                //   res.status(200).send('No Result');
-                                                                                // }
-                                                                                // }).catch((error) => {
-                                                                                  //   res.status(200).send(error);
-                                                                                  //   console.log(error);
-                                                                                  // });
-                                                                                  // })
-
-                                                                                  app.post('/export_house', (req, res) =>{
-                                                                                    const queryArray = ['property_type', '==', 'house']; 
-                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
-
-                                                                                      let jsonData = JSON.stringify(data, null, 4);
-
-                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-
-                                                                                      const bucket = storage.bucket(storageId)
-
-                                                                                      let filenameListing = 'listings_house.json';
-                                                                                      let bucketFile = bucket.file(filenameListing);    
-
-                                                                                      bucketFile.save(Buffer.from(jsonData),{
-                                                                                        metadata: { 
-                                                                                          contentType: 'application/json', 
-                                                                                          public: true,
-                                                                                          validation: 'md5'
-                                                                                        },
-                                                                                        gzip: true,
-                                                                                        public: true
-                                                                                      }, (err2) => {
-                                                                                        if (err2){
-                                                                                          console.error(err2);
-                                                                                        }
-
-                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                                                        res.status(200).send(listingUrl);
-
-                                                                                      });
-
-
-                                                                                    }).catch((error) => {
-                                                                                      console.error('error document');
-                                                                                      res.status(400).json(error);
-                                                                                    });
-                                                                                  })
-
-                                                                                  app.post('/export_land', (req, res) =>{
-                                                                                    const queryArray = ['property_type', '==', 'house']; 
-                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
-
-                                                                                      let jsonData = JSON.stringify(data, null, 4);
-
-                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-
-                                                                                      const bucket = storage.bucket(storageId)
-
-                                                                                      let filenameListing = 'listings_land.json';
-                                                                                      let bucketFile = bucket.file(filenameListing);    
-
-                                                                                      bucketFile.save(Buffer.from(jsonData),{
-                                                                                        metadata: { 
-                                                                                          contentType: 'application/json', 
-                                                                                          public: true,
-                                                                                          validation: 'md5'
-                                                                                        },
-                                                                                        gzip: true,
-                                                                                        public: true
-                                                                                      }, (err2) => {
-                                                                                        if (err2){
-                                                                                          console.error(err2);
-                                                                                        }
-
-                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                                                        res.status(200).send(listingUrl);
-
-                                                                                      });
-
-
-                                                                                    }).catch((error) => {
-                                                                                      console.error('error document');
-                                                                                      res.status(400).json(error);
-                                                                                    });
-                                                                                  })
-
-                                                                                  app.post('/export_apartment', (req, res) =>{
-                                                                                    const queryArray = ['property_type', '==', 'house']; 
-                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
-
-                                                                                      let jsonData = JSON.stringify(data, null, 4);
-
-                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-
-                                                                                      const bucket = storage.bucket(storageId)
-
-                                                                                      let filenameListing = 'listings_apartment.json';
-                                                                                      let bucketFile = bucket.file(filenameListing);    
-
-                                                                                      bucketFile.save(Buffer.from(jsonData),{
-                                                                                        metadata: { 
-                                                                                          contentType: 'application/json', 
-                                                                                          public: true,
-                                                                                          validation: 'md5'
-                                                                                        },
-                                                                                        gzip: true,
-                                                                                        public: true
-                                                                                      }, (err2) => {
-                                                                                        if (err2){
-                                                                                          console.error(err2);
-                                                                                        }
-
-                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                                                        res.status(200).send(listingUrl);
-
-                                                                                      });
-
-
-                                                                                    }).catch((error) => {
-                                                                                      console.error('error document');
-                                                                                      res.status(400).json(error);
-                                                                                    });
-                                                                                  })
-
-                                                                                  app.post('/export_commercial', (req, res) =>{
-                                                                                    const queryArray = ['property_type', '==', 'house']; 
-                                                                                    firebaseHelper.firestore.queryData(db, 'listings', queryArray).then((data) => {
-
-                                                                                      let jsonData = JSON.stringify(data, null, 4);
-
-                                                                                      const storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
-
-                                                                                      const bucket = storage.bucket(storageId)
-
-                                                                                      let filenameListing = 'listings_commercial.json';
-                                                                                      let bucketFile = bucket.file(filenameListing);    
-
-                                                                                      bucketFile.save(Buffer.from(jsonData),{
-                                                                                        metadata: { 
-                                                                                          contentType: 'application/json', 
-                                                                                          public: true,
-                                                                                          validation: 'md5'
-                                                                                        },
-                                                                                        gzip: true,
-                                                                                        public: true
-                                                                                      }, (err2) => {
-                                                                                        if (err2){
-                                                                                          console.error(err2);
-                                                                                        }
-
-                                                                                        let listingUrl = `https://storage.googleapis.com/${storageId}/${filenameListing}`;
-                                                                                        res.status(200).send(listingUrl);
-
-                                                                                      });
-
-
-                                                                                    }).catch((error) => {
-                                                                                      console.error('error document');
-                                                                                      res.status(400).json(error);
-                                                                                    });
-                                                                                  })
-
-
-                                                                                  app.post('/check_link', (req, res) =>{
-                                                                                    const queryArray = ['link', '==', req.body.link]; 
-                                                                                    firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
-
-                                                                                      let result = Object.keys(response);
-
-                                                                                      if (result.length > 0 && result.length < 16){
-                                                                                        res.status(200).send(true);  
-                                                                                      }
-                                                                                      else{
-                                                                                        res.status(200).send(false);   
-                                                                                      }
-
-
-                                                                                    }).catch((error) => {
-                                                                                      console.error('error document');
-                                                                                      res.status(400).json(error);
-                                                                                    });
-                                                                                  })
-
-                                                                                  app.get('/indexing', async (req, res) => {
-
-                                                                                    const searchableAttributes = [
-                                                                                    'title',
-                                                                                    'description', 
-                                                                                    'price', 
-                                                                                    'province', 
-                                                                                    'property_type', 
-                                                                                    'listing_type', 
-                                                                                    'district', 
-                                                                                    'address', 
-                                                                                    'lat', 
-                                                                                    'lng', 
-                                                                                    'size', 
-                                                                                    'status',
-                                                                                    'created_date', 
-                                                                                    'bedrooms',
-                                                                                    'bathrooms',
-                                                                                    'id',
-                                                                                    'user_id',
-                                                                                    'property_id',
-                                                                                    '_geoloc'
-                                                                                    ];
-
-                                                                                    const attributesForFaceting = [
-                                                                                    'searchable(province)', 
-                                                                                    'searchable(title)',
-                                                                                    'searchable(description)', 
-                                                                                    'searchable(address)', 
-                                                                                    'searchable(property_type)', 
-                                                                                    'searchable(listing_type)', 
-                                                                                    'searchable(district)', 
-                                                                                    'searchable(price)', 
-                                                                                    'searchable(size)', 
-                                                                                    'searchable(status)',
-                                                                                    'searchable(_geoloc)'
-                                                                                    ];
-
-                                                                                    const attributesToRetrieve = [
-                                                                                    'province', 
-                                                                                    'title',
-                                                                                    'description', 
-                                                                                    'address', 
-                                                                                    'property_type', 
-                                                                                    'listing_type',
-                                                                                    'district', 
-                                                                                    'price', 
-                                                                                    'lat', 
-                                                                                    'lng', 
-                                                                                    'thumb', 
-                                                                                    'bedrooms',
-                                                                                    'bathrooms',
-                                                                                    'created_date', 
-                                                                                    'size', 
-                                                                                    'images', 
-                                                                                    'status',
-                                                                                    'id',
-                                                                                    'user_id',
-                                                                                    'property_id',
-                                                                                    '_geoloc'
-                                                                                    ];
-
-
-                                                                                    const indexSettings = {
-                                                                                      searchableAttributes: searchableAttributes,
-                                                                                      attributesForFaceting: attributesForFaceting,
-                                                                                      attributesToRetrieve: attributesToRetrieve,
-                                                                                      ranking: [],
-                                                                                    } as IndexSettings;
-
-                                                                                    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-                                                                                    let newestSetting = indexSettings;
-                                                                                    newestSetting.ranking = ['desc(created_date)', 'custom'];
-                                                                                    await newestIndex.setSettings(newestSetting);
-
-                                                                                    // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-                                                                                    // let oldestSetting = indexSettings;
-                                                                                    // oldestSetting.ranking = ['asc(created_date)', 'custom'];
-                                                                                    // await oldestIndex.setSettings(oldestSetting);
-
-                                                                                    // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-                                                                                    // let highestSetting = indexSettings;
-                                                                                    // highestSetting.ranking = ['desc(price)', 'custom'];
-                                                                                    // await highestIndex.setSettings(highestSetting);
-
-                                                                                    // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-                                                                                    // let cheapestSetting = indexSettings;
-                                                                                    // cheapestSetting.ranking = ['asc(price)', 'custom'];
-                                                                                    // await cheapestIndex.setSettings(cheapestSetting);
-
-                                                                                    res.status(200).send(true);  
-                                                                                  });
+app.post('/import', (req, response) =>{
+
+
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_0_900.json';
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_900_1800.json';
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_1800_2700.json';
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_2700_3600.json';
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_3600_4500.json';
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_4500_5400.json';
+  // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_5400_6300.json';
+
+  var urls = [
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/banteay-meanchey.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/battambang.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-cham.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-chhnang.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/kampong-speu.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/kampot.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/kandal.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/kep.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/preah-sihanouk.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/pursat.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/siem-reap.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/svay-rieng.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/takeo.json',
+  'https://storage.googleapis.com/konleng-cloud.appspot.com/tboung-khmum.json'];
+
+  var urls = [
+       "https://storage.googleapis.com/konleng-cloud.appspot.com/room_.json?GoogleAccessId=konleng-cloud%40konleng-cloud.iam.gserviceaccount.com&Expires=16446992400&Signature=mpuFaxLJZRFopHBIUS0LirtvIMqDfng9DBOIjVIGwEs29qGuI%2F6NQpt2H58m0ndvyi4wvrxuUlAbhoipMiJFMEBnIGc291GXJqLYqsz%2FtKlhdxxNYc14A1lVmBtaP4D83XN8iAwXRfi98yVQGvscMeJ17%2FywalV3wPJW4fvwiwKikXNvKKAfScoZ5kgK0FacHeO6xsv0W5x1sDqqZqmI%2FqzUVcmHjM4039zReCpYmsCl9h4g4rqiYXxsxNl5xSlWL9P2h0yaJScukPagWJNndr2eK3QNKiXxClfIGMeHGksLQLN610pCjBFq6K6Y%2BMKiHSYIh3vuZKpLErz2VFy7Ng%3D%3D"
+  ]
+
+
+  async.map(urls, httpGetImport, (err, body) => {
+    if (err){
+      response.send(err);
+    }
+    response.send('SUCCESS')
+  });
+
+  // let request = require('request').defaults({ encoding: null });
+
+  // request(url, (err, res, body) => {
+    //   let data = JSON.parse(body.toString());
+    //   let objectIds = Object.keys(data);
+    //   let batchActions = [];
+    //   for (let objectId of objectIds){
+      //     if (data[objectId]['lat'] && data[objectId]['lng']){
+        //       batchActions.push({
+          //         "action": 'partialUpdateObjectNoCreate',
+          //         "indexName": ALGOLIA_NEWEST_INDEX,
+          //         "body": {
+            //           "objectID": objectId,
+            //           "_geoloc": {
+              //             "lat": parseFloat(data[objectId]['lat']),
+              //             "lng": parseFloat(data[objectId]['lng'])
+              //           }
+              //         }
+              //       })
+              //     }
+              //   }
+              //   // let keys = Object.keys(body);
+              //   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+              //   client.batch(batchActions, (err, content) => {
+                //     response.send('SUCCESS');
+                //   });
+
+                // })
+              });
+
+app.post('/export', (req, res) =>{
+  const dataRef = db.collection('listings');
+
+  // const province = req.body['province'];
+
+  const property_type = 'room';
+  const listing_type = '';
+  let queryRef = dataRef.where('property_type', '==', property_type);
+  // queryRef = queryRef.where('listing_type', '==', listing_type);
+  // queryRef = queryRef.orderBy('created_date', 'desc');
+
+  const results = {};
+  const sliceResults = {};
+  let size = 0;
+  let keys:any;
+  queryRef.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      results[doc.id] = doc.data();
+    });
+    if (Object.keys(results).length > 0) {
+      keys = Object.keys(results);
+      size = keys.length
+
+      // var startIndex = 1800;
+      // var endIndex = 2700;
+      // var slice = keys.slice(startIndex, endIndex);
+      // for (var i = 0; i < slice.length; i ++){
+      //   sliceResults[slice[i]] = results[slice[i]];
+      // }
+
+      var jsonData = JSON.stringify(results, null, 4);
+      var storageId = functions.config().google ? functions.config().google.storage_id : process.env.google_storage_id
+      var bucket = storage.bucket(storageId);
+      // var filenameListing = listing_type+'_'+property_type+'_'+province+startIndex+'-'+endIndex+'.json';
+      var filenameListing = property_type+'_'+listing_type+'.json';
+      var bucketFile = bucket.file(filenameListing);    
+      bucketFile.save(Buffer.from(jsonData),{
+        metadata: { 
+          contentType: 'application/json', 
+          public: true
+        },
+        gzip: true,
+        public: true
+      }, (err2) => {
+        bucketFile.getSignedUrl({
+            action: 'read',
+            expires: new Date('03-09-2491').getTime()
+        }).then((url) => {
+          res.status(200).send(url);
+        })
+        
+
+      });
+
+    }
+    else {
+      res.status(200).send('No Result');
+    }
+  }).catch((error) => {
+    res.status(200).send(error);
+    console.log(error);
+  });
+})
+
+
+app.post('/check_link', (req, res) =>{
+  const queryArray = ['link', '==', req.body.link]; 
+  firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
+
+    let result = Object.keys(response);
+
+    if (result.length > 0 && result.length < 16){
+      res.status(200).send(true);  
+    }
+    else{
+      res.status(200).send(false);   
+    }
+
+
+  }).catch((error) => {
+    console.error('error document');
+    res.status(400).json(error);
+  });
+})
+
+app.get('/indexing', async (req, res) => {
+
+  const searchableAttributes = [
+  'title',
+  'description', 
+  'price', 
+  'province', 
+  'property_type', 
+  'listing_type', 
+  'district', 
+  'address', 
+  'lat', 
+  'lng', 
+  'size', 
+  'status',
+  'created_date', 
+  'bedrooms',
+  'bathrooms',
+  'id',
+  'user_id',
+  'property_id',
+  '_geoloc'
+  ];
+
+  const attributesForFaceting = [
+  'searchable(province)', 
+  'searchable(title)',
+  'searchable(description)', 
+  'searchable(address)', 
+  'searchable(property_type)', 
+  'searchable(listing_type)', 
+  'searchable(district)', 
+  'searchable(price)', 
+  'searchable(size)', 
+  'searchable(status)',
+  'searchable(_geoloc)'
+  ];
+
+  const attributesToRetrieve = [
+  'province', 
+  'title',
+  'description', 
+  'address', 
+  'property_type', 
+  'listing_type',
+  'district', 
+  'price', 
+  'lat', 
+  'lng', 
+  'thumb', 
+  'bedrooms',
+  'bathrooms',
+  'created_date', 
+  'size', 
+  'images', 
+  'status',
+  'id',
+  'user_id',
+  'property_id',
+  '_geoloc'
+  ];
+
+
+  const indexSettings = {
+    searchableAttributes: searchableAttributes,
+    attributesForFaceting: attributesForFaceting,
+    attributesToRetrieve: attributesToRetrieve,
+    ranking: [],
+  } as IndexSettings;
+
+  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  let newestSetting = indexSettings;
+  newestSetting.ranking = ['desc(created_date)', 'custom'];
+  await newestIndex.setSettings(newestSetting);
+
+  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
+  // let oldestSetting = indexSettings;
+  // oldestSetting.ranking = ['asc(created_date)', 'custom'];
+  // await oldestIndex.setSettings(oldestSetting);
+
+  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
+  // let highestSetting = indexSettings;
+  // highestSetting.ranking = ['desc(price)', 'custom'];
+  // await highestIndex.setSettings(highestSetting);
+
+  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
+  // let cheapestSetting = indexSettings;
+  // cheapestSetting.ranking = ['asc(price)', 'custom'];
+  // await cheapestIndex.setSettings(cheapestSetting);
+
+  res.status(200).send(true);  
+});
 // View all listings
 app.get('/listings', async (req, res) =>{
 
