@@ -102,6 +102,12 @@ exports.onListingUpdated = functions.firestore.document('listings/{listingId}').
   const listing = snap.after.data();
 
   listing.objectID = context.params.listingId;
+  listing._geoloc = {
+    lat: listing.lat,
+    lng: listing.lng
+  }
+
+  console.log('LISTING ===> ', listing);
 
   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
   await newestIndex.saveObject(listing);
@@ -764,6 +770,30 @@ app.get('/listings/:listingId', (req, res) => {
 })
 
 
+// View a listing
+app.get('/devices', (req, res) => {
+ const dataRef = db.collection('devices');
+
+  // const province = req.body['province'];
+
+  
+  // let queryRef = dataRef.where('property_type', '==', property_type);
+  // queryRef = queryRef.where('listing_type', '==', listing_type);
+  // queryRef = queryRef.orderBy('created_date', 'desc');
+// res.send("HELLO");
+  let results = [];
+
+  dataRef.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      results[doc.id] = doc.data();
+      console.log(doc.id);
+    });
+    console.log(Object.keys(results).length);
+    res.send(Object.keys(results).length.toString());
+  });
+})
+
 function httpGetImport(url, callback) {
 
   let request = require('request').defaults({ encoding: null });
@@ -1067,7 +1097,7 @@ app.get('/listings', async (req, res) =>{
   let querySearch: QueryParameters = {
     query: '',
     filters: '',
-    hitsPerPage: 500,
+    hitsPerPage: 200,
     page: page
   };
   if (query){

@@ -833,7 +833,9 @@ module.exports.metadata =
     "cordova-universal-links-plugin": "1.2.1",
     "es6-promise-plugin": "4.2.2",
     "info.protonet.imageresizer": "0.1.1",
-    "mx.ferreyra.callnumber": "0.0.2"
+    "mx.ferreyra.callnumber": "0.0.2",
+    "cordova.plugins.diagnostic": "4.0.10",
+    "cordova-plugin-geolocation": "4.0.1"
 }
 // BOTTOM OF METADATA
 });
