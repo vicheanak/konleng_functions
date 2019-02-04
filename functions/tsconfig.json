@@ -9,9 +9,9 @@
     "resolveJsonModule": true
   },
   "compileOnSave": true,
-  // "compilerOptions": {
-  //   "watch": true
-  // },
+  "compilerOptions": {
+    "watch": true
+  },
   "include": [
     "index.ts"
   ],

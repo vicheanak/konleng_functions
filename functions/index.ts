@@ -75,6 +75,7 @@ db.settings({ timestampsInSnapshots: true });
 const app = express();
 const main = express();
 const listingsCollection = "listings";
+const usersCollection = "users";
 
 // [START init_algolia]
 // Initialize Algolia, requires installing Algolia dependencies:
@@ -112,14 +113,6 @@ exports.onListingUpdated = functions.firestore.document('listings/{listingId}').
   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
   await newestIndex.saveObject(listing);
 
-  // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  // await oldestIndex.saveObject(listing);
-
-  // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  // await highestIndex.saveObject(listing);
-
-  // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  // await cheapestIndex.saveObject(listing);
 
   return true;
 });
@@ -128,26 +121,11 @@ exports.onListingUpdated = functions.firestore.document('listings/{listingId}').
 exports.onListingDeleted = functions.firestore.document('listings/{listingId}').onDelete(async (snap, context) => {
   const listing = snap.data();
   listing.objectID = context.params.listingId;
-  // const queryArray = ['link', '==', snap.data().link]; 
-  // await firebaseHelper.firestore.queryData(db, 'links', queryArray).then((response) => {
-    //   let result = Object.keys(response);
-    
-    //   firebaseHelper.firestore.deleteDocument(db, listingsCollection, result[0]);
-    // }).catch((error) => {
-      //   console.error('error document');
-      // });
+ 
 
       const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
       await newestIndex.deleteObject(listing.objectID);
 
-      // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-      // await oldestIndex.deleteObject(context.params.listingId);
-
-      // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-      // await highestIndex.deleteObject(context.params.listingId);
-
-      // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-      // await cheapestIndex.deleteObject(context.params.listingId);
 
       return true;
 
@@ -220,7 +198,9 @@ async function generateToken(req, res, next){
 
 async function getUserByEmail(req, res, next){
   try{
-    admin.auth().getUserByEmail(req.body.email)
+    console.log(req.body.email)
+    let userEmail = req.body.email ? req.body.email : req.params.email
+    admin.auth().getUserByEmail(userEmail)
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       
@@ -245,12 +225,11 @@ async function getUserByEmail(req, res, next){
 async function createUser(req, res, next){
   if (!req.user){
     try{
-
       if (req.body.email){
         admin.auth().createUser({
           email: req.body.email,
           emailVerified: true,
-          password: Math.random().toString(36).slice(-8),
+          password: req.body.password,
           displayName: req.body.displayName,
           photoURL: "http://konleng.com/assets/imgs/appicon.png",
           disabled: false
@@ -426,7 +405,7 @@ main.use(bodyParser.urlencoded({ extended: false }));
 exports.webApi = functions.https.onRequest(main);
 
 
-app.get('/users/:email', getUserByEmail, (req, res) => {
+app.get('/users_by_email/:email', getUserByEmail, (req, res) => {
   res.json(req['user']);
 })
 
@@ -569,14 +548,12 @@ function httpSaveImage(listing, key, callback){
       return new Promise((resolve, reject) =>{
         let request = require('request').defaults({ encoding: null });
         request(url, (err, res, body) => {
-
           resolve(body);  
         });  
       });
-
     }
     // Add new listing
-    app.post('/listings', getUserByEmail, createUser, addCount, async (req, res) => {
+    app.post('/crawl_listings', getUserByEmail, createUser, addCount, async (req, res) => {
       // app.post('/listings', async (req, res) => {
         let listingUuid = uuid();
 
@@ -679,15 +656,6 @@ function httpSaveImage(listing, key, callback){
                       const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
                       await newestIndex.saveObject(listing);
 
-                      //   const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-                      //   await oldestIndex.saveObject(listing);
-
-                      // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-                      //   await highestIndex.saveObject(listing);
-
-                      // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-                      //   await cheapestIndex.saveObject(listing);
-
                       res.status(200).send(listing);
 
 
@@ -705,11 +673,90 @@ function httpSaveImage(listing, key, callback){
                   res.status(400).send("ERROR CREATE IMAGE");
                 }
               });
-}
-});
+            }
+          });
 
 
 }
+})
+
+app.post('/listings', addCount, async (req, res) => {
+
+  let listing = {
+    address: req.body.address ? req.body['address'] : '',
+    air_conditioning: req.body.air_conditioning ? req.body['air_conditioning'] : false,
+    balcony: req.body.balcony ? req.body['balcony'] : false,
+    bathrooms: req.body.bathrooms ? parseFloat(req.body['bathrooms']) : '',
+    bedrooms: req.body.bedrooms ? parseFloat(req.body['bedrooms']) : '',
+    car_parking: req.body.car_parking ? req.body['car_parking'] : false,
+    commune: req.body.commune ? req.body['commune'] : '',
+    description: req.body.description ? req.body['description'] : '',
+    displayName: req.body.displayName ? req.body['displayName'] : '',
+    district: req.body.district ? req.body['district'] : '',
+    email: req.body.email ? req.body['email'] : '',
+    floor: req.body.floor ? parseFloat(req.body['floor']) : '',
+    furnished: req.body.furnished ? req.body['furnished'] : false,
+    garden: req.body.garden ? req.body['garden'] : false,
+    gym_fitness: req.body.gym_fitness ? req.body['gym_fitness'] : false,
+    id: req.body.id ? req.body['id'] : '',
+    images: req.body.images ? req.body['images'] : '',
+    in_development_area: req.body.in_development_area ? req.body['in_development_area'] : false,
+    lat: req.body.lat ? parseFloat(req.body['lat']) : '',
+    lift: req.body.lift ? req.body['lift'] : '',
+    listing_type: req.body.listing_type ? req.body['listing_type'] : '',
+    lng: req.body.lng ? parseFloat(req.body['lng']) : '',
+    "_geoloc": {
+      "lat": req.body.lat ? parseFloat(req.body['lat']) : '',
+      "lng": req.body.lng ? parseFloat(req.body['lng']) : '',
+    },
+    non_flooding: req.body.non_flooding ? req.body['non_flooding'] : false,
+    on_main_road: req.body.on_main_road ? req.body['on_main_road'] : false,
+    other: req.body.other ? req.body['other'] : false,
+    parking_space: req.body.parking_space ? parseFloat(req.body['parking_space']) : '',
+    phone1: req.body.phone1 ? req.body['phone1'] : '',
+    phone2: req.body.phone2 ? req.body['phone2'] : '',
+    price: req.body.price ? parseFloat(req.body['price']) : '',
+    property_type: req.body.property_type ? req.body['property_type'] : '',
+    province: req.body.province ? req.body['province'] : '',
+    shareListing: req.body.shareListing ? req.body['shareListing'] : '',
+    size: req.body.size ? parseFloat(req.body['size']) : '',
+    swimming_pool: req.body.swimming_pool ? req.body['swimming_pool'] : false,
+    thumb: req.body.thumb ? req.body['thumb'] : '',
+    title: req.body.title ? req.body['title'] : '',
+    user_id: req.body.user_id ? req.body['user_id'] : '',
+    user_name: req.body.user_name ? req.body['user_name'] : '',
+    user_type: req.body.user_type ? req.body['user_type'] : '',
+    created_date: new Date(),
+    modified_date: new Date(),
+    status: 1
+  }
+ 
+
+  console.log(JSON.stringify(listing));
+  firebaseHelper.firestore
+  .createDocumentWithID(db, listingsCollection, listing.id, listing).then(async (newListing) => {
+
+    console.log('createDocumentWithID', JSON.stringify(newListing));
+
+    if (newListing){
+
+      listing['objectID'] = listing.id;
+
+      const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+      await newestIndex.saveObject(listing);
+
+      res.status(200).send(listing);
+
+
+    }
+    else{
+      console.error('FAILED SAVE FIREBASE');
+      res.send('FIREBASE CREATE DOCUMENT'); 
+    }
+  }, (error) => {
+    res.status(400).send("ERROR CREATE DOCUMENT");
+  })
+
 })
 // Update new listing
 app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
@@ -747,14 +794,6 @@ app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
     const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
     newestIndex.saveObject(listing);
 
-    //   const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-    //   oldestIndex.saveObject(listing);
-
-    // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-    //   highestIndex.saveObject(listing);
-
-    // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-    //   cheapestIndex.saveObject(listing);
     res.json(req.params.listingId);
   });
   res.json({'msg': 'listing updated'});
@@ -768,6 +807,116 @@ app.get('/listings/:listingId', (req, res) => {
     res.json(doc);
   });
 })
+
+app.get('/users/:uid', (req, res) => {
+  firebaseHelper.firestore
+  .getDocument(db, usersCollection, req.params.uid)
+  .then(function(doc) {
+    res.json(doc);
+  });
+})
+
+app.get('/users/:uid/listings', (req, res) => {
+  let userId = req.params.uid;
+  const dataRef = db.collection('listings');
+
+  let queryRef = dataRef.where('user_id', '==', userId);
+  
+  let status = req.query.status ? req.query.status : 1; 
+  console.log('status', status);
+  queryRef = queryRef.where('status', '==', parseInt(status));
+  // queryRef = queryRef.orderBy('created_date', 'desc');
+
+  const results = {};
+  const sliceResults = {};
+  let size = 0;
+  let keys:any;
+  queryRef.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      results[doc.id] = doc.data();
+    });
+    if (Object.keys(results).length > 0) {
+      res.json(results);
+    }
+  });
+  
+})
+
+app.post('/users', (req, res) => {
+  try{
+    if (req.body.email == 'admin@gmail.com'){
+      req.body.role = 'admin';
+    }
+    if (req.body.email){
+      admin.auth().createUser({
+        email: req.body.email,
+        emailVerified: true,
+        password: req.body.password,
+        displayName: req.body.displayName,
+        photoURL: req.body.photoURL ? req.body.photoURL : "http://konleng.com/assets/imgs/appicon.png",
+        disabled: false
+      })
+      .then((userRecord) => {
+        let user = {
+          uid: userRecord.uid,
+          email: userRecord.email,
+          displayName: userRecord.displayName,
+          photoURL: userRecord.photoURL,
+          phone1: req.body.phone1 ? req.body['phone1'] : '',
+          phone2: req.body.phone2 ? req.body['phone2'] : '',
+          userType: req.body.userType ? req.body['userType'] : '',
+          role: req.body.role ? req.body['role'] : ''
+        }
+        firebaseHelper.firestore
+        .createDocumentWithID(db, 'users', userRecord.uid, user).then((user) => {
+          res.json(userRecord);
+        }, (error) => {
+          console.error('FIREBASE FUNCTION ERROR CALLBACK ==> ', error);
+        }).catch((error) => {
+          console.error('FIREBASE FUNCTION ERROR PROMISE ==> ', error);
+        });
+      }, (error) => {
+        console.error("Error creating new user:", error.message);
+        res.status(400).json(error)
+      });
+    }
+    else{
+      res.send('ERROR CRATING USER: No Email Provided');
+    }
+
+  }
+  catch(error){
+    console.error("Error can't create user");
+    
+  }
+});
+
+app.delete('/users/:userId', (req, res) => {
+  var userId = req.params.userId;
+  admin.auth().deleteUser(userId)
+  .then((result) => {
+    console.log('Deleted user with ID:' + res);
+    res.json('delete success');
+    
+  })
+  .catch((error) => {
+    console.error('There was an error while deleting user:', error)
+    res.json('delete error');
+  });
+  // firebaseHelper.firestore
+  // .document('users/{userID}')
+  // .onDelete((snap, context) => {
+  //   console.log('snapid', snap.id);
+  //   admin.auth().deleteUser(snap.id)
+  //   .then(() => {
+  //     console.log('Deleted user with ID:' + snap.id);
+  //   })
+  //   .catch((error) => {
+  //     console.error('There was an error while deleting user:', error)
+  //   });
+  // });
+});
 
 
 // View a listing
