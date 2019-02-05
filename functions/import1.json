@@ -1,0 +1,3102 @@
+{
+    "listings": 
+    {
+        "37e53115-6b5a-4c95-91dd-54807df7effd": {
+            "created_date": {
+                "_seconds": 1545888685,
+                "_nanoseconds": 829000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 230000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "Borey Sun City (Twin Villa)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888685,
+                "_nanoseconds": 829000000
+            },
+            "property_id": "2464130",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55234240000001,
+            "lng": 104.84207000000002,
+            "link": "https://www.konleng.com/en/property/borey-sun-city-twin-villa-adid-2464130.html",
+            "email": "san_savy@konleng.com",
+            "id": "37e53115-6b5a-4c95-91dd-54807df7effd",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ABoAsjwprnXaPZjXa35IdKeNWxw1",
+            "displayName": "San Savy",
+            "thumb": "",
+            "phone1": "011 500 085",
+            "province": "phnom-penh"
+        },
+        "875598f6-4711-445a-aefa-52af08e97f64": {
+            "property_id": "2797600",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.64950864941641,
+            "lng": 104.91415835917,
+            "link": "https://www.konleng.com/en/property/វឡកនកត-បរឌមគងរយល-adid-2797600.html",
+            "email": "narith855@konleng.com",
+            "id": "875598f6-4711-445a-aefa-52af08e97f64",
+            "phone2": "011 299 295",
+            "property_type": "house",
+            "user_id": "EWyNHO7vTeOesI8uwCOoCMBO8L32",
+            "displayName": "narith.loeung narith.loeung",
+            "thumb": "",
+            "phone1": "010 299 295",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888676,
+                "_nanoseconds": 842000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 130000,
+            "bathrooms": 4,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាកូនកាត់ បុរីឌឹមេគុងរ៉ូយ៉ាល",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888676,
+                "_nanoseconds": 842000000
+            }
+        },
+        "0db40270-4868-4a2b-a70c-985003b26c7d": {
+            "id": "0db40270-4868-4a2b-a70c-985003b26c7d",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "JG2PUJ6XJYN3BMZQMrZ8B7vRJfD2",
+            "displayName": "មករា មករា",
+            "thumb": "",
+            "phone1": "077 990 819",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888668,
+                "_nanoseconds": 400000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 130000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់ (បុរី សឡា371)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888668,
+                "_nanoseconds": 400000000
+            },
+            "property_id": "2719347",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55170722821149,
+            "lng": 104.8839037120342,
+            "link": "https://www.konleng.com/en/property/ផទលក-បរ-សឡ371-adid-2719347.html",
+            "email": "077990819@konleng.com"
+        },
+        "dad86e84-d75d-4160-ba75-aa0f61927cd5": {
+            "displayName": "sarun ",
+            "thumb": "",
+            "phone1": "098 665 996",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888658,
+                "_nanoseconds": 807000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 50000,
+            "bathrooms": 2,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់ ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888658,
+                "_nanoseconds": 807000000
+            },
+            "property_id": "2707664",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.530816,
+            "lng": 104.8491424,
+            "link": "https://www.konleng.com/en/property/ផទលក-adid-2707664.html",
+            "email": "ng123@konleng.com",
+            "id": "dad86e84-d75d-4160-ba75-aa0f61927cd5",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "nIFf6M4shmYYm70y8xixA0SDVPH2"
+        },
+        "f7bb0178-0074-473f-8d97-4b0481484ac1": {
+            "size": "",
+            "title": "វីឡាកូនកាត់ LC2 ក្នុងបុរី អារ៉ាតា ផ្លូវ ហាណូយ ត្រូវការលក់បន្ទាន់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888642,
+                "_nanoseconds": 168000000
+            },
+            "property_id": "3054144",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.52493320000001,
+            "lng": 104.95640839999999,
+            "link": "https://www.konleng.com/en/property/វឡកនកត-lc2-កនងបរ-អរត-ផលវ-ហណយ-តរវករលកបនទន-adid-3054144.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "f7bb0178-0074-473f-8d97-4b0481484ac1",
+            "phone2": "087 279 758",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "077 499 967",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888642,
+                "_nanoseconds": 168000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 131000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1
+        },
+        "dcb651e4-4cd3-4ff0-b8a6-08afa1383b82": {
+            "price": 95000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែង E0,E1 ក្នុងជិតវត្ត អង្គតាមិញ ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888633,
+                "_nanoseconds": 601000000
+            },
+            "property_id": "3075347",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.52493320000001,
+            "lng": 104.95640839999999,
+            "link": "https://www.konleng.com/en/property/ផទលវង-e0e1-កនងជតវតត-អងគតមញ-តរវករលកបនទនខលង-adid-3075347.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "dcb651e4-4cd3-4ff0-b8a6-08afa1383b82",
+            "phone2": "087 279 758",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "077 499 967",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888633,
+                "_nanoseconds": 601000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "a9075dcb-482a-49ef-809c-3c30af48e28b": {
+            "price": 120000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែង E0​ រកស៊ីបាន ការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888624,
+                "_nanoseconds": 702000000
+            },
+            "property_id": "2886921",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.4821654,
+            "lng": 104.82211469999993,
+            "link": "https://www.konleng.com/en/property/ផទលវង-e0-រកសបន-ករលកបនទនខលង-adid-2886921.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "a9075dcb-482a-49ef-809c-3c30af48e28b",
+            "phone2": "010 245 643",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "011 735 635",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888624,
+                "_nanoseconds": 702000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "d0e2ae40-b3ba-4a52-a829-0e30637c9348": {
+            "id": "d0e2ae40-b3ba-4a52-a829-0e30637c9348",
+            "phone2": "095 674 142",
+            "property_type": "house",
+            "user_id": "DQ2sYhM174NbHnRMSAxloJ6dqGM2",
+            "displayName": "Kiry ",
+            "thumb": "",
+            "phone1": "012 484 047",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888607,
+                "_nanoseconds": 98000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 165000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែងបូរីភិភពថ្មីចំការដូង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888607,
+                "_nanoseconds": 98000000
+            },
+            "property_id": "3019370",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.58924979999998,
+            "lng": 104.83670630000007,
+            "link": "https://www.konleng.com/en/property/ផទលវងបរភភពថមចករដង-adid-3019370.html",
+            "email": "kirypa@konleng.com"
+        },
+        "49b6ff8c-e3cc-4f1f-bc3e-edb69855942f": {
+            "created_date": {
+                "_seconds": 1545888600,
+                "_nanoseconds": 4000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 380000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "Hosue for Sales Urgent (Srah Chork) SB ID: 1119",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888600,
+                "_nanoseconds": 4000000
+            },
+            "property_id": "2149244",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.583969399999992,
+            "lng": 104.90016949999995,
+            "link": "https://www.konleng.com/en/property/hosue-for-sales-urgent-srah-chork-sb-id-1119-adid-2149244.html",
+            "email": "sbrealty@konleng.com",
+            "id": "49b6ff8c-e3cc-4f1f-bc3e-edb69855942f",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh"
+        },
+        "73f912ab-d589-480c-a49d-7ce4cccfb6fa": {
+            "price": 250000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "Twin Villa for sale 4bedrooms on Street 2004 ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888586,
+                "_nanoseconds": 439000000
+            },
+            "property_id": "3022310",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5500312,
+            "lng": 104.92574439999999,
+            "link": "https://www.konleng.com/en/property/twin-villa-for-sale-4bedrooms-on-street-2004-adid-3022310.html",
+            "email": "sn-realty@konleng.com",
+            "id": "73f912ab-d589-480c-a49d-7ce4cccfb6fa",
+            "phone2": "010 353 647",
+            "property_type": "house",
+            "user_id": "j3ms88swDmcnt7C6waGVzBePOzK2",
+            "displayName": "Sreyneang",
+            "thumb": "",
+            "phone1": "012 721 918",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888586,
+                "_nanoseconds": 439000000
+            },
+            "images": [
+                ""
+            ]
+        },
+        "41609515-bfb4-4fe0-8899-4d7237474d78": {
+            "lng": 104.95640839999999,
+            "link": "https://www.konleng.com/en/property/shop-house-នបរបងហតបងសនរ-តរវករលកបនទនខលង-adid-3057086.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "41609515-bfb4-4fe0-8899-4d7237474d78",
+            "phone2": "010 245 643",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "011 735 635",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888582,
+                "_nanoseconds": 848000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 139000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "Shop House នៅបុរីប៉េងហួតបឹងស្នោរ ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888582,
+                "_nanoseconds": 848000000
+            },
+            "property_id": "3057086",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.52493320000001
+        },
+        "18067340-8cdd-42ac-afe1-b9269525ced2": {
+            "property_type": "house",
+            "user_id": "pOAQpiqtajWpyzCqReXizhbYgSM2",
+            "displayName": "seyhathet",
+            "thumb": "",
+            "phone1": "096 380 2416",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888575,
+                "_nanoseconds": 244000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 260000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "别墅出售在Borey Angkor Phnom Penh，5间卧室，6卫生间，价格：",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888575,
+                "_nanoseconds": 244000000
+            },
+            "property_id": "2981579",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.58396939999999,
+            "lng": 104.90016949999995,
+            "link": "https://www.konleng.com/en/property/别墅出售在borey-angkor-phnom-penh5间卧室6卫生间价格-adid-2981579.html",
+            "email": "ngo45@konleng.com",
+            "id": "18067340-8cdd-42ac-afe1-b9269525ced2",
+            "phone2": "095 489 916"
+        },
+        "9868efa8-a44d-4d52-9d4f-73d1dbef9233": {
+            "price": 250000,
+            "bathrooms": null,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "别墅出售在Borey Angkor Phnom Penh，5间卧室，价格",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888563,
+                "_nanoseconds": 409000000
+            },
+            "property_id": "2981567",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.58396939999999,
+            "lng": 104.90016949999995,
+            "link": "https://www.konleng.com/en/property/别墅出售在borey-angkor-phnom-penh5间卧室价格-adid-2981567.html",
+            "email": "ngo45@konleng.com",
+            "id": "9868efa8-a44d-4d52-9d4f-73d1dbef9233",
+            "phone2": "095 489 916",
+            "property_type": "house",
+            "user_id": "pOAQpiqtajWpyzCqReXizhbYgSM2",
+            "displayName": "seyhathet",
+            "thumb": "",
+            "phone1": "096 380 2416",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888563,
+                "_nanoseconds": 409000000
+            },
+            "images": [
+                ""
+            ]
+        },
+        "3ebea58c-6fc4-482c-a7f5-e00370d711ce": {
+            "modified_date": {
+                "_seconds": 1545888559,
+                "_nanoseconds": 919000000
+            },
+            "property_id": "2980002",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.53964779999999,
+            "lng": 104.88632789999997,
+            "link": "https://www.konleng.com/en/property/土地和别墅出售价格-1800000美元-7-间卧室硬证-adid-2980002.html",
+            "email": "ngo45@konleng.com",
+            "id": "3ebea58c-6fc4-482c-a7f5-e00370d711ce",
+            "phone2": "095 489 916",
+            "property_type": "house",
+            "user_id": "pOAQpiqtajWpyzCqReXizhbYgSM2",
+            "displayName": "seyhathet",
+            "thumb": "",
+            "phone1": "096 380 2416",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888559,
+                "_nanoseconds": 919000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 1800000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "土地和别墅出售，价格： 1800000美元, 7 间卧室，硬证",
+            "userType": ""
+        },
+        "98500d9e-d264-4cf3-8b59-de95bea6aabd": {
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.57142080000001,
+            "lng": 104.92647439999996,
+            "link": "https://www.konleng.com/en/property/别墅出在售森苏区价格350000美元谈判-adid-3070587.html",
+            "email": "ngo45@konleng.com",
+            "id": "98500d9e-d264-4cf3-8b59-de95bea6aabd",
+            "phone2": "095 489 916",
+            "property_type": "house",
+            "user_id": "pOAQpiqtajWpyzCqReXizhbYgSM2",
+            "displayName": "seyhathet",
+            "thumb": "",
+            "phone1": "096 380 2416",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888551,
+                "_nanoseconds": 826000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 350000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "别墅出在售森苏区价格：350000美元(谈判)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888551,
+                "_nanoseconds": 826000000
+            },
+            "property_id": "3070587"
+        },
+        "f786b548-9295-44fd-96ce-41edac1bfafa": {
+            "property_id": "2798711",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59567540000001,
+            "lng": 104.93312089999995,
+            "link": "https://www.konleng.com/en/property/shop-house-កនងបរបងហត-ពរកលប-តរវករលកបនទនខលង-adid-2798711.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "f786b548-9295-44fd-96ce-41edac1bfafa",
+            "phone2": "015 788 641",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "012 378 614",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888548,
+                "_nanoseconds": 432000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 150000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "Shop House ក្នុងបុរីប៉េងហួត ព្រែកលាប ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888548,
+                "_nanoseconds": 432000000
+            }
+        },
+        "dd29792d-46a8-4164-a75c-6904f770884a": {
+            "phone1": "096 380 2416",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888539,
+                "_nanoseconds": 769000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 260000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "别墅出售在Borey Angkor Phnom Penh",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888539,
+                "_nanoseconds": 769000000
+            },
+            "property_id": "3070556",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.57142080000001,
+            "lng": 104.92647439999996,
+            "link": "https://www.konleng.com/en/property/别墅出售在borey-angkor-phnom-penh-adid-3070556.html",
+            "email": "ngo45@konleng.com",
+            "id": "dd29792d-46a8-4164-a75c-6904f770884a",
+            "phone2": "095 489 916",
+            "property_type": "house",
+            "user_id": "pOAQpiqtajWpyzCqReXizhbYgSM2",
+            "displayName": "seyhathet",
+            "thumb": "g"
+        },
+        "4ce6f1b6-70bc-458b-a1be-a0e86a148984": {
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888536,
+                "_nanoseconds": 177000000
+            },
+            "property_id": "2692234",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5333333,
+            "lng": 104.89999999999998,
+            "link": "https://www.konleng.com/en/property/ផទលក-adid-2692234.html",
+            "email": "0974544443@konleng.com",
+            "id": "4ce6f1b6-70bc-458b-a1be-a0e86a148984",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ngjj1QZ8Ale0fZahhPCPOMfeAGn1",
+            "displayName": "Vannak",
+            "thumb": "",
+            "phone1": "097 454 4443",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888536,
+                "_nanoseconds": 177000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 199900,
+            "bathrooms": 6
+        },
+        "2196d470-37d6-4fb1-9aaa-bdfc163e3571": {
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888518,
+                "_nanoseconds": 16000000
+            },
+            "property_id": "3064377",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.46367383212317,
+            "lng": 104.37632317418115,
+            "link": "https://www.konleng.com/en/property/ផទអជវកមមលក-បរញបលយបងធនគ-លផលវ20ម-adid-3064377.html",
+            "email": "qaa@konleng.com",
+            "id": "2196d470-37d6-4fb1-9aaa-bdfc163e3571",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "GjItQ813EqWWOTThM0Y42EkXDtC3",
+            "displayName": "អាម៉ុច",
+            "thumb": "",
+            "phone1": "097 236 0520",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888518,
+                "_nanoseconds": 16000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 73000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះអាជីវកម្មលក់ ប្រញាប់លុយបង់ធានាគា លើផ្លូវ20ម"
+        },
+        "a8718d27-58db-4797-a720-59e0b62ea5af": {
+            "modified_date": {
+                "_seconds": 1545888509,
+                "_nanoseconds": 124000000
+            },
+            "property_id": "3099207",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59250820000001,
+            "lng": 104.93304480000006,
+            "link": "https://www.konleng.com/en/property/flat-house-for-sale-adid-3099207.html",
+            "email": "century21mekong@konleng.com",
+            "id": "a8718d27-58db-4797-a720-59e0b62ea5af",
+            "phone2": "092 209 461",
+            "property_type": "house",
+            "user_id": "84BasC5ufxdtrh1YDc7xSyxCTr72",
+            "displayName": "Century21 Mekong",
+            "thumb": "",
+            "phone1": "070 692 595",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888509,
+                "_nanoseconds": 124000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 320000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "flat house for sale",
+            "userType": ""
+        },
+        "e906dd50-1f7a-40ff-9b31-844a8ce8cbf9": {
+            "size": "",
+            "title": "House for Sales Urgent (Toul SangKea) SB ID: 11118",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888501,
+                "_nanoseconds": 399000000
+            },
+            "property_id": "2904785",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.61647690000001,
+            "lng": 104.89800579999996,
+            "link": "https://www.konleng.com/en/property/house-for-sales-urgent-toul-sangkea-sb-id-11118-adid-2904785.html",
+            "email": "sbrealty@konleng.com",
+            "id": "e906dd50-1f7a-40ff-9b31-844a8ce8cbf9",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888501,
+                "_nanoseconds": 399000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 160000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1
+        },
+        "419b9d42-71ba-47ac-952b-8f30b480841d": {
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះវីឡាតឿ លក់បន្ទាន់ខ្លាំង ១០*២៩",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888493,
+                "_nanoseconds": 32000000
+            },
+            "property_id": "2919824",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.57525794873522,
+            "lng": 104.917927198112,
+            "link": "https://www.konleng.com/en/property/ផទវឡត-លកបនទនខលង-១០២៩-adid-2919824.html",
+            "email": "fb-rithychheng@konleng.com",
+            "id": "419b9d42-71ba-47ac-952b-8f30b480841d",
+            "phone2": "089 733 231",
+            "property_type": "house",
+            "user_id": "qlpvDsqYD9Ru2Xh6KCu1mGjDC3t2",
+            "displayName": "Sothea Thy",
+            "thumb": "",
+            "phone1": "069 733 231",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888493,
+                "_nanoseconds": 32000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 210000
+        },
+        "1ff9032b-c638-432b-b72a-591835e0019d": {
+            "bathrooms": 2,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់ជិតផ្សារអូឡាំពិត",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888484,
+                "_nanoseconds": 533000000
+            },
+            "property_id": "3109406",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55565622839421,
+            "lng": 104.90964217517862,
+            "link": "https://www.konleng.com/en/property/ផទលកជតផសរអឡពត-adid-3109406.html",
+            "email": "fb-puthi@konleng.com",
+            "id": "1ff9032b-c638-432b-b72a-591835e0019d",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "dEeUMPfn26YSisFAnLpbfEc4Rpw1",
+            "displayName": "UPL THY",
+            "thumb": "",
+            "phone1": "010 595 936",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888484,
+                "_nanoseconds": 533000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 157999
+        },
+        "7ca0ed03-21b2-436e-8ff8-e934dd7a36b9": {
+            "lng": 104.82408190000001,
+            "link": "https://www.konleng.com/en/property/house-for-sale-adid-2341864.html",
+            "email": "chhay_cam@konleng.com",
+            "id": "7ca0ed03-21b2-436e-8ff8-e934dd7a36b9",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "FkX0b0Ei2NNtMZlbArGQwYFgi0M2",
+            "displayName": "Lim Chhay ",
+            "thumb": "",
+            "phone1": "016 783 578",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888475,
+                "_nanoseconds": 896000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 159000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "House For Sale",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888475,
+                "_nanoseconds": 896000000
+            },
+            "property_id": "2341864",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.53386560000002
+        },
+        "eacd58f7-721e-45db-9f8e-295fce43b4f4": {
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "Villa for sale in TOUL KORK",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888465,
+                "_nanoseconds": 714000000
+            },
+            "property_id": "3052289",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.54802960000001,
+            "lng": 104.91114449999998,
+            "link": "https://www.konleng.com/en/property/villa-for-sale-in-toul-kork-adid-3052289.html",
+            "email": "tsrealty@konleng.com",
+            "id": "eacd58f7-721e-45db-9f8e-295fce43b4f4",
+            "phone2": "096 999 0447",
+            "property_type": "house",
+            "user_id": "FdFT3JxZ9rhIcnP27Z10ZWEzo2w1",
+            "displayName": "Mr. Tinat",
+            "thumb": "",
+            "phone1": "012 511 164",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888465,
+                "_nanoseconds": 714000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 1250000
+        },
+        "8f80828c-396f-4853-a4ac-b60f1cc5f072": {
+            "property_id": "3115254",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.29531473140428,
+            "lng": 104.9924097955227,
+            "link": "https://www.konleng.com/en/property/ផទលកបនទន-adid-3115254.html",
+            "email": "p-15536789@konleng.com",
+            "id": "8f80828c-396f-4853-a4ac-b60f1cc5f072",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "e1jZeU6P9gfresmAuiqdicPuztk2",
+            "displayName": "p-15536789",
+            "thumb": "",
+            "phone1": "015 536 789",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888461,
+                "_nanoseconds": 215000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 120000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់បន្ទាន់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888461,
+                "_nanoseconds": 215000000
+            }
+        },
+        "4d4ad766-251f-48bc-beb6-cbf9679f5732": {
+            "lng": 104.9924097955227,
+            "link": "https://www.konleng.com/en/property/ផទលក-adid-3107956.html",
+            "email": "p-15536789@konleng.com",
+            "id": "4d4ad766-251f-48bc-beb6-cbf9679f5732",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "e1jZeU6P9gfresmAuiqdicPuztk2",
+            "displayName": "p-15536789",
+            "thumb": "",
+            "phone1": "015 536 789",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888456,
+                "_nanoseconds": 233000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 70000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888456,
+                "_nanoseconds": 233000000
+            },
+            "property_id": "3107956",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.29531473140428
+        },
+        "90f7a072-5a85-400a-9430-c7f49ef05e03": {
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាកូនកាត់សម្រាប់លក់ បុរីប៉េងហួត(ផ្លូវម៉ុងឬទ្ធី).",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888450,
+                "_nanoseconds": 606000000
+            },
+            "property_id": "3122019",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.530766,
+            "lng": 104.95056709999994,
+            "link": "https://www.konleng.com/en/property/វឡកនកតសមរបលក-បរបងហតផលវមងឬទធ-adid-3122019.html",
+            "email": "goldenrealty@konleng.com",
+            "id": "90f7a072-5a85-400a-9430-c7f49ef05e03",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ZZJVgdcGf0Vqy4lcNcHvVLCETY03",
+            "displayName": "GoldenRealty",
+            "thumb": "",
+            "phone1": "095 655 883",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888450,
+                "_nanoseconds": 606000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 225000
+        },
+        "b70bd23a-a3d0-4633-b3fc-0d8fc8f19cfe": {
+            "modified_date": {
+                "_seconds": 1545888441,
+                "_nanoseconds": 626000000
+            },
+            "property_id": "2892279",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5515566,
+            "lng": 104.89654599999994,
+            "link": "https://www.konleng.com/en/property/building-for-sales-ktv-sb-id-11116-adid-2892279.html",
+            "email": "sbrealty@konleng.com",
+            "id": "b70bd23a-a3d0-4633-b3fc-0d8fc8f19cfe",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888441,
+                "_nanoseconds": 626000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 500000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "Building for Sales (KTV) (SB ID: 11116)",
+            "userType": ""
+        },
+        "fe96bc1c-f5e6-43aa-96d3-f7a4023b94cb": {
+            "property_id": "3070911",
+            "description": "",
+            "listing_type": "sale",
+            "lat": "",
+            "lng": "",
+            "link": "https://www.konleng.com/en/property/ខញចងលកផទបនទនមយកនលង-adid-3070911.html",
+            "email": "fb-chivonim@konleng.com",
+            "id": "fe96bc1c-f5e6-43aa-96d3-f7a4023b94cb",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ZGSxysO26rdZFEXfCwgCGvS44mD3",
+            "displayName": "Chamreun Snv",
+            "thumb": "",
+            "phone1": "012 722 808",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888425,
+                "_nanoseconds": 878000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 68000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ខ្ញុំចង់លក់ផ្ទះបន្ទាន់មួយកន្លែង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888425,
+                "_nanoseconds": 878000000
+            }
+        },
+        "7b653832-7cc2-4c75-a7b4-6555c8fae475": {
+            "modified_date": {
+                "_seconds": 1545888417,
+                "_nanoseconds": 451000000
+            },
+            "property_id": "3078078",
+            "description": "",
+            "listing_type": "sale",
+            "lat": "",
+            "lng": "",
+            "link": "https://www.konleng.com/en/property/ផទលក-កណតលករង-5mx30m-adid-3078078.html",
+            "email": "nita2222@konleng.com",
+            "id": "7b653832-7cc2-4c75-a7b4-6555c8fae475",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ckFjEYTb8bRXsEoiFpQ3aeM9Lvs1",
+            "displayName": "Heng vuthy",
+            "thumb": "",
+            "phone1": "010 432 696",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888417,
+                "_nanoseconds": 451000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 105000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់ កណ្តាលក្រុង (5Mx30M)",
+            "userType": ""
+        },
+        "5b8efb13-8850-4e56-a5c5-cbd623fc514a": {
+            "property_id": "3098604",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.30010333840427,
+            "lng": 104.9806144461036,
+            "link": "https://www.konleng.com/en/property/sell-house-near-psadebo-market-adid-3098604.html",
+            "email": "hengravyauto@konleng.com",
+            "id": "5b8efb13-8850-4e56-a5c5-cbd623fc514a",
+            "phone2": "085 333 305",
+            "property_type": "house",
+            "user_id": "bSkB1BKoRlUt0u7nyPn9F8VRGSV2",
+            "displayName": "Ravy",
+            "thumb": "",
+            "phone1": "098 666 330",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888400,
+                "_nanoseconds": 232000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 265000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "sell house near psadebo market",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888400,
+                "_nanoseconds": 232000000
+            }
+        },
+        "8410ee0f-ba64-4b52-9208-963b08e67f1f": {
+            "size": "",
+            "title": "វីឡានៅកែងសម្រាប់លក់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888390,
+                "_nanoseconds": 233000000
+            },
+            "property_id": "3048532",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.52571071403462,
+            "lng": 104.95154097676277,
+            "link": "https://www.konleng.com/en/property/វឡនកងសមរបលក-adid-3048532.html",
+            "email": "kat-appraisal-realestate@konleng.com",
+            "id": "8410ee0f-ba64-4b52-9208-963b08e67f1f",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "clrVXDrRjXdycAvZ138wECwPxZk1",
+            "displayName": "KAT APPRAISAL KAT-APPRAISAL-RealEstate",
+            "thumb": "",
+            "phone1": "098 996 996",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888390,
+                "_nanoseconds": 233000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 700000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1
+        },
+        "a21a55b7-9e5d-47f3-814a-cf130fa5a36d": {
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888382,
+                "_nanoseconds": 826000000
+            },
+            "property_id": "2123994",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.56821175462702,
+            "lng": 104.8419686014222,
+            "link": "https://www.konleng.com/en/property/ផទលវងកង-ទលមខផសរ-k-c-អចរកសបន-មនចណលសរប-adid-2123994.html",
+            "email": "youth8888@konleng.com",
+            "id": "a21a55b7-9e5d-47f3-814a-cf130fa5a36d",
+            "phone2": "077 535 332",
+            "property_type": "house",
+            "user_id": "3ZHNh6rGAsaOr47kgHsWinBnczA3",
+            "displayName": " youth",
+            "thumb": "",
+            "phone1": "070 929 999",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888382,
+                "_nanoseconds": 826000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 135000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែង​កែង ទល់មុខផ្សារ​ K C អាចរកស៊ីបាន​ មានចំណូលស្រាប់"
+        },
+        "f954dd56-1b95-44c2-a9a4-c7d31e74dcc5": {
+            "property_id": "2659681",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.53386560000002,
+            "lng": 104.82408190000001,
+            "link": "https://www.konleng.com/en/property/house-for-sale-adid-2659681.html",
+            "email": "cbopha@konleng.com",
+            "id": "f954dd56-1b95-44c2-a9a4-c7d31e74dcc5",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "BbqComkppJMzAT98fx65wfcIdQM2",
+            "displayName": "Bopha",
+            "thumb": "",
+            "phone1": "011 878 788",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888374,
+                "_nanoseconds": 735000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 60000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "House for Sale",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888374,
+                "_nanoseconds": 735000000
+            }
+        },
+        "2bc17e53-f288-412b-bae0-93063210ef72": {
+            "size": "",
+            "title": "Nice Living Villa for Sales (SB ID: 11114)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888366,
+                "_nanoseconds": 110000000
+            },
+            "property_id": "2890241",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59250820000001,
+            "lng": 104.93304480000006,
+            "link": "https://www.konleng.com/en/property/nice-living-villa-for-sales-sb-id-11114-adid-2890241.html",
+            "email": "sbrealty@konleng.com",
+            "id": "2bc17e53-f288-412b-bae0-93063210ef72",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888366,
+                "_nanoseconds": 110000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 250000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1
+        },
+        "c305ca8e-6c44-4918-a39e-df61b19bc649": {
+            "price": 120000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": " វីឡាកូនកាត់ LC2 ក្នុងបុរីប៉េងហួត ព្រែកលាប ផ្លូវជាតិ6 ត្រូវការលក់បន្ទាន់។",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888357,
+                "_nanoseconds": 721000000
+            },
+            "property_id": "2896611",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59250820000001,
+            "lng": 104.93304480000006,
+            "link": "https://www.konleng.com/en/property/វឡកនកត-lc2-កនងបរបងហត-ពរកលប-ផលវជត6-តរវករលកបនទន-adid-2896611.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "c305ca8e-6c44-4918-a39e-df61b19bc649",
+            "phone2": "015 788 641",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "012 378 614",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888357,
+                "_nanoseconds": 721000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "31c6b406-e5a7-41dc-80a8-d0218cced33a": {
+            "price": 62000,
+            "bathrooms": 4,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះសំរាប់អាជីវកម្មខ្នាតតូច (លក់តម្លៃដើម)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888349,
+                "_nanoseconds": 493000000
+            },
+            "property_id": "2739674",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5392693,
+            "lng": 104.78710039999999,
+            "link": "https://www.konleng.com/en/property/ផទសរបអជវកមមខនតតច-លកតមលដម-adid-2739674.html",
+            "email": "eyesrealestate@konleng.com",
+            "id": "31c6b406-e5a7-41dc-80a8-d0218cced33a",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "XjCtGQ6b5Sdme0Oa36Qxob19MwF2",
+            "displayName": "Eyes Real Estate",
+            "thumb": "",
+            "phone1": "081 886 618",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888349,
+                "_nanoseconds": 493000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "173fe4b4-9500-4fc8-b1a4-908e3c91dbc6": {
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "173fe4b4-9500-4fc8-b1a4-908e3c91dbc6",
+            "phone2": "010 245 643",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "011 735 635",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888341,
+                "_nanoseconds": 385000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 1000000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "វីឡា ឃ្វីន (Queen) នៅអ័រគីដេ វីឡា ផ្លូវ 2004",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888341,
+                "_nanoseconds": 385000000
+            },
+            "property_id": "2906330",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55945939999998,
+            "lng": 104.87756999999999,
+            "link": "https://www.konleng.com/en/property/វឡ-ឃវន-queen-នអរគដ-វឡ-ផលវ-2004-adid-2906330.html"
+        },
+        "e2aa5707-a86e-4fea-93f5-a3220c83b737": {
+            "status": 1,
+            "size": "",
+            "title": "មានផ្ទះល្វែសំរាប់លក់នៅសង្កាត់បឹងកេងកង៣ ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888332,
+                "_nanoseconds": 610000000
+            },
+            "property_id": "2849992",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.54541081651617,
+            "lng": 104.91462579672316,
+            "link": "https://www.konleng.com/en/property/មនផទលវសរបលកនសងកតបងកងកង៣-adid-2849992.html",
+            "email": "clrealty@konleng.com",
+            "id": "e2aa5707-a86e-4fea-93f5-a3220c83b737",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "JsZknIX1cQR3bUTn7h1T9KHxZtC2",
+            "displayName": "CL Realty",
+            "thumb": "",
+            "phone1": "078 700 077",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888332,
+                "_nanoseconds": 610000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 310000,
+            "bathrooms": 4,
+            "address": "Phnom Penh",
+            "bedrooms": 5
+        },
+        "78c755c4-e446-439c-8721-ca74570f4bd5": {
+            "created_date": {
+                "_seconds": 1545888327,
+                "_nanoseconds": 528000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 165000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "Shop House (សល់ដីខាង) នៅក្នុងបុរីប៉េងហួត ព្រែកលាប ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888327,
+                "_nanoseconds": 528000000
+            },
+            "property_id": "2887880",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.62525059999999,
+            "lng": 104.92550649999998,
+            "link": "https://www.konleng.com/en/property/shop-house-សលដខង-នកនងបរបងហត-ពរកលប-តរវករលកបនទនខលង-adid-2887880.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "78c755c4-e446-439c-8721-ca74570f4bd5",
+            "phone2": "015 788 641",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "012 378 614",
+            "province": "phnom-penh"
+        },
+        "01093b09-cd9e-4df7-a4a9-8c61f50b7a90": {
+            "lng": 104.93304480000006,
+            "link": "https://www.konleng.com/en/property/ផទលវង-e0-នជតផសរ-តងករសង-ជបពពទយករ-តរវករលកបនទនខលង-adid-2896834.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "01093b09-cd9e-4df7-a4a9-8c61f50b7a90",
+            "phone2": "077 499 967",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "087 279 758",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888319,
+                "_nanoseconds": 101000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 68000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែង E0​ ​នៅជិតផ្សារ តាំងក្រសាំង ជាប់ពេពេទ្យកូរ៉េ ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888319,
+                "_nanoseconds": 101000000
+            },
+            "property_id": "2896834",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59250820000001
+        },
+        "7ca3ad7d-11f4-4432-b3c0-6627551c8ac6": {
+            "price": 165000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាកូនកាត់ LA នៅ​បុរីប៉េងហួត បឹងស្នោរ ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888310,
+                "_nanoseconds": 908000000
+            },
+            "property_id": "2888130",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5062147,
+            "lng": 104.99730279999994,
+            "link": "https://www.konleng.com/en/property/វឡកនកត-la-នបរបងហត-បងសនរ-តរវករលកបនទនខលង-adid-2888130.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "7ca3ad7d-11f4-4432-b3c0-6627551c8ac6",
+            "phone2": "010 245 643",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "011 735 635",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888310,
+                "_nanoseconds": 908000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "0c3f708c-2f75-4caa-bcc1-46fe7b0ee460": {
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាភ្លោះ ក្នុងបុរី ដឹមេគង្គរ៉ូយ៉ាល ផ្លូវ6A ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888302,
+                "_nanoseconds": 596000000
+            },
+            "property_id": "2888014",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.62525059999999,
+            "lng": 104.92550649999998,
+            "link": "https://www.konleng.com/en/property/វឡភល-កនងបរ-ដមគងគរយល-ផលវ6a-តរវករលកបនទនខលង-adid-2888014.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "0c3f708c-2f75-4caa-bcc1-46fe7b0ee460",
+            "phone2": "015 788 641",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "012 378 614",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888302,
+                "_nanoseconds": 596000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 221000
+        },
+        "44aac1e2-f21d-478b-9595-58e61e0d8f18": {
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "44aac1e2-f21d-478b-9595-58e61e0d8f18",
+            "phone2": "010 245 643",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "011 735 635",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888296,
+                "_nanoseconds": 822000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 250000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាភ្លោះ ក្នុងបុរីប៉េងហួត បឹងស្នោរ ត្រូវការលក់ បន្ទាន់ខ្លាំង​",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888296,
+                "_nanoseconds": 822000000
+            },
+            "property_id": "2906438",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5062147,
+            "lng": 104.99730279999994,
+            "link": "https://www.konleng.com/en/property/វឡភល-កនងបរបងហត-បងសនរ-តរវករលក-បនទនខលង-adid-2906438.html"
+        },
+        "75625bac-e74c-469d-a496-94de8c917222": {
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "75625bac-e74c-469d-a496-94de8c917222",
+            "phone2": "010 245 643",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "011 735 635",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888288,
+                "_nanoseconds": 215000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 94000,
+            "bathrooms": 4,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែង E0E1​ ​ក្នុងបុរីសម្បូរ មាស សង្កាត់ ដង្កោ ត្រូវការលក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888288,
+                "_nanoseconds": 215000000
+            },
+            "property_id": "2896701",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.4821654,
+            "lng": 104.82211469999993,
+            "link": "https://www.konleng.com/en/property/ផទលវង-e0e1-កនងបរសមបរ-មស-សងកត-ដងក-តរវករលកបនទនខលង-adid-2896701.html"
+        },
+        "0e99ae57-c560-4539-a217-84a4cf807272": {
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888279,
+                "_nanoseconds": 369000000
+            },
+            "property_id": "2887962",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59250820000001,
+            "lng": 104.93304480000006,
+            "link": "https://www.konleng.com/en/property/វឡភល-2ជបគន-កនងបរដមគងគរយល-ផលវ6a-តរវករលកបនទនខលង-adid-2887962.html",
+            "email": "tiveasuorsdey@konleng.com",
+            "id": "0e99ae57-c560-4539-a217-84a4cf807272",
+            "phone2": "015 788 641",
+            "property_type": "house",
+            "user_id": "lEfbPGN6zSTiMhppYr5NcDp6xPv1",
+            "displayName": "Ms. Nary",
+            "thumb": "",
+            "phone1": "012 378 614",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888279,
+                "_nanoseconds": 369000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 470000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាភ្លោះ 2ជាប់គ្នា ក្នុងបុរីដឹមេគង្គរ៉ូយ៉ាល ផ្លូវ6A ត្រូវការលក់បន្ទាន់ខ្លាំង"
+        },
+        "696b0fe6-d37c-4735-80b9-d4cbab7cad0c": {
+            "property_id": "2936736",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5698087,
+            "lng": 104.93085459999998,
+            "link": "https://www.konleng.com/en/property/house-for-sale-adid-2936736.html",
+            "email": "p-78405518@konleng.com",
+            "id": "696b0fe6-d37c-4735-80b9-d4cbab7cad0c",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ohR8vENekbfUeA7Aa2ulUzSyhZ22",
+            "displayName": "bopha",
+            "thumb": "",
+            "phone1": "096 488 0905",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888270,
+                "_nanoseconds": 798000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 33000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "house for sale",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888270,
+                "_nanoseconds": 798000000
+            }
+        },
+        "88290bed-2933-4642-bf6d-fdf2f90808d1": {
+            "phone1": "086 550 508",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888261,
+                "_nanoseconds": 317000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 8000,
+            "bathrooms": 1,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់បន្ទាន់ តំលៃក្រោមទីផ្សារ ផ្លូវជាតិលេខ៣",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888261,
+                "_nanoseconds": 317000000
+            },
+            "property_id": "2837421",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.446994,
+            "lng": 104.8075245,
+            "link": "https://www.konleng.com/en/property/ផទលកបនទន-តលករមទផសរ-ផលវជតលខ៣-adid-2837421.html",
+            "email": "0718800005@konleng.com",
+            "id": "88290bed-2933-4642-bf6d-fdf2f90808d1",
+            "phone2": "076 991 8881",
+            "property_type": "house",
+            "user_id": "FLnnuf0YiyQasek1342KXh1amQu1",
+            "displayName": "Daniel",
+            "thumb": "g"
+        },
+        "cb47032a-0fe9-48c6-bfd0-95651a164e8a": {
+            "phone1": "098 996 996",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888233,
+                "_nanoseconds": 639000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 780000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាទោលសម្រាប់លក់បន្ទាន់ខ្លាំង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888233,
+                "_nanoseconds": 639000000
+            },
+            "property_id": "3010800",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.52571071403462,
+            "lng": 104.95154097676277,
+            "link": "https://www.konleng.com/en/property/វឡទលសមរបលកបនទនខលង-adid-3010800.html",
+            "email": "kat-appraisal-realestate@konleng.com",
+            "id": "cb47032a-0fe9-48c6-bfd0-95651a164e8a",
+            "phone2": "089 888 266",
+            "property_type": "house",
+            "user_id": "clrVXDrRjXdycAvZ138wECwPxZk1",
+            "displayName": "KAT APPRAISAL KAT-APPRAISAL-RealEstate",
+            "thumb": "g"
+        },
+        "8d18b7b6-ec30-477e-890b-8013f7c1ccfd": {
+            "property_id": "3113416",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.5,
+            "lng": 104.9806145,
+            "link": "https://www.konleng.com/en/property/ផទលកតលករមទផសរ-adid-3113416.html",
+            "email": "p-92198880@konleng.com",
+            "id": "8d18b7b6-ec30-477e-890b-8013f7c1ccfd",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "JYAg6AHEc7Oh7qz4f4v0pxxTqdn2",
+            "displayName": "ពន្លក",
+            "thumb": "",
+            "phone1": "092 198 880",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888224,
+                "_nanoseconds": 651000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 150000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់តំលៃក្រោមទីផ្សារ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888224,
+                "_nanoseconds": 651000000
+            }
+        },
+        "a361f378-1c3a-4a6b-b68a-f943b574adf2": {
+            "property_id": "3113470",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.5,
+            "lng": 104.9806145,
+            "link": "https://www.konleng.com/en/property/ដលកតលករមហងឆង-adid-3113470.html",
+            "email": "p-92198880@konleng.com",
+            "id": "a361f378-1c3a-4a6b-b68a-f943b574adf2",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "JYAg6AHEc7Oh7qz4f4v0pxxTqdn2",
+            "displayName": "ពន្លក",
+            "thumb": "",
+            "phone1": "092 198 880",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888215,
+                "_nanoseconds": 131000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 59168,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "ដីលក់តំលៃក្រោមហាងឆេង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888215,
+                "_nanoseconds": 131000000
+            }
+        },
+        "55ae2f88-967c-4145-b3bb-c8b78d388ffa": {
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888209,
+                "_nanoseconds": 659000000
+            },
+            "property_id": "3113384",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.5,
+            "lng": 104.9806145,
+            "link": "https://www.konleng.com/en/property/ផទលកតលករមឡឡង-adid-3113384.html",
+            "email": "p-92198880@konleng.com",
+            "id": "55ae2f88-967c-4145-b3bb-c8b78d388ffa",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "JYAg6AHEc7Oh7qz4f4v0pxxTqdn2",
+            "displayName": "ពន្លក",
+            "thumb": "",
+            "phone1": "092 198 880",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888209,
+                "_nanoseconds": 659000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 130000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់តំលៃក្រោមឡៃឡុង"
+        },
+        "867c3201-596a-464d-a809-d05ccfe97c14": {
+            "size": "",
+            "title": "ផ្ទះលក់តំលែក្រោមទីផ្សារ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888202,
+                "_nanoseconds": 113000000
+            },
+            "property_id": "3113359",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 12.5,
+            "lng": 104.9806145,
+            "link": "https://www.konleng.com/en/property/ផទលកតលករមទផសរ-adid-3113359.html",
+            "email": "p-92198880@konleng.com",
+            "id": "867c3201-596a-464d-a809-d05ccfe97c14",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "JYAg6AHEc7Oh7qz4f4v0pxxTqdn2",
+            "displayName": "ពន្លក",
+            "thumb": "",
+            "phone1": "092 198 880",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888202,
+                "_nanoseconds": 113000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 150000,
+            "bathrooms": null,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1
+        },
+        "ece0e8b9-a73f-4e98-b9da-4af812a149da": {
+            "price": 137000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "Flat (3 floors) for Sale urgent",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888193,
+                "_nanoseconds": 23000000
+            },
+            "property_id": "3121898",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.60394979352478,
+            "lng": 104.90628846143795,
+            "link": "https://www.konleng.com/en/property/flat-3-floors-for-sale-urgent-adid-3121898.html",
+            "email": "0718800005@konleng.com",
+            "id": "ece0e8b9-a73f-4e98-b9da-4af812a149da",
+            "phone2": "076 991 8881",
+            "property_type": "house",
+            "user_id": "FLnnuf0YiyQasek1342KXh1amQu1",
+            "displayName": "Daniel",
+            "thumb": "",
+            "phone1": "086 550 508",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888193,
+                "_nanoseconds": 23000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "6e41d564-a93e-43c7-85fb-338bd5f974a9": {
+            "price": 265000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1,
+            "size": "",
+            "title": "Flat in Borey Angkor Phnom Penh for sell with amount ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888182,
+                "_nanoseconds": 911000000
+            },
+            "property_id": "2894321",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.58396939999999,
+            "lng": 104.90016949999992,
+            "link": "https://www.konleng.com/en/property/flat-in-borey-angkor-phnom-penh-for-sell-with-amount-adid-2894321.html",
+            "email": "tevent@konleng.com",
+            "id": "6e41d564-a93e-43c7-85fb-338bd5f974a9",
+            "phone2": "012 704 676",
+            "property_type": "house",
+            "user_id": "7IkoipA091gBbQWRPMGt60u0xkt2",
+            "displayName": "Tevent",
+            "thumb": "",
+            "phone1": "016 888 081",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888182,
+                "_nanoseconds": 911000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "d49dda93-e7a2-4f64-808b-07f3ebb488e6": {
+            "property_id": "3091730",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5686022975923,
+            "lng": 104.84106187020643,
+            "link": "https://www.konleng.com/en/property/ផទលផលវ2011-លកបនទន-adid-3091730.html",
+            "email": "bunsren87@konleng.com",
+            "id": "d49dda93-e7a2-4f64-808b-07f3ebb488e6",
+            "phone2": "069 964 393",
+            "property_type": "house",
+            "user_id": "m9dBrCygFZcaC8kpDdZ06H9UZg72",
+            "displayName": "Sry Bunsren",
+            "thumb": "",
+            "phone1": "077 730 745",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888174,
+                "_nanoseconds": 334000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 320000,
+            "bathrooms": 2,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលើផ្លូវ2011 លក់បន្ទាន់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888174,
+                "_nanoseconds": 334000000
+            }
+        },
+        "2100616f-b6ed-4603-81c1-638d34a6fc54": {
+            "modified_date": {
+                "_seconds": 1545888164,
+                "_nanoseconds": 640000000
+            },
+            "property_id": "2607085",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5686022975923,
+            "lng": 104.84106187020643,
+            "link": "https://www.konleng.com/en/property/ផទទលមខផសទនបកពសបរជនលក-adid-2607085.html",
+            "email": "bunsren87@konleng.com",
+            "id": "2100616f-b6ed-4603-81c1-638d34a6fc54",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "m9dBrCygFZcaC8kpDdZ06H9UZg72",
+            "displayName": "Sry Bunsren",
+            "thumb": "",
+            "phone1": "077 730 745",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888164,
+                "_nanoseconds": 640000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 120000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះទល់មុខផ្សាទំនើបកំពស់ប្រាំជាន់លក់",
+            "userType": ""
+        },
+        "7eca40aa-cc53-4a67-b313-9bcdaf63632b": {
+            "property_id": "3121901",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59250820000001,
+            "lng": 104.93304480000006,
+            "link": "https://www.konleng.com/en/property/twin-villa-for-sale-at-borey-orkide-villa-the-grand-adid-3121901.html",
+            "email": "century21mekong@konleng.com",
+            "id": "7eca40aa-cc53-4a67-b313-9bcdaf63632b",
+            "phone2": "085 207 505",
+            "property_type": "house",
+            "user_id": "84BasC5ufxdtrh1YDc7xSyxCTr72",
+            "displayName": "Century21 Mekong",
+            "thumb": "",
+            "phone1": "096 330 8088",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888147,
+                "_nanoseconds": 234000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 345000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "Twin Villa for sale at Borey Orkide Villa (The Grand)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888147,
+                "_nanoseconds": 234000000
+            }
+        },
+        "730f1d8f-8973-4586-8e98-09cec489ba15": {
+            "modified_date": {
+                "_seconds": 1545888138,
+                "_nanoseconds": 833000000
+            },
+            "property_id": "3092290",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.53964779999999,
+            "lng": 104.88632789999994,
+            "link": "https://www.konleng.com/en/property/house-for-sale-ផទលកបរឈកវ-1-adid-3092290.html",
+            "email": "chamroeunn@konleng.com",
+            "id": "730f1d8f-8973-4586-8e98-09cec489ba15",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "sBqLv2aPuBhH92w6zSkEBIemeW33",
+            "displayName": "Na Na",
+            "thumb": "",
+            "phone1": "069 666 683",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888138,
+                "_nanoseconds": 833000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 60000,
+            "bathrooms": 1,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "House for sale ផ្ទះលក់បុរីឈូកវ៉ា 1",
+            "userType": ""
+        },
+        "92f8c196-7320-4753-a7a7-0b3e224b917f": {
+            "modified_date": {
+                "_seconds": 1545888129,
+                "_nanoseconds": 977000000
+            },
+            "property_id": "2872234",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55945939999998,
+            "lng": 104.87756999999999,
+            "link": "https://www.konleng.com/en/property/ផទលកកងនសងកតបងតរបក-adid-2872234.html",
+            "email": "clrealty@konleng.com",
+            "id": "92f8c196-7320-4753-a7a7-0b3e224b917f",
+            "phone2": "093 600 150",
+            "property_type": "house",
+            "user_id": "JsZknIX1cQR3bUTn7h1T9KHxZtC2",
+            "displayName": "CL Realty",
+            "thumb": "",
+            "phone1": "078 200 012",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888129,
+                "_nanoseconds": 977000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 1200000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": 0,
+            "status": 1,
+            "size": "256",
+            "title": "ផ្ទះលក់កែងនៅសង្កាត់បឹងត្របែក ",
+            "userType": ""
+        },
+        "348198dc-98bd-482a-8b1e-56416e0bb5ff": {
+            "size": "",
+            "title": "shophouse for sell",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888118,
+                "_nanoseconds": 304000000
+            },
+            "property_id": "3118021",
+            "description": "",
+            "listing_type": "sale",
+            "lat": "",
+            "lng": "",
+            "link": "https://www.konleng.com/en/property/shophouse-for-sell-adid-3118021.html",
+            "email": "fb-sinhour@konleng.com",
+            "id": "348198dc-98bd-482a-8b1e-56416e0bb5ff",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "rQz9wEn8AWNYwuzPVKDBffyFlOV2",
+            "displayName": "Sin Hour",
+            "thumb": "",
+            "phone1": "088 655 6226",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888118,
+                "_nanoseconds": 304000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 206000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1
+        },
+        "b5677740-84d3-4b8a-a623-9fa21b20b6dd": {
+            "modified_date": {
+                "_seconds": 1545888109,
+                "_nanoseconds": 318000000
+            },
+            "property_id": "2658522",
+            "description": "",
+            "listing_type": "sale",
+            "lat": "",
+            "lng": "",
+            "link": "https://www.konleng.com/en/property/ផទកងសរបលក-adid-2658522.html",
+            "email": "fb-sinhour@konleng.com",
+            "id": "b5677740-84d3-4b8a-a623-9fa21b20b6dd",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "rQz9wEn8AWNYwuzPVKDBffyFlOV2",
+            "displayName": "Sin Hour",
+            "thumb": "",
+            "phone1": "088 655 6226",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888109,
+                "_nanoseconds": 318000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 250000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះកែងសំរាប់លក់",
+            "userType": ""
+        },
+        "8d5e8418-5ab0-4aec-8fc2-f15ca408ae6f": {
+            "size": "",
+            "title": "house for sell",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888076,
+                "_nanoseconds": 686000000
+            },
+            "property_id": "3118107",
+            "description": "",
+            "listing_type": "sale",
+            "lat": "",
+            "lng": "",
+            "link": "https://www.konleng.com/en/property/house-for-sell-adid-3118107.html",
+            "email": "fb-sinhour@konleng.com",
+            "id": "8d5e8418-5ab0-4aec-8fc2-f15ca408ae6f",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "rQz9wEn8AWNYwuzPVKDBffyFlOV2",
+            "displayName": "Sin Hour",
+            "thumb": "",
+            "phone1": "088 655 6226",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888076,
+                "_nanoseconds": 686000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 180000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 5,
+            "status": 1
+        },
+        "ace85aeb-d3f8-4840-bf8c-4825a08050b8": {
+            "price": 430000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះអាជីវកម្មលក់ (ជិតផ្សារសីតនី) SB ID: 11123",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888071,
+                "_nanoseconds": 105000000
+            },
+            "property_id": "3116381",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.58396939999999,
+            "lng": 104.90016949999995,
+            "link": "https://www.konleng.com/en/property/ផទអជវកមមលក-ជតផសរសតន-sb-id-11123-adid-3116381.html",
+            "email": "sbrealty@konleng.com",
+            "id": "ace85aeb-d3f8-4840-bf8c-4825a08050b8",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888071,
+                "_nanoseconds": 105000000
+            },
+            "images": [
+                "",
+                ""
+            ]
+        },
+        "1309a416-d692-433c-8e31-985b2c0794b9": {
+            "size": "",
+            "title": "ផ្ទះលក់ផ្សារសំណង់12 Houses for sale at Samnang 12Market",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888065,
+                "_nanoseconds": 8000000
+            },
+            "property_id": "3092350",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.47975099999999,
+            "lng": 104.86881259999996,
+            "link": "https://www.konleng.com/en/property/ផទលកផសរសណង12-houses-for-sale-at-samnang-12market-adid-3092350.html",
+            "email": "hundyna@konleng.com",
+            "id": "1309a416-d692-433c-8e31-985b2c0794b9",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "6aDjt2ZewMeZv93656KpnJFaX273",
+            "displayName": "077889916",
+            "thumb": "",
+            "phone1": "069 666 683",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888065,
+                "_nanoseconds": 8000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 310000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1
+        },
+        "9d1634d9-05a7-463f-a7ff-b1d507121f68": {
+            "modified_date": {
+                "_seconds": 1545888055,
+                "_nanoseconds": 834000000
+            },
+            "property_id": "2795131",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.504046,
+            "lng": 104.93304480000009,
+            "link": "https://www.konleng.com/en/property/ផទលកបនទន-7m25-199999-adid-2795131.html",
+            "email": "saovannpagna6@konleng.com",
+            "id": "9d1634d9-05a7-463f-a7ff-b1d507121f68",
+            "phone2": "010 260 003",
+            "property_type": "house",
+            "user_id": "uroveeK0DmPS4DC8Q42rQGmgvrr1",
+            "displayName": "Mr.Phanha",
+            "thumb": "",
+            "phone1": "010 552 211",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888055,
+                "_nanoseconds": 834000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 199999,
+            "bathrooms": 2,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់បន្ទាន់!!!! 7m*25 199999",
+            "userType": ""
+        },
+        "3c41f044-ffba-41a3-bb7c-4f5d750f86ef": {
+            "bathrooms": null,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់ ម្តំំុទួលគោក",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888052,
+                "_nanoseconds": 258000000
+            },
+            "property_id": "3070509",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55637379999999,
+            "lng": 104.92820989999997,
+            "link": "https://www.konleng.com/en/property/ផទលក-មតទលគក-adid-3070509.html",
+            "email": "bls_property@konleng.com",
+            "id": "3c41f044-ffba-41a3-bb7c-4f5d750f86ef",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "4R7yP3doIkcdkRkpyw2ikjJeTmj2",
+            "displayName": "BLS_Property",
+            "thumb": "",
+            "phone1": "010 809 411",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888052,
+                "_nanoseconds": 258000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 90000
+        },
+        "73a175eb-d48d-4123-ad12-002bd3ee4f21": {
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": 0,
+            "status": 1,
+            "size": "596",
+            "title": "Big Villa for Sale In Boeung Tumpun",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888044,
+                "_nanoseconds": 606000000
+            },
+            "property_id": "3121912",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.54802960000001,
+            "lng": 104.91114449999998,
+            "link": "https://www.konleng.com/en/property/big-villa-for-sale-in-boeung-tumpun-adid-3121912.html",
+            "email": "tsrealty@konleng.com",
+            "id": "73a175eb-d48d-4123-ad12-002bd3ee4f21",
+            "phone2": "012 677 470",
+            "property_type": "house",
+            "user_id": "FdFT3JxZ9rhIcnP27Z10ZWEzo2w1",
+            "displayName": "Mr. Tinat",
+            "thumb": "",
+            "phone1": "015 554 424",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888044,
+                "_nanoseconds": 606000000
+            },
+            "images": [
+                ""
+            ],
+            "price": 820000
+        },
+        "85d194f0-791b-4fc5-b42f-788fa466f17a": {
+            "property_id": "3103318",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.51174933753699,
+            "lng": 104.87642802974894,
+            "link": "https://www.konleng.com/en/property/ផទលវងសរបលកនបរពភពថមចករដង-adid-3103318.html",
+            "email": "songhaykh@konleng.com",
+            "id": "85d194f0-791b-4fc5-b42f-788fa466f17a",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "CFuTUltuDvdB4uwgd55zYnRjloN2",
+            "displayName": "SONGHAY",
+            "thumb": "",
+            "phone1": "011 302 217",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888040,
+                "_nanoseconds": 11000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 120000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះល្វែងសំរាប់លក់នៅបុរីពិភពថ្មីចំការដូង",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888040,
+                "_nanoseconds": 11000000
+            }
+        },
+        "7bc69502-9fa6-4399-9d0c-04f26e610c84": {
+            "id": "7bc69502-9fa6-4399-9d0c-04f26e610c84",
+            "phone2": "012 889 083",
+            "property_type": "house",
+            "user_id": "MsfrnBceDxXkAOVsX4HVqAlFLQm1",
+            "displayName": "Chhaer Sambor",
+            "thumb": "",
+            "phone1": "093 450 760",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888030,
+                "_nanoseconds": 496000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 38000,
+            "bathrooms": 1,
+            "address": "Phnom Penh",
+            "bedrooms": 1,
+            "status": 1,
+            "size": "",
+            "title": "House 2nd floor at Orussey behind Batuk high school (negotiable price)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888030,
+                "_nanoseconds": 496000000
+            },
+            "property_id": "3065071",
+            "description": "",
+            "listing_type": "sale",
+            "lat": "",
+            "lng": "",
+            "link": "https://www.konleng.com/en/property/house-2nd-floor-at-orussey-behind-batuk-high-school-negotiable-price-adid-3065071.html",
+            "email": "093450760@konleng.com"
+        },
+        "84ea87b3-cd1f-4b10-9418-d147367c9f61": {
+            "property_id": "3052811",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.51995800000001,
+            "lng": 104.83962480000002,
+            "link": "https://www.konleng.com/en/property/ផទលកបរពភពថម-អចខចធនគរបន-80-adid-3052811.html",
+            "email": "avira@konleng.com",
+            "id": "84ea87b3-cd1f-4b10-9418-d147367c9f61",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "QfGBMGw1YNbQTrqmAgkzGfa7qrE2",
+            "displayName": "House Owner",
+            "thumb": "",
+            "phone1": "010 885 599",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545888022,
+                "_nanoseconds": 426000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 54000,
+            "bathrooms": 3,
+            "address": "Phnom Penh",
+            "bedrooms": 2,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់បុរីពិភពថ្មី អាចខ្ចីធានាគារបាន 80%",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888022,
+                "_nanoseconds": 426000000
+            }
+        },
+        "7aca5dd3-00d9-4f12-9f7a-fecd646b4a27": {
+            "created_date": {
+                "_seconds": 1545888014,
+                "_nanoseconds": 474000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 199000,
+            "bathrooms": 5,
+            "address": "Phnom Penh",
+            "bedrooms": 4,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាភ្លោះសម្រាប់លក់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545888014,
+                "_nanoseconds": 474000000
+            },
+            "property_id": "2873134",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5183199,
+            "lng": 104.92428429999995,
+            "link": "https://www.konleng.com/en/property/វឡភលសមរបលក-adid-2873134.html",
+            "email": "goldenrealty@konleng.com",
+            "id": "7aca5dd3-00d9-4f12-9f7a-fecd646b4a27",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "ZZJVgdcGf0Vqy4lcNcHvVLCETY03",
+            "displayName": "GoldenRealty",
+            "thumb": "",
+            "phone1": "011 655 881",
+            "province": "phnom-penh"
+        },
+        "91876d1b-f867-47b6-97c8-24adb42c1409": {
+            "property_type": "house",
+            "user_id": "mHI4NTmfYtUSaf6jDGhuUhPslWB3",
+            "displayName": "Yathi",
+            "thumb": "",
+            "phone1": "092 213 139",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887978,
+                "_nanoseconds": 505000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 68000,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1,
+            "size": "",
+            "title": "House Eo sale at Borey Vimean Phnom Penh",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887978,
+                "_nanoseconds": 505000000
+            },
+            "property_id": "2412933",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.59227420000001,
+            "lng": 104.91114449999998,
+            "link": "https://www.konleng.com/en/property/house-eo-sale-at-borey-vimean-phnom-penh-adid-2412933.html",
+            "email": "yathi@konleng.com",
+            "id": "91876d1b-f867-47b6-97c8-24adb42c1409",
+            "phone2": "012 572 910"
+        },
+        "638bd63b-e764-493f-9441-3424f6471636": {
+            "property_id": "2825724",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.53163630000001,
+            "lng": 104.82102039999995,
+            "link": "https://www.konleng.com/en/property/building-for-sales-sb-id-11106-adid-2825724.html",
+            "email": "sbrealty@konleng.com",
+            "id": "638bd63b-e764-493f-9441-3424f6471636",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887969,
+                "_nanoseconds": 556000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 2000000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "Building For Sales (SB ID: 11106)",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887969,
+                "_nanoseconds": 556000000
+            }
+        },
+        "869e237c-e4f2-4106-af17-13aa7c8e65a0": {
+            "property_type": "house",
+            "user_id": "i0rByjxP8gR982F8LiZTGlX7owN2",
+            "displayName": "SB Real EState",
+            "thumb": "",
+            "phone1": "081 228 881",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887962,
+                "_nanoseconds": 710000000
+            },
+            "images": [
+                "",
+                ""
+            ],
+            "price": 680000,
+            "bathrooms": 6,
+            "address": "Phnom Penh",
+            "bedrooms": 6,
+            "status": 1,
+            "size": "",
+            "title": "2flate House for Sales Urgent (Srah Chork) SB ID: 11120",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887962,
+                "_nanoseconds": 710000000
+            },
+            "property_id": "3012342",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.58396939999999,
+            "lng": 104.90016949999995,
+            "link": "https://www.konleng.com/en/property/2flate-house-for-sales-urgent-srah-chork-sb-id-11120-adid-3012342.html",
+            "email": "sbrealty@konleng.com",
+            "id": "869e237c-e4f2-4106-af17-13aa7c8e65a0",
+            "phone2": ""
+        },
+        "2019d160-e868-4237-b51d-9bca507f10fa": {
+            "price": 165000,
+            "bathrooms": 4,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "Link House 3 bedrooms for sale In Chipmong Aeon 2",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887957,
+                "_nanoseconds": 391000000
+            },
+            "property_id": "3084477",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5500312,
+            "lng": 104.92574439999999,
+            "link": "https://www.konleng.com/en/property/link-house-3-bedrooms-for-sale-in-chipmong-aeon-2-adid-3084477.html",
+            "email": "sn-realty@konleng.com",
+            "id": "2019d160-e868-4237-b51d-9bca507f10fa",
+            "phone2": "010 353 647",
+            "property_type": "house",
+            "user_id": "j3ms88swDmcnt7C6waGVzBePOzK2",
+            "displayName": "Sreyneang",
+            "thumb": "",
+            "phone1": "012 721 918",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887957,
+                "_nanoseconds": 391000000
+            },
+            "images": [
+                ""
+            ]
+        },
+        "007a0308-163c-4e32-ae2d-dc6f81291fe8": {
+            "size": "",
+            "title": "ផ្ទះល្វែងលក់ជិតវត្តទួលសង្កែតំបន់រោងចក្រ",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887953,
+                "_nanoseconds": 923000000
+            },
+            "property_id": "2213980",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.5392693,
+            "lng": 104.78710039999999,
+            "link": "https://www.konleng.com/en/property/ផទលវងលកជតវតតទលសងកតបនរងចករ-adid-2213980.html",
+            "email": "tichmeng@konleng.com",
+            "id": "007a0308-163c-4e32-ae2d-dc6f81291fe8",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "G212zzc21FVRN0BwaZGiLRVDOW02",
+            "displayName": " Meng",
+            "thumb": "",
+            "phone1": "012 898 076",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887953,
+                "_nanoseconds": 923000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 1,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": null,
+            "status": 1
+        },
+        "c447b2d2-c833-4307-88f1-cec3a2a4b98f": {
+            "property_id": "3034301",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.55824894482178,
+            "lng": 104.88250795946063,
+            "link": "https://www.konleng.com/en/property/វឡកនកត3ជន-មនរបង-លកបរញបនបរមគងគរយល-adid-3034301.html",
+            "email": "zaman@konleng.com",
+            "id": "c447b2d2-c833-4307-88f1-cec3a2a4b98f",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "oylbtRFBiBbBdskcenOAjz83UB22",
+            "displayName": "Za Man",
+            "thumb": "",
+            "phone1": "098 815 555",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887944,
+                "_nanoseconds": 606000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 125000,
+            "bathrooms": 4,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "វីឡាកូនកាត់3ជាន់ មានរបង លក់ប្រញ៉ាប់នៅបុរីមេគង្គរ៉ូយ៉ាល់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887944,
+                "_nanoseconds": 606000000
+            }
+        },
+        "27ddd292-401a-4020-a3c1-9886cacf966f": {
+            "created_date": {
+                "_seconds": 1545887934,
+                "_nanoseconds": 635000000
+            },
+            "images": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "price": 27999,
+            "bathrooms": 0,
+            "address": "Phnom Penh",
+            "bedrooms": 0,
+            "status": 1,
+            "size": "815",
+            "title": "ដីលក់តម្លៃទាប 15mx54m",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887934,
+                "_nanoseconds": 635000000
+            },
+            "property_id": "2840387",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.563232,
+            "lng": 104.85406820000003,
+            "link": "https://www.konleng.com/en/property/ដលកតមលទប-15mx54m-adid-2840387.html",
+            "email": "010657868@konleng.com",
+            "id": "27ddd292-401a-4020-a3c1-9886cacf966f",
+            "phone2": "",
+            "property_type": "house",
+            "user_id": "RLZ5q9gyrOhR7oVXLSpSbiEwIkI2",
+            "displayName": "Vannak",
+            "thumb": "",
+            "phone1": "010 657 868",
+            "province": "phnom-penh"
+        },
+        "07bc2474-eb27-4234-be4a-dae2db3a473b": {
+            "property_id": "3116426",
+            "description": "",
+            "listing_type": "sale",
+            "lat": 11.48216526514713,
+            "lng": 104.8221146687865,
+            "link": "https://www.konleng.com/en/property/ផទលកបនទន-adid-3116426.html",
+            "email": "p-98891623@konleng.com",
+            "id": "07bc2474-eb27-4234-be4a-dae2db3a473b",
+            "phone2": "093 656 249",
+            "property_type": "house",
+            "user_id": "g4YfPChX4idIumE1PTdqOJnabw02",
+            "displayName": "សុខ​ សារី",
+            "thumb": "",
+            "phone1": "098 891 623",
+            "province": "phnom-penh",
+            "created_date": {
+                "_seconds": 1545887926,
+                "_nanoseconds": 534000000
+            },
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "price": 65000,
+            "bathrooms": 2,
+            "address": "Phnom Penh",
+            "bedrooms": 3,
+            "status": 1,
+            "size": "",
+            "title": "ផ្ទះលក់បន្ទាន់",
+            "userType": "",
+            "modified_date": {
+                "_seconds": 1545887926,
+                "_nanoseconds": 534000000
+            }
+        }
+    }
+}

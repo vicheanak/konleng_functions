@@ -17,6 +17,7 @@ import * as http from 'http';
 import * as uuid from 'uuid/v4';
 import * as dotenv from "dotenv";
 import * as fileType from 'file-type';
+import * as listingData from './import.json';
 
 
 dotenv.config();
@@ -974,6 +975,7 @@ function httpGetImport(url, callback) {
     let objectIds = Object.keys(data);
     let batchActions = [];
     for (let objectId of objectIds){
+      console.log('objectId', objectId);
       if (data[objectId]['lat'] && data[objectId]['lng']){
         batchActions.push({
           "action": 'partialUpdateObjectNoCreate',
@@ -998,7 +1000,7 @@ function httpGetImport(url, callback) {
   });
 }
 
-app.post('/import', (req, response) =>{
+app.get('/import', (req, response) =>{
 
 
   // let url = 'https://storage.googleapis.com/konleng-cloud.appspot.com/phnom-penh_0_900.json';
@@ -1025,17 +1027,75 @@ app.post('/import', (req, response) =>{
   'https://storage.googleapis.com/konleng-cloud.appspot.com/takeo.json',
   'https://storage.googleapis.com/konleng-cloud.appspot.com/tboung-khmum.json'];
 
-  var urls = [
-       "https://storage.googleapis.com/konleng-cloud.appspot.com/room_.json?GoogleAccessId=konleng-cloud%40konleng-cloud.iam.gserviceaccount.com&Expires=16446992400&Signature=mpuFaxLJZRFopHBIUS0LirtvIMqDfng9DBOIjVIGwEs29qGuI%2F6NQpt2H58m0ndvyi4wvrxuUlAbhoipMiJFMEBnIGc291GXJqLYqsz%2FtKlhdxxNYc14A1lVmBtaP4D83XN8iAwXRfi98yVQGvscMeJ17%2FywalV3wPJW4fvwiwKikXNvKKAfScoZ5kgK0FacHeO6xsv0W5x1sDqqZqmI%2FqzUVcmHjM4039zReCpYmsCl9h4g4rqiYXxsxNl5xSlWL9P2h0yaJScukPagWJNndr2eK3QNKiXxClfIGMeHGksLQLN610pCjBFq6K6Y%2BMKiHSYIh3vuZKpLErz2VFy7Ng%3D%3D"
-  ]
-
-
-  async.map(urls, httpGetImport, (err, body) => {
-    if (err){
-      response.send(err);
+  var urls = ["https://firebasestorage.googleapis.com/v0/b/konleng-cloud.appspot.com/o/phnom-penh-import.json?alt=media&token=0f437ef0-67e5-4da1-80b5-a685bb04e890"];
+  // firebaseHelper.firestore.restore(db, 'import.json').then((response) => {
+  //   console.log(JSON.stringify(response));
+  // });
+  
+  
+  // const word = (<any>data);
+  // console.log('word', JSON.stringify(listingData['listings']));
+  let data = listingData['listings'];
+  let objectIds = Object.keys(data);
+  let batchActions = [];
+  for (let objectId of objectIds){
+    // console.log('objectId', objectId);
+    if (data[objectId]['lat'] && data[objectId]['lng']){
+      batchActions.push({
+        "action": 'updateObject',
+        "indexName": ALGOLIA_NEWEST_INDEX,
+        "body": {
+          "objectID": objectId,
+          "_geoloc": {
+            "lat": parseFloat(data[objectId]['lat']),
+            "lng": parseFloat(data[objectId]['lng'])
+          },
+          "userType": data[objectId]['userType'],
+          "property_id": data[objectId]['property_id'],
+          "description": data[objectId]['description'],
+          "listing_type": data[objectId]['listing_type'],
+          "lat": parseFloat(data[objectId]['lat']),
+          "lng": parseFloat(data[objectId]['lng']),
+          "link": data[objectId]['link'],
+          "email": data[objectId]['email'],
+          "id": data[objectId]['id'],
+          "phone2": data[objectId]['phone2'],
+          "property_type": data[objectId]['property_type'],
+          "user_id": data[objectId]['user_id'],
+          "displayName": data[objectId]['displayName'],
+          "thumb": data[objectId]['thumb'],
+          "phone1": data[objectId]['phone1'],
+          "province": data[objectId]['province'],
+          "images": data[objectId]['images'],
+          "price": parseFloat(data[objectId]['price']),
+          "bathrooms": parseFloat(data[objectId]['bathrooms']),
+          "address": data[objectId]['address'],
+          "bedrooms": parseFloat(data[objectId]['bedrooms']),
+          "status": parseFloat(data[objectId]['status']),
+          "size": parseFloat(data[objectId]['size']),
+          "title": data[objectId]['title']
+        }
+      })
     }
-    response.send('SUCCESS')
+  }
+  // let keys = Object.keys(body);
+  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  client.batch(batchActions, (err, content) => {
+    if (err){
+      console.log('ERROR', JSON.stringify(err));
+      response.send('ERROR');
+    }
+    else{
+      console.log('content', JSON.stringify(content));
+      response.send('SUCCESS');
+    }
   });
+  // async.map(urls, httpGetImport, (err, body) => {
+  //   if (err){
+  //     response.send(err);
+  //   }
+  //   response.send('SUCCESS');
+  // });
 
   // let request = require('request').defaults({ encoding: null });
 
