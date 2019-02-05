@@ -845,9 +845,6 @@ app.get('/users/:uid/listings', (req, res) => {
 
 app.post('/users', (req, res) => {
   try{
-    if (req.body.email == 'admin@gmail.com'){
-      req.body.role = 'admin';
-    }
     if (req.body.email){
       admin.auth().createUser({
         email: req.body.email,
@@ -865,8 +862,15 @@ app.post('/users', (req, res) => {
           photoURL: userRecord.photoURL,
           phone1: req.body.phone1 ? req.body['phone1'] : '',
           phone2: req.body.phone2 ? req.body['phone2'] : '',
-          userType: req.body.userType ? req.body['userType'] : '',
-          role: req.body.role ? req.body['role'] : ''
+          user_type: req.body.user_type ? req.body['user_type'] : '',
+          user_role: req.body.user_role ? req.body['user_role'] : '',
+          company_name: req.body.company_name ? req.body['company_name'] : '',
+          province: req.body.province ? req.body['province'] : '',
+          district: req.body.district ? req.body['district'] : '',
+          commune: req.body.commune ? req.body['commune'] : '',
+          address: req.body.address ? req.body['address'] : '',
+          lat: req.body.lat ? req.body['lat'] : '',
+          lng: req.body.lng ? req.body['lng'] : ''
         }
         firebaseHelper.firestore
         .createDocumentWithID(db, 'users', userRecord.uid, user).then((user) => {
@@ -892,13 +896,31 @@ app.post('/users', (req, res) => {
   }
 });
 
+app.get('/all_users', (req, res) => {
+  admin.auth().listUsers().then((results: any) => {
+    
+    // console.log(JSON.stringify(results.users.length));
+    for (let i = 0; i < results.users.length; i ++){
+        var userId = results.users[i]['uid'];
+        admin.auth().deleteUser(userId)
+        .then((result) => {
+          console.log('delete success', JSON.stringify(result));
+        })
+        .catch((error) => {
+          console.log('error delete', JSON.stringify(error));
+        });
+    }
+    
+    
+    
+  })
+});
+
 app.delete('/users/:userId', (req, res) => {
   var userId = req.params.userId;
   admin.auth().deleteUser(userId)
   .then((result) => {
-    console.log('Deleted user with ID:' + res);
     res.json('delete success');
-    
   })
   .catch((error) => {
     console.error('There was an error while deleting user:', error)
