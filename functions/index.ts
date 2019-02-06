@@ -891,7 +891,7 @@ app.post('/users/:id', (req, res) => {
           lat: req.body.lat ? req.body['lat'] : '',
           lng: req.body.lng ? req.body['lng'] : ''
         }
-        
+
         firebaseHelper.firestore
         .updateDocument(db, 'users', userRecord.uid, user).then((user) => {
           res.json(userRecord);
@@ -991,26 +991,19 @@ app.get('/all_users', (req, res) => {
 
 app.delete('/users/:userId', (req, res) => {
   var userId = req.params.userId;
-  admin.auth().deleteUser(userId)
-  .then((result) => {
-    res.json('delete success');
-  })
-  .catch((error) => {
-    console.error('There was an error while deleting user:', error)
-    res.json('delete error');
+
+  firebaseHelper.firestore
+  .deleteDocument(db, 'users', userId).then((result) => {
+    admin.auth().deleteUser(userId)
+    .then(() => {
+      console.log('Deleted user with ID:' + userId);
+    })
+    .catch((error) => {
+      console.error('There was an error while deleting user:', error)
+    });
   });
-  // firebaseHelper.firestore
-  // .document('users/{userID}')
-  // .onDelete((snap, context) => {
-  //   console.log('snapid', snap.id);
-  //   admin.auth().deleteUser(snap.id)
-  //   .then(() => {
-  //     console.log('Deleted user with ID:' + snap.id);
-  //   })
-  //   .catch((error) => {
-  //     console.error('There was an error while deleting user:', error)
-  //   });
-  // });
+
+  
 });
 
 
