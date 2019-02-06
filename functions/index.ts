@@ -759,52 +759,127 @@ app.post('/listings', addCount, async (req, res) => {
   })
 
 })
-// Update new listing
-app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
+
+app.post('/update_listings/:id', addCount, async (req, res) => {
+  let listingId = req.params.id;
+  console.log('listingId', listingId);
   let listing = {
-    title: req.body.title ? req.body['title'] : '',
-    price: req.body.price ? parseFloat(req.body['price']) : '',
-    property_type: req.body.property_type ? req.body['property_type'] : '',
-    listing_type: req.body.listing_type ? req.body['listing_type'] : '',
+    address: req.body.address ? req.body['address'] : '',
+    air_conditioning: req.body.air_conditioning ? req.body['air_conditioning'] : false,
+    balcony: req.body.balcony ? req.body['balcony'] : false,
+    bathrooms: req.body.bathrooms ? parseFloat(req.body['bathrooms']) : '',
+    bedrooms: req.body.bedrooms ? parseFloat(req.body['bedrooms']) : '',
+    car_parking: req.body.car_parking ? req.body['car_parking'] : false,
+    commune: req.body.commune ? req.body['commune'] : '',
     description: req.body.description ? req.body['description'] : '',
+    displayName: req.body.displayName ? req.body['displayName'] : '',
+    district: req.body.district ? req.body['district'] : '',
+    email: req.body.email ? req.body['email'] : '',
+    floor: req.body.floor ? parseFloat(req.body['floor']) : '',
+    furnished: req.body.furnished ? req.body['furnished'] : false,
+    garden: req.body.garden ? req.body['garden'] : false,
+    gym_fitness: req.body.gym_fitness ? req.body['gym_fitness'] : false,
+    id: req.body.id ? req.body['id'] : '',
+    images: req.body.images ? req.body['images'] : '',
+    in_development_area: req.body.in_development_area ? req.body['in_development_area'] : false,
+    lat: req.body.lat ? parseFloat(req.body['lat']) : '',
+    lift: req.body.lift ? req.body['lift'] : '',
+    listing_type: req.body.listing_type ? req.body['listing_type'] : '',
+    lng: req.body.lng ? parseFloat(req.body['lng']) : '',
+    "_geoloc": {
+      "lat": req.body.lat ? parseFloat(req.body['lat']) : '',
+      "lng": req.body.lng ? parseFloat(req.body['lng']) : '',
+    },
+    non_flooding: req.body.non_flooding ? req.body['non_flooding'] : false,
+    on_main_road: req.body.on_main_road ? req.body['on_main_road'] : false,
+    other: req.body.other ? req.body['other'] : false,
+    parking_space: req.body.parking_space ? parseFloat(req.body['parking_space']) : '',
     phone1: req.body.phone1 ? req.body['phone1'] : '',
     phone2: req.body.phone2 ? req.body['phone2'] : '',
-    bedrooms: req.body.bedrooms ? parseInt(req.body['bedrooms']) : '',
-    bathrooms: req.body.bathrooms ? parseInt(req.body['bathrooms']) : '',
-    images: req.body.images ? req.body['images'] : '',
+    price: req.body.price ? parseFloat(req.body['price']) : '',
+    property_type: req.body.property_type ? req.body['property_type'] : '',
     province: req.body.province ? req.body['province'] : '',
-    lat: req.body.lat ? parseFloat(req.body['lat']) : '',
-    lng: req.body.lng ? parseFloat(req.body['lng']) : '',
-    displayName: req.body.displayName ? req.body['displayName'] : '',
-    address: req.body.address ? req.body['address'] : '',
-    status: req.body.status ? parseInt(req.body['status']) : '',
-    property_id: req.body.property_id ? req.body['property_id'] : '',
-    userType: req.body.userType ? req.body['userType'] : '',
-    email: req['user'].email,
-    user_id: req['user'].uid,
-    size: req.body.size ? req.body['size'] : ''
+    shareListing: req.body.shareListing ? req.body['shareListing'] : '',
+    size: req.body.size ? parseFloat(req.body['size']) : '',
+    swimming_pool: req.body.swimming_pool ? req.body['swimming_pool'] : false,
+    thumb: req.body.thumb ? req.body['thumb'] : '',
+    title: req.body.title ? req.body['title'] : '',
+    user_id: req.body.user_id ? req.body['user_id'] : '',
+    user_name: req.body.user_name ? req.body['user_name'] : '',
+    user_type: req.body.user_type ? req.body['user_type'] : '',
+    created_date: new Date(),
+    modified_date: new Date(),
+    status: 1
   }
-  firebaseHelper.firestore
-  .updateDocument(db, listingsCollection, req.params.listingId, listing).then(function(docRef){
-    let listing = req.body;
-    listing.objectID = req.params.listingId;
+ 
+
+  // console.log(JSON.stringify(listing));
+  firebaseHelper.firestore.updateDocument(db, listingsCollection, listing.id, listing).then(async (newListing) => {
+
+    console.log('createDocumentWithID', JSON.stringify(newListing));
+
+    if (newListing){
+
+      listing['objectID'] = listing.id;
+
+      const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+      await newestIndex.saveObject(listing);
+
+      res.status(200).send(listing);
 
 
+    }
+    else{
+      console.error('FAILED SAVE FIREBASE');
+      res.send('FIREBASE CREATE DOCUMENT'); 
+    }
+  }, (error) => {
+    res.status(400).send("ERROR CREATE DOCUMENT");
+  })
 
-
-    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-    newestIndex.saveObject(listing);
-
-    res.json(req.params.listingId);
-  });
-  res.json({'msg': 'listing updated'});
 })
+// Update new listing
+// app.patch('/listings/:listingId', getUserByEmail, createUser, (req, res) => {
+//   let listing = {
+//     title: req.body.title ? req.body['title'] : '',
+//     price: req.body.price ? parseFloat(req.body['price']) : '',
+//     property_type: req.body.property_type ? req.body['property_type'] : '',
+//     listing_type: req.body.listing_type ? req.body['listing_type'] : '',
+//     description: req.body.description ? req.body['description'] : '',
+//     phone1: req.body.phone1 ? req.body['phone1'] : '',
+//     phone2: req.body.phone2 ? req.body['phone2'] : '',
+//     bedrooms: req.body.bedrooms ? parseInt(req.body['bedrooms']) : '',
+//     bathrooms: req.body.bathrooms ? parseInt(req.body['bathrooms']) : '',
+//     images: req.body.images ? req.body['images'] : '',
+//     province: req.body.province ? req.body['province'] : '',
+//     lat: req.body.lat ? parseFloat(req.body['lat']) : '',
+//     lng: req.body.lng ? parseFloat(req.body['lng']) : '',
+//     displayName: req.body.displayName ? req.body['displayName'] : '',
+//     address: req.body.address ? req.body['address'] : '',
+//     status: req.body.status ? parseInt(req.body['status']) : '',
+//     property_id: req.body.property_id ? req.body['property_id'] : '',
+//     userType: req.body.userType ? req.body['userType'] : '',
+//     email: req['user'].email,
+//     user_id: req['user'].uid,
+//     size: req.body.size ? req.body['size'] : ''
+//   }
+//   firebaseHelper.firestore
+//   .updateDocument(db, listingsCollection, req.params.listingId, listing).then(function(docRef){
+//     let listing = req.body;
+//     listing.objectID = req.params.listingId;
+//     const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+//     newestIndex.saveObject(listing);
+
+//     res.json(req.params.listingId);
+//   });
+//   res.json({'msg': 'listing updated'});
+// })
 // View a listing
 app.get('/listings/:listingId', (req, res) => {
   firebaseHelper.firestore
   .getDocument(db, listingsCollection, req.params.listingId)
   .then(function(doc) {
-
+    console.log('LISTING ==> ', JSON.stringify(doc));
     res.json(doc);
   });
 })
@@ -1093,74 +1168,69 @@ app.get('/import', (req, response) =>{
   'https://storage.googleapis.com/konleng-cloud.appspot.com/tboung-khmum.json'];
 
   var urls = ["https://firebasestorage.googleapis.com/v0/b/konleng-cloud.appspot.com/o/phnom-penh-import.json?alt=media&token=0f437ef0-67e5-4da1-80b5-a685bb04e890"];
-  // firebaseHelper.firestore.restore(db, 'import.json').then((response) => {
-  //   console.log(JSON.stringify(response));
-  // });
+  firebaseHelper.firestore.restore(db, 'import.json').then((response) => {
+    console.log(JSON.stringify(response));
+  });
   
   
   // const word = (<any>data);
   // console.log('word', JSON.stringify(listingData['listings']));
-  let data = listingData['listings'];
-  let objectIds = Object.keys(data);
-  let batchActions = [];
-  for (let objectId of objectIds){
-    // console.log('objectId', objectId);
-    if (data[objectId]['lat'] && data[objectId]['lng']){
-      batchActions.push({
-        "action": 'updateObject',
-        "indexName": ALGOLIA_NEWEST_INDEX,
-        "body": {
-          "objectID": objectId,
-          "_geoloc": {
-            "lat": parseFloat(data[objectId]['lat']),
-            "lng": parseFloat(data[objectId]['lng'])
-          },
-          "userType": data[objectId]['userType'],
-          "property_id": data[objectId]['property_id'],
-          "description": data[objectId]['description'],
-          "listing_type": data[objectId]['listing_type'],
-          "lat": parseFloat(data[objectId]['lat']),
-          "lng": parseFloat(data[objectId]['lng']),
-          "link": data[objectId]['link'],
-          "email": data[objectId]['email'],
-          "id": data[objectId]['id'],
-          "phone2": data[objectId]['phone2'],
-          "property_type": data[objectId]['property_type'],
-          "user_id": data[objectId]['user_id'],
-          "displayName": data[objectId]['displayName'],
-          "thumb": data[objectId]['thumb'],
-          "phone1": data[objectId]['phone1'],
-          "province": data[objectId]['province'],
-          "images": data[objectId]['images'],
-          "price": parseFloat(data[objectId]['price']) * 1.2,
-          "bathrooms": parseFloat(data[objectId]['bathrooms']),
-          "address": data[objectId]['address'],
-          "bedrooms": parseFloat(data[objectId]['bedrooms']),
-          "status": parseFloat(data[objectId]['status']),
-          "size": parseFloat(data[objectId]['size']),
-          "title": data[objectId]['title']
-        }
-      })
-    }
-  }
-  // let keys = Object.keys(body);
-  const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-  client.batch(batchActions, (err, content) => {
-    if (err){
-      console.log('ERROR', JSON.stringify(err));
-      response.send('ERROR');
-    }
-    else{
-      console.log('content', JSON.stringify(content));
-      response.send('SUCCESS');
-    }
-  });
-  // async.map(urls, httpGetImport, (err, body) => {
-  //   if (err){
-  //     response.send(err);
+  // let data = listingData['listings'];
+  // let objectIds = Object.keys(data);
+  // let batchActions = [];
+  // for (let objectId of objectIds){
+  //   // console.log('objectId', objectId);
+  //   if (data[objectId]['lat'] && data[objectId]['lng']){
+  //     batchActions.push({
+  //       "action": 'updateObject',
+  //       "indexName": ALGOLIA_NEWEST_INDEX,
+  //       "body": {
+  //         "objectID": objectId,
+  //         "_geoloc": {
+  //           "lat": parseFloat(data[objectId]['lat']),
+  //           "lng": parseFloat(data[objectId]['lng'])
+  //         },
+  //         "userType": data[objectId]['userType'],
+  //         "property_id": data[objectId]['property_id'],
+  //         "description": data[objectId]['description'],
+  //         "listing_type": data[objectId]['listing_type'],
+  //         "lat": parseFloat(data[objectId]['lat']),
+  //         "lng": parseFloat(data[objectId]['lng']),
+  //         "link": data[objectId]['link'],
+  //         "email": data[objectId]['email'],
+  //         "id": data[objectId]['id'],
+  //         "phone2": data[objectId]['phone2'],
+  //         "property_type": data[objectId]['property_type'],
+  //         "user_id": data[objectId]['user_id'],
+  //         "displayName": data[objectId]['displayName'],
+  //         "thumb": data[objectId]['thumb'],
+  //         "phone1": data[objectId]['phone1'],
+  //         "province": data[objectId]['province'],
+  //         "images": data[objectId]['images'],
+  //         "price": parseFloat(data[objectId]['price']) * 1.2,
+  //         "bathrooms": parseFloat(data[objectId]['bathrooms']),
+  //         "address": data[objectId]['address'],
+  //         "bedrooms": parseFloat(data[objectId]['bedrooms']),
+  //         "status": parseFloat(data[objectId]['status']),
+  //         "size": parseFloat(data[objectId]['size']),
+  //         "title": data[objectId]['title']
+  //       }
+  //     })
   //   }
-  //   response.send('SUCCESS');
+  // }
+  // // let keys = Object.keys(body);
+  // const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+  // client.batch(batchActions, (err, content) => {
+  //   if (err){
+  //     console.log('ERROR', JSON.stringify(err));
+  //     response.send('ERROR');
+  //   }
+  //   else{
+  //     console.log('content', JSON.stringify(content));
+  //     response.send('SUCCESS');
+  //   }
   // });
+  
 
   // let request = require('request').defaults({ encoding: null });
 
