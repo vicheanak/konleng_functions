@@ -817,6 +817,24 @@ app.get('/users/:uid', (req, res) => {
   });
 })
 
+app.get('/users', (req, res) => {
+   const dataRef = db.collection('users');
+
+  const results = [];
+
+  dataRef.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      let data = doc.data();
+      data.id = doc.id;
+      results.push(data);
+    });
+    if (Object.keys(results).length > 0) {
+      res.json(results);
+    }
+  });
+})
+
 app.get('/users/:uid/listings', (req, res) => {
   let userId = req.params.uid;
   const dataRef = db.collection('listings');
@@ -843,6 +861,60 @@ app.get('/users/:uid/listings', (req, res) => {
   });
   
 })
+
+app.post('/users/:id', (req, res) => {
+  try{
+    if (req.body.email){
+      admin.auth().updateUser(req.params.id, {
+        email: req.body.email,
+        emailVerified: true,
+        password: req.body.password,
+        displayName: req.body.displayName,
+        photoURL: req.body.photoURL ? req.body.photoURL : "http://konleng.com/assets/imgs/appicon.png",
+        disabled: false
+      })
+      .then((userRecord) => {
+        let user = {
+          uid: userRecord.uid,
+          email: userRecord.email,
+          displayName: userRecord.displayName,
+          photoURL: userRecord.photoURL,
+          phone1: req.body.phone1 ? req.body['phone1'] : '',
+          phone2: req.body.phone2 ? req.body['phone2'] : '',
+          user_type: req.body.user_type ? req.body['user_type'] : '',
+          user_role: req.body.user_role ? req.body['user_role'] : '',
+          company_name: req.body.company_name ? req.body['company_name'] : '',
+          province: req.body.province ? req.body['province'] : '',
+          district: req.body.district ? req.body['district'] : '',
+          commune: req.body.commune ? req.body['commune'] : '',
+          address: req.body.address ? req.body['address'] : '',
+          lat: req.body.lat ? req.body['lat'] : '',
+          lng: req.body.lng ? req.body['lng'] : ''
+        }
+        
+        firebaseHelper.firestore
+        .updateDocument(db, 'users', userRecord.uid, user).then((user) => {
+          res.json(userRecord);
+        }, (error) => {
+          console.error('FIREBASE FUNCTION ERROR CALLBACK ==> ', error);
+        }).catch((error) => {
+          console.error('FIREBASE FUNCTION ERROR PROMISE ==> ', error);
+        });
+      }, (error) => {
+        console.error("Error creating new user:", error.message);
+        res.status(400).json(error)
+      });
+    }
+    else{
+      res.send('ERROR CRATING USER: No Email Provided');
+    }
+
+  }
+  catch(error){
+    console.error("Error can't create user");
+    
+  }
+});
 
 app.post('/users', (req, res) => {
   try{
@@ -1067,7 +1139,7 @@ app.get('/import', (req, response) =>{
           "phone1": data[objectId]['phone1'],
           "province": data[objectId]['province'],
           "images": data[objectId]['images'],
-          "price": parseFloat(data[objectId]['price']),
+          "price": parseFloat(data[objectId]['price']) * 1.2,
           "bathrooms": parseFloat(data[objectId]['bathrooms']),
           "address": data[objectId]['address'],
           "bedrooms": parseFloat(data[objectId]['bedrooms']),
