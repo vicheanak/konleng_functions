@@ -1449,6 +1449,7 @@ app.get('/listings', async (req, res) =>{
   let query = req.query.q;
   let province = req.query.province;
   let district = req.query.district;
+  let commune = req.query.commune;
   let listing_type = req.query.listing_type;
   let property_type = req.query.property_type;
   let min_price = req.query.min_price;
@@ -1480,6 +1481,9 @@ app.get('/listings', async (req, res) =>{
   }
   if (district){
     filters.push('district:'+district+'');
+  }
+  if (commune){
+    filters.push('commune:'+commune+'');
   }
   if (listing_type){
     filters.push('listing_type:'+listing_type+'');
