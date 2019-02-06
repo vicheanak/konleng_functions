@@ -727,6 +727,7 @@ app.post('/listings', addCount, async (req, res) => {
     user_id: req.body.user_id ? req.body['user_id'] : '',
     user_name: req.body.user_name ? req.body['user_name'] : '',
     user_type: req.body.user_type ? req.body['user_type'] : '',
+    company_name: req.body.company_name ? req.body['company_name'] : '',
     created_date: new Date(),
     modified_date: new Date(),
     status: 1
@@ -807,6 +808,7 @@ app.post('/update_listings/:id', addCount, async (req, res) => {
     user_id: req.body.user_id ? req.body['user_id'] : '',
     user_name: req.body.user_name ? req.body['user_name'] : '',
     user_type: req.body.user_type ? req.body['user_type'] : '',
+    company_name: req.body.company_name ? req.body['company_name'] : '',
     created_date: new Date(),
     modified_date: new Date(),
     status: 1
