@@ -1550,23 +1550,17 @@ app.delete('/delete', (req, res) => {
 
 
 // // Delete a listing 
-// app.delete('/listings/:listingId', async (req, res) => {
+app.delete('/listings/:listingId', async (req, res) => {
 
+  firebaseHelper.firestore
+  .deleteDocument(db, 'listings', req.params.listingId).then((result) => {
+    const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
+    newestIndex.deleteObject(req.params.listingId).then((algoliaResponse) => {
+      res.json({'msg': 'listing deleted'});
+    });
+  });
 
-  //   const newestIndex = client.initIndex(ALGOLIA_NEWEST_INDEX);
-  //   newestIndex.deleteObject(req.params.listingId);
-
-  //   // const oldestIndex = client.initIndex(ALGOLIA_OLDEST_INDEX);
-  //   // oldestIndex.deleteObject(req.params.listingId);
-
-  //   // const highestIndex = client.initIndex(ALGOLIA_HIGHEST_INDEX);
-  //   // highestIndex.deleteObject(req.params.listingId);
-
-  //   // const cheapestIndex = client.initIndex(ALGOLIA_CHEAPEST_INDEX);
-  //   // cheapestIndex.deleteObject(req.params.listingId);
-
-  //   res.json({'msg': 'listing deleted'});
-  // })
+});
 
 
 
