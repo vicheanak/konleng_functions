@@ -10,3 +10,4 @@ public/build
 public/cordova-js-src
 public/plugins
 functions/.env
+public/node_modules

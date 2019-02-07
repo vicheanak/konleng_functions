@@ -1,0 +1,69 @@
+[debug] [2019-02-07T02:36:06.822Z] ----------------------------------------------------------------------
+[debug] [2019-02-07T02:36:06.826Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve --only functions
+[debug] [2019-02-07T02:36:06.827Z] CLI Version:   6.1.2
+[debug] [2019-02-07T02:36:06.827Z] Platform:      darwin
+[debug] [2019-02-07T02:36:06.827Z] Node Version:  v8.12.0
+[debug] [2019-02-07T02:36:06.828Z] Time:          Thu Feb 07 2019 09:36:06 GMT+0700 (+07)
+[debug] [2019-02-07T02:36:06.828Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-02-07T02:36:06.846Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-07T02:36:06.846Z] > authorizing via signed-in user
+[debug] [2019-02-07T02:36:06.846Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2019-02-07T02:36:06.849Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-02-07T02:36:06.850Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-02-07T02:36:07.938Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-07T02:36:07.959Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2019-02-07T02:36:10.580Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-07T02:36:10.582Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2019-02-07T02:36:12.540Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-02-07T02:36:13.352Z] Fetching environment
+[debug] [2019-02-07T02:36:13.355Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2019-02-07T02:36:14.145Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-07T02:36:14.146Z] Starting @google-cloud/functions-emulator
+[debug] [2019-02-07T02:36:15.737Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5000/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...
+[debug] [2019-02-07T15:31:21.342Z] ----------------------------------------------------------------------
+[debug] [2019-02-07T15:31:21.345Z] Command:       /usr/local/bin/node /Users/den/.npm-global/bin/firebase serve
+[debug] [2019-02-07T15:31:21.345Z] CLI Version:   6.1.2
+[debug] [2019-02-07T15:31:21.345Z] Platform:      darwin
+[debug] [2019-02-07T15:31:21.345Z] Node Version:  v8.12.0
+[debug] [2019-02-07T15:31:21.346Z] Time:          Thu Feb 07 2019 22:31:21 GMT+0700 (+07)
+[debug] [2019-02-07T15:31:21.346Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-02-07T15:31:21.358Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-07T15:31:21.359Z] > authorizing via signed-in user
+[debug] [2019-02-07T15:31:21.359Z] [iam] checking project konleng-cloud for permissions ["firebase.projects.get"]
+[debug] [2019-02-07T15:31:21.361Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud:testIamPermissions  
+
+[debug] [2019-02-07T15:31:22.968Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-07T15:31:22.970Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/konleng-cloud  
+ 
+[debug] [2019-02-07T15:31:24.387Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/den/Documents/konleng_functions'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-02-07T15:31:25.652Z] Fetching environment
+[debug] [2019-02-07T15:31:25.656Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222:getServerAppConfig  
+ 
+[debug] [2019-02-07T15:31:25.656Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/376338125222/clients/_:getWebAppConfig  
+ 
+[debug] [2019-02-07T15:31:26.334Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-07T15:31:26.335Z] Starting @google-cloud/functions-emulator
+[debug] [2019-02-07T15:31:26.433Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-02-07T15:31:29.441Z] Parsing function triggers
+[info] ✔  functions: webApi: http://localhost:5001/konleng-cloud/us-central1/webApi
+[info] Shutting down...
+[info] Shutting down...

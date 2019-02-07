@@ -74,7 +74,9 @@ admin.initializeApp({
 const db = appFirestore.firestore;
 db.settings({ timestampsInSnapshots: true });
 const app = express();
+const web = express();
 const main = express();
+const mainWeb = express();
 const listingsCollection = "listings";
 const usersCollection = "users";
 
@@ -396,14 +398,28 @@ exports.generateThumbnail = functions.storage.object().onFinalize((object) => {
 
 
 app.use(require('cors')({origin: true}));
+web.use(require('cors')({origin: true}));
 
 main.use(require('cors')({origin: true}));
 main.use('/api/v1', app);
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
+
+mainWeb.use(require('cors')({origin: true}));
+mainWeb.use('/web', web);
+mainWeb.use(bodyParser.json());
+mainWeb.set('view engine', 'pug');
+mainWeb.use(bodyParser.urlencoded({ extended: false }));
+
+mainWeb.get('/web', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' })
+})
+
+
 // webApi is your functions name, and you will pass main as 
 // a parameter
 exports.webApi = functions.https.onRequest(main);
+exports.webSite = functions.https.onRequest(mainWeb);
 
 
 app.get('/users_by_email/:email', getUserByEmail, (req, res) => {
@@ -1360,6 +1376,7 @@ app.get('/indexing', async (req, res) => {
   'property_type', 
   'listing_type', 
   'district', 
+  'commune',
   'address', 
   'lat', 
   'lng', 
@@ -1381,7 +1398,8 @@ app.get('/indexing', async (req, res) => {
   'searchable(address)', 
   'searchable(property_type)', 
   'searchable(listing_type)', 
-  'searchable(district)', 
+  'searchable(district)',
+  'searchable(commune)', 
   'searchable(price)', 
   'searchable(size)', 
   'searchable(status)',
@@ -1396,6 +1414,7 @@ app.get('/indexing', async (req, res) => {
   'property_type', 
   'listing_type',
   'district', 
+  'commune',
   'price', 
   'lat', 
   'lng', 
