@@ -398,28 +398,20 @@ exports.generateThumbnail = functions.storage.object().onFinalize((object) => {
 
 
 app.use(require('cors')({origin: true}));
-web.use(require('cors')({origin: true}));
+
 
 main.use(require('cors')({origin: true}));
 main.use('/api/v1', app);
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
 
-mainWeb.use(require('cors')({origin: true}));
-mainWeb.use('/web', web);
-mainWeb.use(bodyParser.json());
-mainWeb.set('view engine', 'pug');
-mainWeb.use(bodyParser.urlencoded({ extended: false }));
 
-mainWeb.get('/web', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!' })
-})
 
 
 // webApi is your functions name, and you will pass main as 
 // a parameter
 exports.webApi = functions.https.onRequest(main);
-exports.webSite = functions.https.onRequest(mainWeb);
+
 
 
 app.get('/users_by_email/:email', getUserByEmail, (req, res) => {
